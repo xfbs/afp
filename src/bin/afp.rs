@@ -1,8 +1,10 @@
+extern crate afp;
 extern crate gtk;
 extern crate gio;
 
 use gtk::prelude::*;
 use gio::prelude::*;
+use afp::*;
 
 use std::env;
 
@@ -11,6 +13,7 @@ fn build_ui(app: &gtk::Application) {
     let area: gtk::Notebook = gtk::Notebook::new();
 
     window.set_title("Amateurfunkprüfung");
+    let datastore = DataStore::load("");
     
     let button = gtk::Button::new_with_label("Übersicht");
     let label = gtk::Label::new("Übersicht");
