@@ -39,7 +39,7 @@ fn build_ui(app: &gtk::Application) {
 }
 
 fn main() {
-    let uiapp = gtk::Application::new("org.gtkrsnotes.demo",
+    let uiapp = gtk::Application::new("net.xfbs.afs",
                                       gio::ApplicationFlags::FLAGS_NONE)
                                  .expect("Application::new failed");
 
