@@ -1,30 +1,51 @@
 extern crate gtk;
+extern crate gio;
 
 use gtk::prelude::*;
+use gio::prelude::*;
 
-use gtk::{Button, Window, WindowType};
+use std::env;
 
-fn main() {
-    if gtk::init().is_err() {
-        println!("Failed to initialize GTK.");
-        return;
-    }
+fn build_ui(app: &gtk::Application) {
+    let window = gtk::ApplicationWindow::new(app);
+    let area: gtk::Notebook = gtk::Notebook::new();
 
-    let window = Window::new(WindowType::Toplevel);
-    window.set_title("First GTK+ Program");
-    window.set_default_size(350, 70);
-    let button = Button::new_with_label("Click me!");
-    window.add(&button);
+    window.set_title("Amateurfunkprüfung");
+    
+    let button = gtk::Button::new_with_label("Übersicht");
+    let label = gtk::Label::new("Übersicht");
+    area.append_page(&button, Some(&label));
+
+    let button = gtk::Button::new_with_label("Technik E");
+    let label = gtk::Label::new("Technik E");
+    area.append_page(&button, Some(&label));
+
+    let button = gtk::Button::new_with_label("Technik A");
+    let label = gtk::Label::new("Technik A");
+    area.append_page(&button, Some(&label));
+
+    let button = gtk::Button::new_with_label("Betrieb & Vorschriften");
+    let label = gtk::Label::new("Betrieb & Vorschriften");
+    area.append_page(&button, Some(&label));
+
+    window.add(&area);
+    window.set_default_size(500, 400);
+    window.set_position(gtk::WindowPosition::Center);
     window.show_all();
-
-    window.connect_delete_event(|_, _| {
-        gtk::main_quit();
-        Inhibit(false)
-    });
 
     button.connect_clicked(|_| {
         println!("Clicked!");
     });
+}
 
-    gtk::main();
+fn main() {
+    let uiapp = gtk::Application::new("org.gtkrsnotes.demo",
+                                      gio::ApplicationFlags::FLAGS_NONE)
+                                 .expect("Application::new failed");
+
+    uiapp.connect_activate(|app| {
+        build_ui(app);
+    });
+
+    uiapp.run(&env::args().collect::<Vec<_>>());
 }
