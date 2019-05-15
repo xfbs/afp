@@ -29,4 +29,18 @@ impl DataStore {
             ]
         }
     }
+
+    pub fn sections(&self) -> &Vec<Section> {
+        &self.sections
+    }
+}
+
+impl Section {
+    pub fn name(&self) -> &str {
+        &self.name
+    }
+
+    pub fn short(&self) -> &str {
+        &self.short
+    }
 }

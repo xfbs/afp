@@ -10,22 +10,19 @@ use std::env;
 
 fn build_ui(app: &gtk::Application) {
     let window = gtk::ApplicationWindow::new(app);
-    let area: gtk::Notebook = gtk::Notebook::new();
-
     window.set_title("Amateurfunkprüfung");
+
     let datastore = DataStore::load("");
-    
+    let area = gtk::Notebook::new();
     let button = gtk::Button::new_with_label("Übersicht");
     let label = gtk::Label::new("Übersicht");
     area.append_page(&button, Some(&label));
 
-    let button = gtk::Button::new_with_label("Technik E");
-    let label = gtk::Label::new("Technik E");
-    area.append_page(&button, Some(&label));
-
-    let button = gtk::Button::new_with_label("Technik A");
-    let label = gtk::Label::new("Technik A");
-    area.append_page(&button, Some(&label));
+    for section in datastore.sections() {
+        let button = gtk::Button::new_with_label(section.short());
+        let label = gtk::Label::new(section.short());
+        area.append_page(&button, Some(&label));
+    }
 
     let button = gtk::Button::new_with_label("Betrieb & Vorschriften");
     let label = gtk::Label::new("Betrieb & Vorschriften");
