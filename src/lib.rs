@@ -43,4 +43,20 @@ impl Section {
     pub fn short(&self) -> &str {
         &self.short
     }
+
+    pub fn count(&self) -> usize {
+        self.questions.len()
+    }
+
+    pub fn count_green(&self) -> usize {
+        0
+    }
+
+    pub fn count_red(&self) -> usize {
+        0
+    }
+
+    pub fn count_yellow(&self) -> usize {
+        0
+    }
 }

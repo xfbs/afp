@@ -31,12 +31,6 @@ fn build_ui(app: &gtk::Application) {
     window.set_default_size(500, 400);
     window.set_position(gtk::WindowPosition::Center);
     window.show_all();
-
-    /*
-    button.connect_clicked(|_| {
-        println!("Clicked!");
-    });
-    */
 }
 
 fn main() {
