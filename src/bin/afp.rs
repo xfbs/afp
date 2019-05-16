@@ -5,7 +5,6 @@ extern crate gio;
 use gtk::prelude::*;
 use gio::prelude::*;
 use afp::*;
-
 use std::env;
 
 fn build_ui(app: &gtk::Application) {
@@ -19,7 +18,7 @@ fn build_ui(app: &gtk::Application) {
     area.append_page(&button, Some(&label));
 
     // load other tabs from data store
-    let datastore = DataStore::load("");
+    let datastore = DataStore::load(&std::path::PathBuf::from("~/.config/afp/datastore.yml")).unwrap();
     for section in datastore.sections() {
         let button = gtk::Button::new_with_label(section.short());
         let label = gtk::Label::new(section.short());
