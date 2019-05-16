@@ -8,10 +8,11 @@ sections:
         subsubsection: "Allgemeine mathematische Grundkenntnisse"
         question: "0,042 A entspricht"
         answers:
+          - "40"
+          - "41"
           - "42"
-          - "42"
-          - "42"
-          - "42"
+          - "43"
+        history: []
     progress: progress.yaml
   - name: Technische Kenntnisse der Klasse A
     short: Technik A

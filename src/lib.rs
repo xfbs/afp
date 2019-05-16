@@ -7,7 +7,7 @@ use std::fs::File;
 use std::io::BufReader;
 use std::path::Path;
 use std::path::PathBuf;
-use std::time::SystemTime;
+use std::time::{SystemTime, Duration};
 
 pub struct History {
     time: SystemTime,
@@ -21,6 +21,17 @@ pub struct Question {
     subsection: String,
     subsubsection: String,
     history: Vec<History>
+}
+
+pub enum QuestionState {
+    /// never tried or always wrong
+    Red,
+
+    /// correct at least once in last three attempts
+    Yellow,
+
+    /// corrent three times last three attampts
+    Green
 }
 
 pub struct Section {
@@ -52,8 +63,16 @@ struct DataStoreQuestion {
     question: String,
     answers: Vec<String>,
     subsection: String,
-    subsubsection: String
+    subsubsection: String,
+    history: Vec<DataStoreHistory>
 }
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+struct DataStoreHistory {
+    time: SystemTime,
+    choice: usize
+}
+
 
 impl DataStoreFileSection {
     fn load(self) -> Result<Section, Box<Error>> {
@@ -73,10 +92,20 @@ impl DataStoreQuestion {
             answers: self.answers,
             subsection: self.subsection,
             subsubsection: self.subsubsection,
-            history: vec![]
+            history: self.history.into_iter().map(|s| s.load().unwrap()).collect()
         })
     }
 }
+
+impl DataStoreHistory {
+    fn load(self) -> Result<History, Box<Error>> {
+        Ok(History {
+            time: self.time,
+            choice: self.choice
+        })
+    }
+}
+
 
 impl DataStore {
     pub fn load(path: &Path) -> Result<DataStore, Box<Error>> {
@@ -137,6 +166,53 @@ impl Question {
     pub fn answers(&self) -> &Vec<String> {
         &self.answers
     }
+
+    pub fn subsection(&self) -> &str {
+        &self.subsection
+    }
+
+    pub fn subsubsection(&self) -> &str {
+        &self.subsubsection
+    }
+
+    pub fn state(&self) -> QuestionState {
+        QuestionState::Red
+    }
+
+    pub fn stale_time(&self) -> Option<Duration> {
+        match self.history.last() {
+            Some(entry) => match entry.time().elapsed() {
+                Ok(duration) => Some(duration),
+                _ => None
+            }
+            None => None
+        }
+    }
+}
+
+impl History {
+    pub fn new(time: SystemTime, choice: usize) -> History {
+        History {
+            time: time,
+            choice: choice
+        }
+    }
+
+    pub fn choose(choice: usize) -> History {
+        Self::new(SystemTime::now(), choice)
+    }
+
+    pub fn time(&self) -> SystemTime {
+        self.time
+    }
+
+    pub fn choice(&self) -> usize {
+        self.choice
+    }
+
+    pub fn correct(&self) -> bool {
+        self.choice == 0
+    }
 }
 
 #[test]
@@ -171,7 +247,17 @@ fn test_check_sections() {
     assert_eq!(ds.section(1).unwrap().questions().len(), 0);
     assert_eq!(ds.section(2).unwrap().questions().len(), 0);
     assert_eq!(ds.section(3).unwrap().questions().len(), 0);
+}
+
+#[test]
+fn test_check_questions() {
+    let mut d = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    d.push("test/datastore.yaml");
+    let ds = DataStore::load(&d).ok().unwrap();
 
     assert_eq!(ds.section(0).unwrap().questions()[0].id(), "TA101");
     assert_eq!(ds.section(0).unwrap().questions()[0].question(), "0,042 A entspricht");
+    assert_eq!(ds.section(0).unwrap().questions()[0].subsection(), "Allgemeine mathematische Grundkenntnisse und Größen");
+    assert_eq!(ds.section(0).unwrap().questions()[0].subsubsection(), "Allgemeine mathematische Grundkenntnisse");
+    assert_eq!(ds.section(0).unwrap().questions()[0].answers(), &vec!["40", "41", "42", "43"].into_iter().map(String::from).collect() as &Vec<String>);
 }
