@@ -135,6 +135,10 @@ impl DataStore {
     pub fn section(&self, n: usize) -> Option<&Section> {
         self.sections.get(n)
     }
+
+    pub fn section_mut(&mut self, n: usize) -> Option<&mut Section> {
+        self.sections.get_mut(n)
+    }
 }
 
 impl Section {
@@ -150,8 +154,20 @@ impl Section {
         self.questions.len()
     }
 
+    pub fn count_by_state(&self, state: QuestionState) -> usize {
+        self.questions.iter().filter(|q| q.state() == state).count()
+    }
+
     pub fn questions(&self) -> &Vec<Question> {
         &self.questions
+    }
+
+    pub fn question_mut(&mut self, n: usize) -> Option<&mut Question> {
+        self.questions.get_mut(n)
+    }
+
+    pub fn question(&self, n: usize) -> Option<&Question> {
+        self.questions.get(n)
     }
 }
 
@@ -166,6 +182,10 @@ impl Question {
 
     pub fn answers(&self) -> &Vec<String> {
         &self.answers
+    }
+
+    pub fn answer(&mut self, n: usize) {
+        self.history.push(History::choose(n))
     }
 
     pub fn subsection(&self) -> &str {
@@ -282,4 +302,34 @@ fn test_check_questions() {
     assert_eq!(ds.section(0).unwrap().questions()[1].state(), QuestionState::Red);
     assert_eq!(ds.section(0).unwrap().questions()[2].state(), QuestionState::Yellow);
     assert_eq!(ds.section(0).unwrap().questions()[3].state(), QuestionState::Green);
+}
+
+#[test]
+fn test_mut_question_state() {
+    let mut d = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    d.push("test/datastore.yaml");
+    let mut ds = DataStore::load(&d).ok().unwrap();
+
+    let section = ds.section_mut(0).unwrap();
+    let question = section.question_mut(0).unwrap();
+
+    assert!(question.stale_time().is_none());
+    assert_eq!(question.state(), QuestionState::Red);
+
+    question.answer(1);
+    assert!(question.stale_time().is_some());
+    assert_eq!(question.state(), QuestionState::Red);
+
+    question.answer(0);
+    assert_eq!(question.state(), QuestionState::Yellow);
+    question.answer(2);
+    question.answer(1);
+    question.answer(2);
+    assert_eq!(question.state(), QuestionState::Red);
+    question.answer(0);
+    assert_eq!(question.state(), QuestionState::Yellow);
+    question.answer(0);
+    assert_eq!(question.state(), QuestionState::Yellow);
+    question.answer(0);
+    assert_eq!(question.state(), QuestionState::Green);
 }
