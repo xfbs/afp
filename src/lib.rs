@@ -23,6 +23,7 @@ pub struct Question {
     history: Vec<History>
 }
 
+#[derive(Debug, PartialEq)]
 pub enum QuestionState {
     /// never tried or always wrong
     Red,
@@ -176,15 +177,23 @@ impl Question {
     }
 
     pub fn state(&self) -> QuestionState {
-        QuestionState::Red
+        let correct_of_last_three = self.history.iter()
+            .rev()
+            .take(3)
+            .map(|h| h.correct())
+            .map(|c| if c { 1 } else { 0 })
+            .sum();
+
+        match correct_of_last_three {
+            3 => QuestionState::Green,
+            0 => QuestionState::Red,
+            _ => QuestionState::Yellow
+        }
     }
 
     pub fn stale_time(&self) -> Option<Duration> {
         match self.history.last() {
-            Some(entry) => match entry.time().elapsed() {
-                Ok(duration) => Some(duration),
-                _ => None
-            }
+            Some(entry) => entry.time_since(),
             None => None
         }
     }
@@ -212,6 +221,13 @@ impl History {
 
     pub fn correct(&self) -> bool {
         self.choice == 0
+    }
+
+    pub fn time_since(&self) -> Option<Duration> {
+        match self.time.elapsed() {
+            Ok(duration) => Some(duration),
+            _ => None
+        }
     }
 }
 
@@ -255,9 +271,15 @@ fn test_check_questions() {
     d.push("test/datastore.yaml");
     let ds = DataStore::load(&d).ok().unwrap();
 
+    assert_eq!(ds.section(0).unwrap().questions().len(), 4);
     assert_eq!(ds.section(0).unwrap().questions()[0].id(), "TA101");
     assert_eq!(ds.section(0).unwrap().questions()[0].question(), "0,042 A entspricht");
     assert_eq!(ds.section(0).unwrap().questions()[0].subsection(), "Allgemeine mathematische Grundkenntnisse und Größen");
     assert_eq!(ds.section(0).unwrap().questions()[0].subsubsection(), "Allgemeine mathematische Grundkenntnisse");
     assert_eq!(ds.section(0).unwrap().questions()[0].answers(), &vec!["40", "41", "42", "43"].into_iter().map(String::from).collect() as &Vec<String>);
+
+    assert_eq!(ds.section(0).unwrap().questions()[0].state(), QuestionState::Red);
+    assert_eq!(ds.section(0).unwrap().questions()[1].state(), QuestionState::Red);
+    assert_eq!(ds.section(0).unwrap().questions()[2].state(), QuestionState::Yellow);
+    assert_eq!(ds.section(0).unwrap().questions()[3].state(), QuestionState::Green);
 }
