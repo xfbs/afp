@@ -69,7 +69,7 @@ struct DataStoreQuestion {
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 struct DataStoreHistory {
-    time: SystemTime,
+    time: u64,
     choice: usize
 }
 
@@ -100,7 +100,7 @@ impl DataStoreQuestion {
 impl DataStoreHistory {
     fn load(self) -> Result<History, Box<Error>> {
         Ok(History {
-            time: self.time,
+            time: SystemTime::UNIX_EPOCH + Duration::from_secs(self.time),
             choice: self.choice
         })
     }
@@ -243,7 +243,7 @@ fn test_check_sections() {
     assert_eq!(ds.section(2).unwrap().short(), "Betrieb");
     assert_eq!(ds.section(3).unwrap().short(), "Vorschriften");
 
-    assert_eq!(ds.section(0).unwrap().questions().len(), 1);
+    assert_eq!(ds.section(0).unwrap().questions().len(), 4);
     assert_eq!(ds.section(1).unwrap().questions().len(), 0);
     assert_eq!(ds.section(2).unwrap().questions().len(), 0);
     assert_eq!(ds.section(3).unwrap().questions().len(), 0);
