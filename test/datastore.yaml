@@ -1,2 +1,27 @@
 ---
-sections: []
+sections:
+  - name: Technische Kenntnisse der Klasse E
+    short: Technik E
+    questions:
+      - id: "TA101"
+        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
+        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        question: "0,042 A entspricht"
+        answers:
+          - "42"
+          - "42"
+          - "42"
+          - "42"
+    progress: progress.yaml
+  - name: Technische Kenntnisse der Klasse A
+    short: Technik A
+    questions: []
+    progress: progress.yaml
+  - name: Betriebliche Kenntnisse
+    short: Betrieb
+    questions: []
+    progress: progress.yaml
+  - name: Kenntnisse von Vorschriften
+    short: Vorschriften
+    questions: []
+    progress: progress.yaml
