@@ -12,6 +12,9 @@ use afp::*;
 use std::env;
 use std::ops::Deref;
 use std::f64::consts::PI;
+use std::rc::Rc;
+use std::sync::Mutex;
+//use std::sync::Arc;
 
 struct MainView {
     area: gtk::Notebook,
@@ -23,11 +26,15 @@ struct OverView {
     body: gtk::Grid,
     label: gtk::Label,
     title: gtk::Label,
+    section_labels: Vec<gtk::Label>,
+    section_charts: Vec<gtk::DrawingArea>,
 }
 
 struct SectionView {
     label: gtk::Label,
-    body: gtk::Grid
+    body: gtk::Grid,
+    title: gtk::Label,
+    button: gtk::Button,
 }
 
 impl OverView {
@@ -36,10 +43,12 @@ impl OverView {
         let label = gtk::Label::new("Übersicht");
         let title = gtk::Label::new(None);
 
-        let ov = OverView {
+        let mut ov = OverView {
             body: body,
             label: label,
-            title: title
+            title: title,
+            section_labels: Vec::new(),
+            section_charts: Vec::new(),
         };
 
         ov.init(datastore);
@@ -48,10 +57,16 @@ impl OverView {
         ov
     }
 
-    fn init(&self, datastore: &DataStore) {
+    fn init(&mut self, datastore: &DataStore) {
+        // this method may be called multiple times, so here we clean
+        // out the trash
         self.body.foreach(|widget| {
             self.body.remove(widget);
         });
+
+        self.section_labels.clear();
+        self.section_charts.clear();
+
         self.body.set_margin_top(10);
         self.body.set_margin_bottom(10);
         self.body.set_margin_start(10);
@@ -62,30 +77,30 @@ impl OverView {
         self.title.set_hexpand(true);
         self.body.attach(&self.title, 0, 0, datastore.sections().len() as i32, 1);
 
-        for (i, section) in datastore.sections().iter().enumerate() {
+        for (i, _section) in datastore.sections().iter().enumerate() {
+            let label = gtk::Label::new(None);
+            label.set_hexpand(true);
+            self.body.attach(&label, i as i32, 1, 1, 1);
+            self.section_labels.push(label);
+
+            let area = gtk::DrawingArea::new();
+            area.set_size_request(100, 100);
+            area.set_hexpand(true);
+            self.body.attach(&area, i as i32, 2, 1, 1);
+            self.section_charts.push(area);
         }
     }
 
     fn update(&self, datastore: &DataStore) {
         for (i, section) in datastore.sections().iter().enumerate() {
             // title
-            let label = gtk::Label::new(section.name());
-            label.set_hexpand(true);
-            self.body.attach(&label, i as i32, 1, 1, 1);
+            self.section_labels[i].set_text(section.name());
 
-            let label = gtk::Label::new(None);
-            label.set_markup(&format!("{} red, {} yellow, {} green, {} total",
-                                     section.count_by_state(QuestionState::Red),
-                                     section.count_by_state(QuestionState::Yellow),
-                                     section.count_by_state(QuestionState::Green),
-                                     section.count()));
             let count = section.count();
             let count_green = section.count_by_state(QuestionState::Green);
             let count_yellow = section.count_by_state(QuestionState::Yellow);
-            let area = gtk::DrawingArea::new();
-            area.set_size_request(100, 100);
-            area.set_hexpand(true);
-            area.connect_draw(move |widget, cairo| {
+
+            self.section_charts[i].connect_draw(move |widget, cairo| {
                 let width = 100 as f64;
                 let height = 100 as f64;
                 let lwidth = 6.0;
@@ -126,31 +141,51 @@ impl OverView {
 
                 Inhibit(false)
             });
-            self.body.attach(&area, i as i32, 2, 1, 1);
-            self.body.attach(&label, i as i32, 3, 1, 1);
         }
     }
 }
 
 impl SectionView {
     fn new(section: &Section) -> SectionView {
-        let label = gtk::Label::new(section.short());
+        let label = gtk::Label::new(None);
         let body = gtk::Grid::new();
-        body.set_margin_top(10);
-        body.set_margin_bottom(10);
-        body.set_margin_start(10);
-        body.set_margin_end(10);
-        body.set_column_spacing(20);
-        body.set_row_spacing(20);
         let title = gtk::Label::new(None);
-        title.set_markup(&format!("<span font-size=\"xx-large\" font-weight=\"heavy\">{}</span>", section.name()));
-        title.set_hexpand(true);
-        body.attach(&title, 0, 0, 1, 1);
+        let button = gtk::Button::new();
 
-        SectionView {
+        let sv = SectionView {
             label: label,
-            body: body
-        }
+            body: body,
+            title: title,
+            button: button
+        };
+
+        sv.init(section);
+        sv.update(section);
+
+        sv
+    }
+
+    fn init(&self, _section: &Section) {
+        // cleanup
+        self.body.foreach(|widget| {
+            self.body.remove(widget);
+        });
+
+        self.body.set_margin_top(10);
+        self.body.set_margin_bottom(10);
+        self.body.set_margin_start(10);
+        self.body.set_margin_end(10);
+        self.body.set_column_spacing(20);
+        self.body.set_row_spacing(20);
+        self.title.set_hexpand(true);
+        self.body.attach(&self.title, 0, 0, 1, 1);
+        self.body.attach(&self.button, 0, 1, 1, 1);
+    }
+
+    fn update(&self, section: &Section) {
+        self.label.set_text(section.short());
+        self.title.set_markup(&format!("<span font-size=\"xx-large\" font-weight=\"heavy\">{}</span>", section.name()));
+        self.button.set_label("Button.");
     }
 }
 
@@ -194,10 +229,21 @@ fn build_ui(app: &gtk::Application) {
     window.set_title("Amateurfunkprüfung");
 
     let datastore = DataStore::load(&std::path::PathBuf::from("/Users/pelsen/.config/afp/datastore.yml")).unwrap();
-    let mainview = MainView::new(&datastore);
+    let mainview = Rc::new(Mutex::new(MainView::new(&datastore)));
+    let datastore = Rc::new(Mutex::new(datastore));
+
+    for (_i, section) in mainview.clone().lock().unwrap().sections.iter().enumerate() {
+        let mainview = mainview.clone();
+        let datastore = datastore.clone();
+
+        section.button.connect_clicked(move |_widget| {
+            datastore.lock().unwrap().section_mut(0).unwrap().question_mut(0).unwrap().answer(0);
+            mainview.lock().unwrap().overview.update(&datastore.lock().unwrap());
+        });
+    }
 
     // position window and make visible
-    window.add(&mainview.area);
+    window.add(&mainview.lock().unwrap().area);
     window.set_default_size(500, 400);
     window.set_position(gtk::WindowPosition::Center);
     window.show_all();
