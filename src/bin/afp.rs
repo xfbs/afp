@@ -45,23 +45,18 @@ struct SectionView {
 }
 
 impl OverView {
-    fn new(datastore: &DataStore) -> OverView {
+    fn new() -> OverView {
         let body = gtk::Grid::new();
         let label = gtk::Label::new("Übersicht");
         let title = gtk::Label::new(None);
 
-        let mut ov = OverView {
+        OverView {
             body: body,
             label: label,
             title: title,
             section_labels: Vec::new(),
             section_charts: Vec::new(),
-        };
-
-        ov.init(datastore);
-        ov.update(datastore);
-
-        ov
+        }
     }
 
     fn init(&mut self, datastore: &DataStore) {
@@ -153,23 +148,18 @@ impl OverView {
 }
 
 impl SectionView {
-    fn new(section: &Section) -> SectionView {
+    fn new() -> SectionView {
         let label = gtk::Label::new(None);
         let body = gtk::Grid::new();
         let title = gtk::Label::new(None);
         let button = gtk::Button::new();
 
-        let sv = SectionView {
+        SectionView {
             label: label,
             body: body,
             title: title,
             button: button
-        };
-
-        sv.init(section);
-        sv.update(section);
-
-        sv
+        }
     }
 
     fn init(&self, _section: &Section) {
@@ -199,7 +189,9 @@ impl SectionView {
 impl MainView {
     fn new(datastore: &DataStore) -> MainView {
         let area = gtk::Notebook::new();
-        let overview = OverView::new(datastore);
+        let mut overview = OverView::new();
+        overview.init(datastore);
+        overview.update(datastore);
 
         area.append_page(&overview.body, Some(&overview.label));
 
@@ -216,8 +208,10 @@ impl MainView {
         mv
     }
 
-    fn add_section(&mut self, section: &Section) {
-        let section = SectionView::new(section);
+    fn add_section(&mut self, sec: &Section) {
+        let mut section = SectionView::new();
+        section.init(sec);
+        section.update(sec);
         self.area.append_page(&section.body, Some(&section.label));
         self.sections.push(section);
     }
