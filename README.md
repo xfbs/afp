@@ -9,3 +9,7 @@ Das Tool kann mit `cargo` kompiliert und ausgeführt werden.
     cargo build
     cargo run
 
+Mitgelieferte tests können ebenso ausgeführt werden.
+
+    cargo test
+
