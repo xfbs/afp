@@ -250,6 +250,7 @@ impl App {
             let menu = gio::Menu::new();
             let menu_bar = gio::Menu::new();
 
+            // define quit action
             let quit = gio::SimpleAction::new("quit", None);
             let window_clone = window.clone();
             quit.connect_activate(move |_, _| {
@@ -282,11 +283,14 @@ impl App {
             window.show_all();
         });
     }
+
+    fn run(&self) {
+        self.app.run(&env::args().collect::<Vec<_>>());
+    }
 }
 
 fn main() {
     let app = App::new("net.xfbs.afs");
     app.init();
-
-    app.app.run(&env::args().collect::<Vec<_>>());
+    app.run();
 }
