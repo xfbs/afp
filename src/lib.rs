@@ -9,6 +9,8 @@ use std::path::Path;
 use std::path::PathBuf;
 use std::time::{SystemTime, Duration};
 
+pub mod ui;
+
 #[derive(Debug, Clone, PartialEq)]
 pub struct History {
     time: SystemTime,
@@ -123,7 +125,7 @@ impl DataStore {
         })
     }
 
-    pub fn save_as(&self, path: &Path) {
+    pub fn save_as(&self, _path: &Path) {
     }
 
     pub fn save(&self) {
