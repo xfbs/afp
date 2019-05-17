@@ -11,6 +11,8 @@ use std::rc::Rc;
 use std::sync::Mutex;
 use std::cell::RefCell;
 
+const STYLE: &'static str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/data/style.css"));
+
 #[derive(Debug, Clone)]
 struct App {
     app: gtk::Application,
@@ -364,30 +366,3 @@ fn main() {
     app.run();
 }
 
-const STYLE: &'static str = "
-.title {
-    font-weight: bold;
-    font-size: xx-large;
-}
-
-.subtitle {
-    font-weight: bold;
-    font-size: medium;
-}
-
-button.red {
-    background-image: none;
-    background-color: #aa0000;
-}
-
-button.yellow {
-    background-image: none;
-    background-color: #aaaa00;
-}
-
-button.green {
-    background-image: none;
-    background-color: #00aa00;
-}
-
-";

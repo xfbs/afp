@@ -1,0 +1,24 @@
+.title {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.subtitle {
+    font-weight: bold;
+    font-size: medium;
+}
+
+button.red {
+    background-image: none;
+    background-color: #aa0000;
+}
+
+button.yellow {
+    background-image: none;
+    background-color: #aaaa00;
+}
+
+button.green {
+    background-image: none;
+    background-color: #00aa00;
+}
