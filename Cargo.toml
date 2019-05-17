@@ -6,7 +6,7 @@ edition = "2018"
 
 [dependencies]
 gio = "^0"
-pango = "^0"
+gdk = "^0"
 cairo-rs = "^0"
 serde = { version = "1.0", features = ["derive"] }
 serde_yaml = "0.8"

@@ -1,13 +1,9 @@
 extern crate afp;
 extern crate gtk;
 extern crate gio;
-//extern crate pango;
-//extern crate cairo;
 
 use gtk::prelude::*;
 use gio::prelude::*;
-//use pango::prelude::*;
-//use cairo::prelude::*;
 use afp::*;
 use std::env;
 use std::f64::consts::PI;
@@ -42,7 +38,9 @@ struct SectionView {
     label: gtk::Label,
     body: gtk::Grid,
     title: gtk::Label,
-    button: gtk::Button,
+    questions: gtk::FlowBox,
+    practise: gtk::Button,
+    exam: gtk::Button,
 }
 
 impl OverView {
@@ -76,7 +74,9 @@ impl OverView {
         self.body.set_margin_end(10);
         self.body.set_column_spacing(20);
         self.body.set_row_spacing(20);
-        self.title.set_markup("<span font-size=\"xx-large\" font-weight=\"heavy\">Übersicht</span>");
+        self.body.set_column_homogeneous(true);
+        self.title.set_text("Übersicht");
+        self.title.get_style_context().add_class("title");
         self.title.set_hexpand(true);
         self.body.attach(&self.title, 0, 0, datastore.sections().len() as i32, 1);
 
@@ -97,7 +97,8 @@ impl OverView {
     fn update(&self, datastore: &DataStore) {
         for (i, section) in datastore.sections().iter().enumerate() {
             // title
-            self.section_labels.borrow()[i].set_text(section.name());
+            self.section_labels.borrow()[i].set_text(section.short());
+            self.section_labels.borrow()[i].get_style_context().add_class("subtitle");
 
             let count = section.count();
             let count_green = section.count_by_state(QuestionState::Green);
@@ -150,16 +151,13 @@ impl OverView {
 
 impl SectionView {
     fn new() -> SectionView {
-        let label = gtk::Label::new(None);
-        let body = gtk::Grid::new();
-        let title = gtk::Label::new(None);
-        let button = gtk::Button::new();
-
         SectionView {
-            label: label,
-            body: body,
-            title: title,
-            button: button
+            label: gtk::Label::new(None),
+            body: gtk::Grid::new(),
+            title: gtk::Label::new(None),
+            exam: gtk::Button::new(),
+            practise: gtk::Button::new(),
+            questions: gtk::FlowBox::new()
         }
     }
 
@@ -175,15 +173,30 @@ impl SectionView {
         self.body.set_margin_end(10);
         self.body.set_column_spacing(20);
         self.body.set_row_spacing(20);
+        self.body.set_column_homogeneous(true);
         self.title.set_hexpand(true);
-        self.body.attach(&self.title, 0, 0, 1, 1);
-        self.body.attach(&self.button, 0, 1, 1, 1);
+        self.body.attach(&self.title, 0, 0, 2, 1);
+        self.questions.set_hexpand(true);
+        self.body.attach(&self.questions, 0, 1, 2, 1);
+        self.body.attach(&self.practise, 0, 2, 1, 1);
+        self.body.attach(&self.exam, 1, 2, 1, 1);
     }
 
     fn update(&self, section: &Section) {
         self.label.set_text(section.short());
-        self.title.set_markup(&format!("<span font-size=\"xx-large\" font-weight=\"heavy\">{}</span>", section.name()));
-        self.button.set_label("Button.");
+
+        self.title.set_text(section.name());
+        self.title.get_style_context().add_class("title");
+
+        self.practise.set_label("Üben");
+        self.exam.set_label("Prüfung Simulieren");
+
+        for question in section.questions() {
+            let button = gtk::Button::new();
+            button.set_label(question.id());
+            button.set_size_request(20, 20);
+            self.questions.add(&button);
+        }
     }
 }
 
@@ -228,6 +241,19 @@ impl App {
 
     fn startup(app: &gtk::Application) {
         app.set_accels_for_action("app.quit", &["<Primary>Q"]);
+
+        // load css
+        let provider = gtk::CssProvider::new();
+        provider
+            .load_from_data(STYLE.as_bytes())
+            .expect("Failed to load CSS");
+        // We give the CssProvided to the default screen so the CSS rules we added
+        // can be applied to our window.
+        gtk::StyleContext::add_provider_for_screen(
+            &gdk::Screen::get_default().expect("Error initializing gtk css provider."),
+            &provider,
+            gtk::STYLE_PROVIDER_PRIORITY_APPLICATION,
+        );
     }
 
     fn shutdown(_app: &gtk::Application) {
@@ -262,7 +288,7 @@ impl App {
             let mainview = mainview.clone();
             let datastore = datastore.clone();
 
-            section.button.connect_clicked(move |_widget| {
+            section.exam.connect_clicked(move |_widget| {
                 datastore.lock().unwrap().section_mut(0).unwrap().question_mut(0).unwrap().answer(0);
                 mainview.overview.update(&datastore.lock().unwrap());
             });
@@ -292,3 +318,16 @@ fn main() {
     app.init();
     app.run();
 }
+
+const STYLE: &'static str = "
+.title {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.subtitle {
+    font-weight: bold;
+    font-size: medium;
+}
+
+";
