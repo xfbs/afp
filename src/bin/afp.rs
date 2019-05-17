@@ -11,6 +11,7 @@ use std::rc::Rc;
 use std::sync::Mutex;
 use std::cell::RefCell;
 
+/// CSS style for this app.
 const STYLE: &'static str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/data/style.css"));
 
 #[derive(Debug, Clone)]
@@ -51,6 +52,20 @@ struct SectionView {
     practise: gtk::Button,
     /// Info view of questions and their current state.
     questions: gtk::FlowBox,
+
+    question: QuestionView,
+}
+
+#[derive(Debug, Clone)]
+struct QuestionView {
+    body: gtk::Grid,
+    section: gtk::Label,
+    subsection: gtk::Label,
+    id: gtk::Label,
+    question: gtk::Label,
+    button: gtk::Button,
+    answer: gtk::Label,
+    back: gtk::Button,
 }
 
 impl OverView {
@@ -159,6 +174,21 @@ impl OverView {
     }
 }
 
+impl QuestionView {
+    fn new() -> QuestionView {
+        QuestionView {
+            body: gtk::Grid::new(),
+            section: gtk::Label::new(None),
+            subsection: gtk::Label::new(None),
+            id: gtk::Label::new(None),
+            question: gtk::Label::new(None),
+            button: gtk::Button::new(),
+            answer: gtk::Label::new(None),
+            back: gtk::Button::new(),
+        }
+    }
+}
+
 impl SectionView {
     fn new() -> SectionView {
         SectionView {
@@ -181,7 +211,9 @@ impl SectionView {
             practise: gtk::Button::new(),
 
             /// Info view of questions and their current state.
-            questions: gtk::FlowBox::new()
+            questions: gtk::FlowBox::new(),
+
+            question: QuestionView::new(),
         }
     }
 
