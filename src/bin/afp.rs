@@ -10,7 +10,6 @@ use gio::prelude::*;
 //use cairo::prelude::*;
 use afp::*;
 use std::env;
-use std::ops::Deref;
 use std::f64::consts::PI;
 use std::rc::Rc;
 use std::sync::Mutex;
@@ -208,7 +207,7 @@ impl MainView {
         self.sections.borrow_mut().push(section);
     }
 
-    fn init(&mut self, datastore: &DataStore) {
+    fn init(&self, datastore: &DataStore) {
         self.overview.init(datastore);
         self.overview.update(datastore);
         self.area.append_page(&self.overview.body, Some(&self.overview.label));
@@ -218,16 +217,6 @@ impl MainView {
         }
     }
 }
-
-/*
-impl Deref for MainView {
-    type Target = gtk::Notebook;
-
-    fn deref(&self) -> &gtk::Notebook {
-        &self.area
-    }
-}
-*/
 
 impl App {
     fn new(name: &str) -> App {
@@ -241,12 +230,11 @@ impl App {
         app.set_accels_for_action("app.quit", &["<Primary>Q"]);
     }
 
-    fn shutdown(app: &gtk::Application) {
+    fn shutdown(_app: &gtk::Application) {
         // TODO save state?
     }
 
     fn activate(app: &gtk::Application, mainview: &MainView) {
-        let mut mainview = mainview.clone();
         let window = gtk::ApplicationWindow::new(app);
         window.set_title("Amateurfunkprüfung");
 
