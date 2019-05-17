@@ -80,6 +80,9 @@ impl SectionView {
         self.body.attach(&self.practise, 0, 2, 1, 1);
         self.body.attach(&self.exam, 1, 2, 1, 1);
         self.stack.add_named(&self.body, "main");
+
+        self.question.init();
+        self.stack.add_named(self.question.widget(), "question");
     }
 
     pub fn update(&self, section: &Section) {
@@ -110,7 +113,9 @@ impl SectionView {
         }
     }
 
-    fn show_question(&self, _question: &Question) {
+    fn show_question(&self, question: &Question) {
+        self.question.update(question);
+        self.stack.set_visible_child_full("question", gtk::StackTransitionType::SlideRight);
     }
 }
 
