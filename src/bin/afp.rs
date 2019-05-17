@@ -16,8 +16,10 @@ use std::rc::Rc;
 use std::sync::Mutex;
 //use std::sync::Arc;
 
+#[derive(Debug, Clone)]
 struct App {
-    app: gtk::Application
+    app: gtk::Application,
+    main: MainView
 }
 
 #[derive(Debug, Clone)]
@@ -187,33 +189,33 @@ impl SectionView {
 }
 
 impl MainView {
-    fn new(datastore: &DataStore) -> MainView {
+    fn new() -> MainView {
         let area = gtk::Notebook::new();
-        let mut overview = OverView::new();
-        overview.init(datastore);
-        overview.update(datastore);
+        let overview = OverView::new();
 
-        area.append_page(&overview.body, Some(&overview.label));
-
-        let mut mv = MainView {
+        MainView {
             area: area,
             overview: overview,
             sections: Vec::new(),
-        };
-
-        for section in datastore.sections() {
-            mv.add_section(section);
         }
-
-        mv
     }
 
     fn add_section(&mut self, sec: &Section) {
-        let mut section = SectionView::new();
+        let section = SectionView::new();
         section.init(sec);
         section.update(sec);
         self.area.append_page(&section.body, Some(&section.label));
         self.sections.push(section);
+    }
+
+    fn init(&mut self, datastore: &DataStore) {
+        self.overview.init(datastore);
+        self.overview.update(datastore);
+        self.area.append_page(&self.overview.body, Some(&self.overview.label));
+
+        for section in datastore.sections() {
+            self.add_section(section);
+        }
     }
 }
 
@@ -230,55 +232,66 @@ impl Deref for MainView {
 impl App {
     fn new(name: &str) -> App {
         App {
-            app: gtk::Application::new(name, gio::ApplicationFlags::FLAGS_NONE).expect("application startup failed")
+            app: gtk::Application::new(name, gio::ApplicationFlags::FLAGS_NONE).expect("application startup failed"),
+            main: MainView::new()
         }
     }
 
-    fn init(&self) {
-        self.app.connect_startup(|app| {
-            app.set_accels_for_action("app.quit", &["<Primary>Q"]);
+    fn startup(app: &gtk::Application) {
+        app.set_accels_for_action("app.quit", &["<Primary>Q"]);
+    }
+
+    fn shutdown(app: &gtk::Application) {
+        // TODO save state?
+    }
+
+    fn activate(app: &gtk::Application, mainview: &MainView) {
+        let mut mainview = mainview.clone();
+        let window = gtk::ApplicationWindow::new(app);
+        window.set_title("Amateurfunkprüfung");
+
+        // menu bar
+        let menu = gio::Menu::new();
+        let menu_bar = gio::Menu::new();
+
+        // define quit action
+        let quit = gio::SimpleAction::new("quit", None);
+        let window_clone = window.clone();
+        quit.connect_activate(move |_, _| {
+            window_clone.destroy();
         });
+        app.add_action(&quit);
 
-        self.app.connect_activate(|app| {
-            let window = gtk::ApplicationWindow::new(app);
-            window.set_title("Amateurfunkprüfung");
+        menu.append("Quit", "app.quit");
+        app.set_app_menu(&menu);
+        app.set_menubar(&menu_bar);
 
-            // menu bar
-            let menu = gio::Menu::new();
-            let menu_bar = gio::Menu::new();
+        let datastore = DataStore::load(&std::path::PathBuf::from("/Users/pelsen/.config/afp/datastore.yml")).unwrap();
+        mainview.init(&datastore);
+        let datastore = Rc::new(Mutex::new(datastore));
 
-            // define quit action
-            let quit = gio::SimpleAction::new("quit", None);
-            let window_clone = window.clone();
-            quit.connect_activate(move |_, _| {
-                window_clone.destroy();
+        for (_i, section) in mainview.clone().sections.iter().enumerate() {
+            let mainview = mainview.clone();
+            let datastore = datastore.clone();
+
+            section.button.connect_clicked(move |_widget| {
+                datastore.lock().unwrap().section_mut(0).unwrap().question_mut(0).unwrap().answer(0);
+                mainview.overview.update(&datastore.lock().unwrap());
             });
-            app.add_action(&quit);
+        }
 
-            menu.append("Quit", "app.quit");
-            app.set_app_menu(&menu);
-            app.set_menubar(&menu_bar);
+        // position window and make visible
+        window.add(&mainview.area);
+        window.set_default_size(500, 400);
+        window.set_position(gtk::WindowPosition::Center);
+        window.show_all();
+    }
 
-            let datastore = DataStore::load(&std::path::PathBuf::from("/Users/pelsen/.config/afp/datastore.yml")).unwrap();
-            let mainview = MainView::new(&datastore);
-            let datastore = Rc::new(Mutex::new(datastore));
-
-            for (_i, section) in mainview.clone().sections.iter().enumerate() {
-                let mainview = mainview.clone();
-                let datastore = datastore.clone();
-
-                section.button.connect_clicked(move |_widget| {
-                    datastore.lock().unwrap().section_mut(0).unwrap().question_mut(0).unwrap().answer(0);
-                    mainview.overview.update(&datastore.lock().unwrap());
-                });
-            }
-
-            // position window and make visible
-            window.add(&mainview.area);
-            window.set_default_size(500, 400);
-            window.set_position(gtk::WindowPosition::Center);
-            window.show_all();
-        });
+    fn init(&self) {
+        self.app.connect_startup(Self::startup);
+        self.app.connect_shutdown(Self::shutdown);
+        let mainview = self.main.clone();
+        self.app.connect_activate(move |app| Self::activate(app, &mainview));
     }
 
     fn run(&self) {
