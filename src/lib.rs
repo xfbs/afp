@@ -9,11 +9,13 @@ use std::path::Path;
 use std::path::PathBuf;
 use std::time::{SystemTime, Duration};
 
+#[derive(Debug, Clone, PartialEq)]
 pub struct History {
     time: SystemTime,
     choice: usize
 }
 
+#[derive(Debug, Clone, PartialEq)]
 pub struct Question {
     id: String,
     question: String,
