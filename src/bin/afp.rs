@@ -14,7 +14,7 @@ use std::ops::Deref;
 use std::f64::consts::PI;
 use std::rc::Rc;
 use std::sync::Mutex;
-//use std::sync::Arc;
+use std::cell::RefCell;
 
 #[derive(Debug, Clone)]
 struct App {
@@ -26,7 +26,7 @@ struct App {
 struct MainView {
     area: gtk::Notebook,
     overview: OverView,
-    sections: Vec<SectionView>
+    sections: Rc<RefCell<Vec<SectionView>>>
 }
 
 #[derive(Debug, Clone)]
@@ -34,8 +34,8 @@ struct OverView {
     body: gtk::Grid,
     label: gtk::Label,
     title: gtk::Label,
-    section_labels: Vec<gtk::Label>,
-    section_charts: Vec<gtk::DrawingArea>,
+    section_labels: Rc<RefCell<Vec<gtk::Label>>>,
+    section_charts: Rc<RefCell<Vec<gtk::DrawingArea>>>,
 }
 
 #[derive(Debug, Clone)]
@@ -56,20 +56,20 @@ impl OverView {
             body: body,
             label: label,
             title: title,
-            section_labels: Vec::new(),
-            section_charts: Vec::new(),
+            section_labels: Rc::new(RefCell::new(Vec::new())),
+            section_charts: Rc::new(RefCell::new(Vec::new())),
         }
     }
 
-    fn init(&mut self, datastore: &DataStore) {
+    fn init(&self, datastore: &DataStore) {
         // this method may be called multiple times, so here we clean
         // out the trash
         self.body.foreach(|widget| {
             self.body.remove(widget);
         });
 
-        self.section_labels.clear();
-        self.section_charts.clear();
+        self.section_labels.borrow_mut().clear();
+        self.section_charts.borrow_mut().clear();
 
         self.body.set_margin_top(10);
         self.body.set_margin_bottom(10);
@@ -85,26 +85,26 @@ impl OverView {
             let label = gtk::Label::new(None);
             label.set_hexpand(true);
             self.body.attach(&label, i as i32, 1, 1, 1);
-            self.section_labels.push(label);
+            self.section_labels.borrow_mut().push(label);
 
             let area = gtk::DrawingArea::new();
             area.set_size_request(100, 100);
             area.set_hexpand(true);
             self.body.attach(&area, i as i32, 2, 1, 1);
-            self.section_charts.push(area);
+            self.section_charts.borrow_mut().push(area);
         }
     }
 
     fn update(&self, datastore: &DataStore) {
         for (i, section) in datastore.sections().iter().enumerate() {
             // title
-            self.section_labels[i].set_text(section.name());
+            self.section_labels.borrow()[i].set_text(section.name());
 
             let count = section.count();
             let count_green = section.count_by_state(QuestionState::Green);
             let count_yellow = section.count_by_state(QuestionState::Yellow);
 
-            self.section_charts[i].connect_draw(move |widget, cairo| {
+            self.section_charts.borrow()[i].connect_draw(move |widget, cairo| {
                 let width = 100 as f64;
                 let height = 100 as f64;
                 let lwidth = 6.0;
@@ -196,16 +196,16 @@ impl MainView {
         MainView {
             area: area,
             overview: overview,
-            sections: Vec::new(),
+            sections: Rc::new(RefCell::new(Vec::new())),
         }
     }
 
-    fn add_section(&mut self, sec: &Section) {
+    fn add_section(&self, sec: &Section) {
         let section = SectionView::new();
         section.init(sec);
         section.update(sec);
         self.area.append_page(&section.body, Some(&section.label));
-        self.sections.push(section);
+        self.sections.borrow_mut().push(section);
     }
 
     fn init(&mut self, datastore: &DataStore) {
@@ -270,7 +270,7 @@ impl App {
         mainview.init(&datastore);
         let datastore = Rc::new(Mutex::new(datastore));
 
-        for (_i, section) in mainview.clone().sections.iter().enumerate() {
+        for (_i, section) in mainview.sections.borrow().iter().enumerate() {
             let mainview = mainview.clone();
             let datastore = datastore.clone();
 
