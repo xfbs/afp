@@ -20,12 +20,14 @@ struct App {
     app: gtk::Application
 }
 
+#[derive(Debug, Clone)]
 struct MainView {
     area: gtk::Notebook,
     overview: OverView,
     sections: Vec<SectionView>
 }
 
+#[derive(Debug, Clone)]
 struct OverView {
     body: gtk::Grid,
     label: gtk::Label,
@@ -34,6 +36,7 @@ struct OverView {
     section_charts: Vec<gtk::DrawingArea>,
 }
 
+#[derive(Debug, Clone)]
 struct SectionView {
     label: gtk::Label,
     body: gtk::Grid,
@@ -263,21 +266,21 @@ impl App {
             app.set_menubar(&menu_bar);
 
             let datastore = DataStore::load(&std::path::PathBuf::from("/Users/pelsen/.config/afp/datastore.yml")).unwrap();
-            let mainview = Rc::new(Mutex::new(MainView::new(&datastore)));
+            let mainview = MainView::new(&datastore);
             let datastore = Rc::new(Mutex::new(datastore));
 
-            for (_i, section) in mainview.clone().lock().unwrap().sections.iter().enumerate() {
+            for (_i, section) in mainview.clone().sections.iter().enumerate() {
                 let mainview = mainview.clone();
                 let datastore = datastore.clone();
 
                 section.button.connect_clicked(move |_widget| {
                     datastore.lock().unwrap().section_mut(0).unwrap().question_mut(0).unwrap().answer(0);
-                    mainview.lock().unwrap().overview.update(&datastore.lock().unwrap());
+                    mainview.overview.update(&datastore.lock().unwrap());
                 });
             }
 
             // position window and make visible
-            window.add(&mainview.lock().unwrap().area);
+            window.add(&mainview.area);
             window.set_default_size(500, 400);
             window.set_position(gtk::WindowPosition::Center);
             window.show_all();
