@@ -17,6 +17,7 @@ use std::sync::Mutex;
 //use std::sync::Arc;
 
 struct App {
+    app: gtk::Application
 }
 
 struct MainView {
@@ -230,65 +231,62 @@ impl Deref for MainView {
 */
 
 impl App {
-    fn new(app: &gtk::Application) -> App {
-        let window = gtk::ApplicationWindow::new(app);
-        window.set_title("Amateurfunkprüfung");
-
-        // menu bar
-        let menu = gio::Menu::new();
-        let menu_bar = gio::Menu::new();
-
-        let quit = gio::SimpleAction::new("quit", None);
-        let window_clone = window.clone();
-        quit.connect_activate(move |_, _| {
-            window_clone.destroy();
-        });
-        app.add_action(&quit);
-
-        menu.append("Quit", "app.quit");
-        app.set_app_menu(&menu);
-        app.set_menubar(&menu_bar);
-
-        let datastore = DataStore::load(&std::path::PathBuf::from("/Users/pelsen/.config/afp/datastore.yml")).unwrap();
-        let mainview = Rc::new(Mutex::new(MainView::new(&datastore)));
-        let datastore = Rc::new(Mutex::new(datastore));
-
-        for (_i, section) in mainview.clone().lock().unwrap().sections.iter().enumerate() {
-            let mainview = mainview.clone();
-            let datastore = datastore.clone();
-
-            section.button.connect_clicked(move |_widget| {
-                datastore.lock().unwrap().section_mut(0).unwrap().question_mut(0).unwrap().answer(0);
-                mainview.lock().unwrap().overview.update(&datastore.lock().unwrap());
-            });
-        }
-
-        // position window and make visible
-        window.add(&mainview.lock().unwrap().area);
-        window.set_default_size(500, 400);
-        window.set_position(gtk::WindowPosition::Center);
-        window.show_all();
-
+    fn new(name: &str) -> App {
         App {
+            app: gtk::Application::new(name, gio::ApplicationFlags::FLAGS_NONE).expect("application startup failed")
         }
+    }
+
+    fn init(&self) {
+        self.app.connect_startup(|app| {
+            app.set_accels_for_action("app.quit", &["<Primary>Q"]);
+        });
+
+        self.app.connect_activate(|app| {
+            let window = gtk::ApplicationWindow::new(app);
+            window.set_title("Amateurfunkprüfung");
+
+            // menu bar
+            let menu = gio::Menu::new();
+            let menu_bar = gio::Menu::new();
+
+            let quit = gio::SimpleAction::new("quit", None);
+            let window_clone = window.clone();
+            quit.connect_activate(move |_, _| {
+                window_clone.destroy();
+            });
+            app.add_action(&quit);
+
+            menu.append("Quit", "app.quit");
+            app.set_app_menu(&menu);
+            app.set_menubar(&menu_bar);
+
+            let datastore = DataStore::load(&std::path::PathBuf::from("/Users/pelsen/.config/afp/datastore.yml")).unwrap();
+            let mainview = Rc::new(Mutex::new(MainView::new(&datastore)));
+            let datastore = Rc::new(Mutex::new(datastore));
+
+            for (_i, section) in mainview.clone().lock().unwrap().sections.iter().enumerate() {
+                let mainview = mainview.clone();
+                let datastore = datastore.clone();
+
+                section.button.connect_clicked(move |_widget| {
+                    datastore.lock().unwrap().section_mut(0).unwrap().question_mut(0).unwrap().answer(0);
+                    mainview.lock().unwrap().overview.update(&datastore.lock().unwrap());
+                });
+            }
+
+            // position window and make visible
+            window.add(&mainview.lock().unwrap().area);
+            window.set_default_size(500, 400);
+            window.set_position(gtk::WindowPosition::Center);
+            window.show_all();
+        });
     }
 }
 
-fn build_ui(app: &gtk::Application) {
-}
-
 fn main() {
-    let uiapp = gtk::Application::new("net.xfbs.afs",
-                                      gio::ApplicationFlags::FLAGS_NONE)
-                                 .expect("Application::new failed");
+    let app = App::new("net.xfbs.afs");
+    app.init();
 
-    uiapp.connect_startup(|app| {
-        app.set_accels_for_action("app.quit", &["<Primary>Q"]);
-    });
-
-    uiapp.connect_activate(|app| {
-        let app = App::new(app);
-    });
-
-    uiapp.run(&env::args().collect::<Vec<_>>());
+    app.app.run(&env::args().collect::<Vec<_>>());
 }
