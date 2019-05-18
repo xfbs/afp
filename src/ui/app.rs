@@ -7,7 +7,7 @@ use std::rc::Rc;
 use crate::*;
 use crate::ui::*;
 use std::env;
-use std::sync::Mutex;
+use std::cell::RefCell;
 
 /// CSS style for this app.
 const STYLE: &'static str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/data/style.css"));
@@ -68,16 +68,16 @@ impl App {
         app.set_menubar(&menu_bar);
 
         let datastore = DataStore::load(&std::path::PathBuf::from("/Users/pelsen/.config/afp/datastore.yml")).unwrap();
-        mainview.init(&datastore);
-        let datastore = Rc::new(Mutex::new(datastore));
+        let datastore = Rc::new(RefCell::new(datastore));
+        mainview.init(datastore.clone());
 
         for (_i, section) in mainview.sections.borrow().iter().enumerate() {
             let mainview = mainview.clone();
             let datastore = datastore.clone();
 
             section.exam.connect_clicked(move |_widget| {
-                datastore.lock().unwrap().section_mut(0).unwrap().question_mut(0).unwrap().answer(0);
-                mainview.overview.update(&datastore.lock().unwrap());
+                datastore.borrow_mut().section_mut(0).unwrap().question_mut(0).unwrap().answer(0);
+                mainview.overview.update(&datastore.borrow());
             });
         }
 

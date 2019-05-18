@@ -1,5 +1,6 @@
 extern crate serde;
 extern crate serde_yaml;
+extern crate rand;
 
 use serde::{Serialize, Deserialize};
 use std::error::Error;
@@ -8,6 +9,8 @@ use std::io::BufReader;
 use std::path::Path;
 use std::path::PathBuf;
 use std::time::{SystemTime, Duration};
+use rand::Rng;
+use rand::seq::SliceRandom;
 
 pub mod ui;
 
@@ -39,6 +42,7 @@ pub enum QuestionState {
     Green
 }
 
+//#[derive(Debug, Clone, PartialEq)]
 pub struct Section {
     name: String,
     short: String,
@@ -172,6 +176,11 @@ impl Section {
 
     pub fn question(&self, n: usize) -> Option<&Question> {
         self.questions.get(n)
+    }
+
+    pub fn practise(&self) -> Option<&Question> {
+        let mut rng = rand::thread_rng();
+        self.questions.choose(&mut rng)
     }
 }
 

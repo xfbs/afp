@@ -35,12 +35,12 @@ impl MainView {
         self.sections.borrow_mut().push(section);
     }
 
-    pub fn init(&self, datastore: &DataStore) {
-        self.overview.init(datastore);
-        self.overview.update(datastore);
+    pub fn init(&self, datastore: Rc<RefCell<DataStore>>) {
+        self.overview.init(&datastore.borrow());
+        self.overview.update(&datastore.borrow());
         self.area.append_page(self.overview.widget(), Some(self.overview.label()));
 
-        for section in datastore.sections() {
+        for section in datastore.borrow().sections() {
             self.add_section(section);
         }
     }

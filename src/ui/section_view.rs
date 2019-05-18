@@ -83,6 +83,12 @@ impl SectionView {
 
         self.question.init();
         self.stack.add_named(self.question.widget(), "question");
+
+        // connect the back button of the question.
+        let me = self.clone();
+        self.question.connect_back(move |btn| {
+            me.show_main();
+        });
     }
 
     pub fn update(&self, section: &Section) {
@@ -98,12 +104,14 @@ impl SectionView {
             let button = gtk::Button::new();
             button.set_label(question.id());
             button.set_hexpand(false);
+
             let class = match question.state() {
                 QuestionState::Green => "green",
                 QuestionState::Yellow => "yellow",
                 QuestionState::Red => "red"
             };
             button.get_style_context().add_class(class);
+
             let me: SectionView = self.clone();
             let question: Question = question.clone();
             button.connect_clicked(move |_| {
@@ -111,11 +119,21 @@ impl SectionView {
             });
             self.questions.add(&button);
         }
+
+        //let me = self.clone();
+        //let sec = section.clone();
+        //self.question.connect_back(move |btn| {
+        //    let len = section.questions().len();
+        //});
     }
 
     fn show_question(&self, question: &Question) {
         self.question.update(question);
         self.stack.set_visible_child_full("question", gtk::StackTransitionType::SlideLeft);
+    }
+
+    fn show_main(&self) {
+        self.stack.set_visible_child_full("main", gtk::StackTransitionType::SlideRight);
     }
 }
 

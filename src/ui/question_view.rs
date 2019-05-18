@@ -68,4 +68,12 @@ impl QuestionView {
     pub fn widget(&self) -> &gtk::Grid {
         &self.body
     }
+
+    pub fn connect_back<F: Fn(&gtk::Button) + 'static>(&self, f: F) {
+        self.back.connect_clicked(f);
+    }
+
+    pub fn connect_next<F: Fn(&gtk::Button) + 'static>(&self, f: F) {
+        self.button.connect_clicked(f);
+    }
 }
