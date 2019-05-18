@@ -15,22 +15,23 @@ const STYLE: &'static str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/d
 #[derive(Clone)]
 pub struct App {
     app: gtk::Application,
-    main: MainView,
-    main_controller: MainController,
+    window: Rc<RefCell<Option<gtk::ApplicationWindow>>>,
+    main: MainController,
 }
 
 impl App {
     pub fn new(name: &str) -> App {
         App {
             app: gtk::Application::new(name, gio::ApplicationFlags::FLAGS_NONE).expect("application startup failed"),
-            main: MainView::new(),
-            main_controller: MainController::new(),
+            window: Rc::new(RefCell::new(None)),
+            main: MainController::new(),
         }
     }
 
     fn startup(&self) {
         self.setup_accels();
         self.load_css();
+        self.main.startup();
     }
 
     fn setup_accels(&self) {
@@ -52,14 +53,13 @@ impl App {
     }
 
     fn shutdown(&self) {
+        self.main.shutdown();
         // TODO save state?
     }
 
     fn activate(&self) {
-        let app = &self.app;
-        let mainview = &mut self.main.clone();
-        let window = gtk::ApplicationWindow::new(app);
-        window.set_title("Amateurfunkprüfung");
+        let window = gtk::ApplicationWindow::new(&self.app);
+        self.main.activate();
 
         // menu bar
         let menu = gio::Menu::new();
@@ -71,21 +71,16 @@ impl App {
         quit.connect_activate(move |_, _| {
             window_clone.destroy();
         });
-        app.add_action(&quit);
+        self.app.add_action(&quit);
 
         menu.append("Quit", "app.quit");
-        app.set_app_menu(&menu);
-        app.set_menubar(&menu_bar);
+        self.app.set_app_menu(&menu);
+        self.app.set_menubar(&menu_bar);
 
-        let datastore = DataStore::load(&std::path::PathBuf::from("/Users/pelsen/.config/afp/datastore.yml")).unwrap();
-        let datastore = Rc::new(RefCell::new(datastore));
-        mainview.init(datastore.clone());
+        self.main.add_window(&window);
+    }
 
-        // position window and make visible
-        window.add(&mainview.area);
-        window.set_default_size(500, 400);
-        window.set_position(gtk::WindowPosition::Center);
-        window.show_all();
+    fn setup_actions(&self) {
     }
 
     pub fn init(&self) {
@@ -101,4 +96,3 @@ impl App {
         self.app.run(&env::args().collect::<Vec<_>>());
     }
 }
-

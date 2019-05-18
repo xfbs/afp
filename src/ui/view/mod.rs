@@ -8,7 +8,7 @@ pub use over_view::*;
 pub use section_view::*;
 pub use question_view::*;
 
-trait View {
+pub trait View {
     fn widget(&self) -> gtk::Widget;
 }
 
