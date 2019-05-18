@@ -18,7 +18,7 @@ pub struct QuestionView {
     answers: gtk::Grid,
     choose: Rc<RefCell<Vec<gtk::Button>>>,
     answer: Rc<RefCell<Vec<gtk::Label>>>,
-    choose_fn: Rc<RefCell<Option<Box<dyn Fn(usize) + 'static>>>>,
+    choose_fn: Rc<RefCell<Option<Box<dyn Fn(usize, usize) + 'static>>>>,
     back: gtk::Button,
 }
 
@@ -65,7 +65,7 @@ impl QuestionView {
         self.subsection.get_style_context().add_class("subtitle");
     }
 
-    pub fn update(&self, question: &Question) {
+    pub fn update(&self, pos: usize, question: &Question) {
         self.section.set_text(question.subsection());
         self.subsection.set_text(question.subsubsection());
         self.id.set_text(question.id());
@@ -79,7 +79,7 @@ impl QuestionView {
                 let f = self.choose_fn.clone();
                 button.connect_clicked(move |_| {
                     if let Some(ref f) = *f.borrow() {
-                        f(i);
+                        f(pos, i);
                     }
                 });
                 self.choose.borrow_mut().push(button);
@@ -115,7 +115,7 @@ impl QuestionView {
 
     /// Connect a closure to when a choice is made. The argument is the numeric
     /// index of the choice, with 0 being the first (and correct) one always.
-    pub fn connect_choose<F: Fn(usize) + 'static>(&self, f: F) {
+    pub fn connect_choose<F: Fn(usize, usize) + 'static>(&self, f: F) {
         *self.choose_fn.borrow_mut() = Some(Box::new(f));
     }
 }

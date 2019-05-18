@@ -186,10 +186,9 @@ impl Section {
         self.questions.get(n)
     }
 
-    pub fn practise(&self) -> Option<&Question> {
+    pub fn practise(&self) -> usize {
         let mut rng = rand::thread_rng();
-        //rng.gen_range(0, self.questions.len());
-        self.questions.choose(&mut rng)
+        rng.gen_range(0, self.questions.len())
     }
 }
 

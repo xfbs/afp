@@ -97,18 +97,29 @@ impl SectionView {
 
         let me = self.clone();
         let ds: Rc<RefCell<DataStore>> = ds.clone();
-        self.question.connect_choose(move |i| {
-            println!("choose: {}", i);
+        self.question.connect_choose(move |question, choice| {
+            println!("choose: {} {}", question, choice);
 
             let mut ds = ds.borrow_mut();
             match ds.section_mut(me.index) {
-                Some(section) => match section.question_mut(0) {
-                    Some(question) => {
-                        question.answer(i);
-                    },
-                    None => {},
+                Some(section) => {
+                    match section.question_mut(question) {
+                        Some(question) => {
+                            question.answer(choice);
+                        },
+                        None => panic!(),
+                    }
+
+                    if choice == 0 {
+                        let next = section.practise();
+                        if let Some(question) = section.question(next) {
+                            me.show_question(next, question);
+                        } else {
+                            me.show_main();
+                        }
+                    }
                 },
-                None => {}
+                None => panic!(),
             }
         });
         /*
@@ -156,7 +167,7 @@ impl SectionView {
                             let ds = ds_clone.borrow();
                             if let Some(section) = ds.section(me.index) {
                                 if let Some(question) = section.question(i) {
-                                    me.show_question(&question);
+                                    me.show_question(i, &question);
                                 }
                             }
                         });
@@ -187,15 +198,16 @@ impl SectionView {
         self.practise.connect_clicked(move |_| {
             let ds = ds_clone.borrow();
             if let Some(section) = ds.section(me.index) {
-                if let Some(question) = section.practise() {
-                    me.show_question(question);
+                let index = section.practise();
+                if let Some(question) = section.question(index) {
+                    me.show_question(index, question);
                 }
             }
         });
     }
 
-    fn show_question(&self, question: &Question) {
-        self.question.update(question);
+    fn show_question(&self, pos: usize, question: &Question) {
+        self.question.update(pos, question);
         self.stack.set_visible_child_full("question", gtk::StackTransitionType::SlideLeft);
     }
 
