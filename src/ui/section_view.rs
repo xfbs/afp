@@ -108,7 +108,6 @@ impl SectionView {
         self.exam.set_label("Prüfung Simulieren");
 
         // every time we reload this widget, we want to update the colors
-        let questions = self.questions.clone();
         let me = self.clone();
         let index = self.index;
         let ds_clone = ds.clone();
@@ -117,21 +116,26 @@ impl SectionView {
             if let Some(section) = ds.section(index) {
                 for (i, question) in section.questions().iter().enumerate() {
                     // if the button doesn't exist, create it.
-                    if questions.get_child_at_index(i as i32).is_none() {
+                    if me.questions.get_child_at_index(i as i32).is_none() {
                         let button = gtk::Button::new();
                         button.set_label(question.id());
                         button.set_hexpand(false);
                         button.show();
+                        me.questions.add(&button);
                         let me = me.clone();
-                        let question = question.clone();
+                        let ds_clone = ds_clone.clone();
                         button.connect_clicked(move |_| {
-                            me.show_question(&question);
+                            let ds = ds_clone.borrow();
+                            if let Some(section) = ds.section(me.index) {
+                                if let Some(question) = section.question(i) {
+                                    me.show_question(&question);
+                                }
+                            }
                         });
-                        questions.add(&button)
                     }
 
                     // set color of button.
-                    if let Some(child) = questions.get_child_at_index(i as i32) {
+                    if let Some(child) = me.questions.get_child_at_index(i as i32) {
                         if let Some(button) = child.get_child() {
                             let style = button.get_style_context();
                             style.remove_class("green");
