@@ -27,10 +27,10 @@ impl MainView {
         }
     }
 
-    fn add_section(&self, sec: &Section) {
-        let section = SectionView::new();
-        section.init(sec);
-        section.update(sec);
+    fn add_section(&self, ds: &Rc<RefCell<DataStore>>, i: usize) {
+        let section = SectionView::new(i);
+        section.init(ds);
+        section.update(ds);
         self.area.append_page(section.widget(), Some(section.label()));
         self.sections.borrow_mut().push(section);
     }
@@ -40,8 +40,8 @@ impl MainView {
         self.overview.update(&datastore.borrow());
         self.area.append_page(self.overview.widget(), Some(self.overview.label()));
 
-        for section in datastore.borrow().sections() {
-            self.add_section(section);
+        for (i, _) in datastore.borrow().sections().iter().enumerate() {
+            self.add_section(&datastore, i);
         }
     }
 }

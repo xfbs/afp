@@ -3,9 +3,12 @@ extern crate gtk;
 use crate::*;
 use crate::ui::*;
 use gtk::prelude::*;
+use std::cell::RefCell;
+use std::rc::Rc;
 
 #[derive(Debug, Clone)]
 pub struct SectionView {
+    index: usize,
     /// Label (for use in tab/notebook switcher)
     label: gtk::Label,
     /// For the different views available in the section.
@@ -25,8 +28,10 @@ pub struct SectionView {
 }
 
 impl SectionView {
-    pub fn new() -> SectionView {
+    pub fn new(index: usize) -> SectionView {
         SectionView {
+            index: index,
+
             /// Label (for use in tab/notebook switcher)
             label: gtk::Label::new(None),
 
@@ -60,7 +65,7 @@ impl SectionView {
         &self.label
     }
 
-    pub fn init(&self, _section: &Section) {
+    pub fn init(&self, ds: &Rc<RefCell<DataStore>>) {
         // cleanup
         self.body.foreach(|widget| {
             self.body.remove(widget);
@@ -91,7 +96,9 @@ impl SectionView {
         });
     }
 
-    pub fn update(&self, section: &Section) {
+    pub fn update(&self, ds: &Rc<RefCell<DataStore>>) {
+        let datastore = ds.borrow();
+        let section = datastore.section(self.index).unwrap();
         self.label.set_text(section.short());
 
         self.title.set_text(section.name());
@@ -119,11 +126,31 @@ impl SectionView {
             self.questions.add(&button);
         }
 
-        //let me = self.clone();
-        //let sec = section.clone();
-        //self.question.connect_next(move |btn| {
-        //    let len = section.questions().len();
-        //});
+        // every time we reload this widget, we want to update the colors
+        let questions = self.questions.clone();
+        self.body.connect_map(move |_| {
+        });
+
+        let me = self.clone();
+        let sec = section.clone();
+        self.question.connect_next(move |_| {
+            if let Some(question) = sec.practise() {
+                me.show_question(question);
+            } else {
+                me.show_main();
+            }
+        });
+
+        let me = self.clone();
+        let ds_clone = ds.clone();
+        self.practise.connect_clicked(move |_| {
+            let ds = ds_clone.borrow();
+            if let Some(section) = ds.section(me.index) {
+                if let Some(question) = section.practise() {
+                    me.show_question(question);
+                }
+            }
+        });
     }
 
     fn show_question(&self, question: &Question) {

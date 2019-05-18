@@ -42,7 +42,7 @@ pub enum QuestionState {
     Green
 }
 
-//#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Section {
     name: String,
     short: String,
