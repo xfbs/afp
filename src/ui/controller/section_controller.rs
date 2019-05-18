@@ -27,10 +27,7 @@ impl SectionController {
 
     pub fn activate(&self) {
         self.overview.activate();
-        if let Some(section) = self.data.borrow().section(self.index) {
-            self.view.set_label(section.short());
-        }
-
+        self.activate_label();
         self.view.add_named(self.overview.view(), "main");
     }
 
@@ -40,5 +37,11 @@ impl SectionController {
 
     pub fn view(&self) -> &SectionView {
         &self.view
+    }
+
+    fn activate_label(&self) {
+        if let Some(section) = self.data.borrow().section(self.index) {
+            self.view.set_label(section.short());
+        }
     }
 }

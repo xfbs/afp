@@ -48,6 +48,40 @@ impl SectionOverView {
     pub fn set_title(&self, title: &str) {
         self.title.set_text(title);
     }
+
+    pub fn button_add_class(&self, index: usize, class: &str) {
+        if let Some(button) = self.get_button(index) {
+            let style = button.get_style_context();
+            style.add_class(class);
+        } else {
+            panic!();
+        }
+    }
+
+    pub fn button_remove_class(&self, index: usize, class: &str) {
+        if let Some(button) = self.get_button(index) {
+            let style = button.get_style_context();
+            style.remove_class(class);
+        } else {
+            panic!();
+        }
+    }
+
+    pub fn get_button(&self, index: usize) -> Option<gtk::Widget> {
+        match self.questions.get_child_at_index(index as i32) {
+            Some(child) => child.get_child(),
+            None => None,
+        }
+    }
+
+    pub fn add_button(&self, label: &str) -> gtk::Button {
+        let button = gtk::Button::new();
+        button.set_label(label);
+        button.set_hexpand(false);
+        button.show();
+        self.questions.add(&button);
+        button
+    }
 }
 
 impl View for SectionOverView {
