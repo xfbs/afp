@@ -8,37 +8,15 @@ use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct SectionView {
-    index: usize,
-    /// Label (for use in tab/notebook switcher)
     label: gtk::Label,
-    /// For the different views available in the section.
     stack: gtk::Stack,
-    /// Body of main view.
-    body: gtk::Grid,
-    /// Title of section (in main view).
-    title: gtk::Label,
-    /// Button to start exam mode.
-    pub exam: gtk::Button,
-    /// Button to start practise mode.
-    practise: gtk::Button,
-    /// Info view of questions and their current state.
-    questions: gtk::FlowBox,
-
-    question: QuestionView,
 }
 
 impl SectionView {
     pub fn new() -> SectionView {
         SectionView {
-            index: 0,
             label: gtk::Label::new(None),
             stack: gtk::Stack::new(),
-            body: gtk::Grid::new(),
-            title: gtk::Label::new(None),
-            exam: gtk::Button::new(),
-            practise: gtk::Button::new(),
-            questions: gtk::FlowBox::new(),
-            question: QuestionView::new(),
         }
     }
 
@@ -51,25 +29,9 @@ impl SectionView {
     }
 
     pub fn init(&self, ds: &Rc<RefCell<DataStore>>) {
-        // cleanup
-        self.body.foreach(|widget| {
-            self.body.remove(widget);
-        });
-
-        self.body.set_margin_top(10);
-        self.body.set_margin_bottom(10);
-        self.body.set_margin_start(10);
-        self.body.set_margin_end(10);
-        self.body.set_column_spacing(20);
-        self.body.set_row_spacing(20);
-        self.body.set_column_homogeneous(true);
-        self.title.set_hexpand(true);
-        self.body.attach(&self.title, 0, 0, 2, 1);
-        self.questions.set_hexpand(true);
-        self.body.attach(&self.questions, 0, 1, 2, 1);
-        self.body.attach(&self.practise, 0, 2, 1, 1);
-        self.body.attach(&self.exam, 1, 2, 1, 1);
-        self.stack.add_named(&self.body, "main");
+        /*
+        self.overview.init();
+        self.stack.add_named(&self.overview.widget(), "main");
 
         self.question.init(ds);
         self.stack.add_named(self.question.widget(), "question");
@@ -107,20 +69,19 @@ impl SectionView {
                 None => panic!(),
             }
         });
-        /*
-        let me = self.clone();
-        let sec = section.clone();
-        self.question.connect_next(move |_| {
-            if let Some(question) = sec.practise() {
-                me.show_question(question);
-            } else {
-                me.show_main();
-            }
-        });
         */
     }
 
+    pub fn set_label(&self, label: &str) {
+        self.label.set_text(label);
+    }
+
+    pub fn add_named<T: View>(&self, page: &T, name: &str) {
+        self.stack.add_named(&page.widget(), name);
+    }
+
     pub fn update(&self, ds: &Rc<RefCell<DataStore>>) {
+        /*
         let datastore = ds.borrow();
         let section = datastore.section(self.index).unwrap();
         self.label.set_text(section.short());
@@ -189,10 +150,11 @@ impl SectionView {
                 }
             }
         });
+        */
     }
 
     fn show_question(&self, pos: usize, question: &Question) {
-        self.question.update(pos, question);
+        //self.question.update(pos, question);
         self.stack.set_visible_child_full("question", gtk::StackTransitionType::SlideLeft);
     }
 
@@ -201,3 +163,14 @@ impl SectionView {
     }
 }
 
+impl View for SectionView {
+    fn widget(&self) -> gtk::Widget {
+        self.stack.clone().upcast()
+    }
+}
+
+impl Labeled for SectionView {
+    fn label(&self) -> gtk::Label {
+        self.label.clone()
+    }
+}

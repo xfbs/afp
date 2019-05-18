@@ -10,7 +10,8 @@ use ui::view::View;
 pub struct MainController {
     view: MainView,
     overview: OverviewController,
-    data: Rc<RefCell<DataStore>>
+    sections: Rc<RefCell<Vec<SectionController>>>,
+    data: Rc<RefCell<DataStore>>,
 }
 
 impl MainController {
@@ -20,6 +21,7 @@ impl MainController {
         MainController {
             view: MainView::new(),
             overview: OverviewController::new(&data),
+            sections: Rc::new(RefCell::new(Vec::new())),
             data: data,
         }
     }
@@ -52,6 +54,17 @@ impl MainController {
     }
 
     fn activate_sections(&self) {
+        for (i, _) in self.data.borrow().sections().iter().enumerate() {
+            self.activate_section(i);
+        }
+    }
+
+    fn activate_section(&self, index: usize) {
+        let section = SectionController::new(&self.data, index);
+        section.startup();
+        section.activate();
+        self.view.add_tab(section.view());
+        self.sections.borrow_mut().push(section);
     }
 
     pub fn add_window(&self, window: &gtk::ApplicationWindow) {
