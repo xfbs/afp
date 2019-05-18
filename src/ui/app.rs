@@ -15,14 +15,14 @@ const STYLE: &'static str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/d
 #[derive(Debug, Clone)]
 pub struct App {
     app: gtk::Application,
-    main: MainView
+    main: MainView,
 }
 
 impl App {
     pub fn new(name: &str) -> App {
         App {
             app: gtk::Application::new(name, gio::ApplicationFlags::FLAGS_NONE).expect("application startup failed"),
-            main: MainView::new()
+            main: MainView::new(),
         }
     }
 

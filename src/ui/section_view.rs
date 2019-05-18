@@ -86,7 +86,7 @@ impl SectionView {
         self.body.attach(&self.exam, 1, 2, 1, 1);
         self.stack.add_named(&self.body, "main");
 
-        self.question.init();
+        self.question.init(ds);
         self.stack.add_named(self.question.widget(), "question");
 
         // connect the back button of the question.
@@ -179,6 +179,11 @@ impl SectionView {
     fn show_question(&self, question: &Question) {
         self.question.update(question);
         self.stack.set_visible_child_full("question", gtk::StackTransitionType::SlideLeft);
+
+        self.question.connect_choose(|i| {
+            println!("choose: {}", i);
+        });
+
     }
 
     fn show_main(&self) {

@@ -1,5 +1,7 @@
 extern crate gtk;
 
+use std::cell::RefCell;
+use std::rc::Rc;
 use gtk::prelude::*;
 use crate::*;
 
@@ -12,7 +14,7 @@ pub struct QuestionView {
     subsection: gtk::Label,
     id: gtk::Label,
     question: gtk::Label,
-    button: gtk::Button,
+    choose: Rc<RefCell<Vec<gtk::Button>>>,
     answer: gtk::Label,
     back: gtk::Button,
 }
@@ -27,13 +29,14 @@ impl QuestionView {
             subsection: gtk::Label::new(None),
             id: gtk::Label::new(None),
             question: gtk::Label::new(None),
-            button: gtk::Button::new(),
+            choose: Rc::new(RefCell::new(Vec::new())),
             answer: gtk::Label::new(None),
             back: gtk::Button::new_from_icon_name("go-previous", gtk::IconSize::Button),
         }
     }
 
-    pub fn init(&self) {
+    pub fn init(&self, _ds: &Rc<RefCell<DataStore>>) {
+        self.title.set_text("Übung");
         self.body.set_margin_top(10);
         self.body.set_margin_bottom(10);
         self.body.set_margin_start(10);
@@ -47,7 +50,6 @@ impl QuestionView {
         self.body.attach(&self.subsection, 1, 2, 2, 1);
         self.body.attach(&self.id, 1, 3, 1, 1);
         self.body.attach(&self.question, 2, 3, 1, 1);
-        self.body.attach(&self.button, 1, 4, 1, 1);
         self.body.attach(&self.answer, 2, 4, 1, 1);
         self.section.set_hexpand(true);
         self.title.get_style_context().add_class("title");
@@ -56,13 +58,25 @@ impl QuestionView {
     }
 
     pub fn update(&self, question: &Question) {
-        self.title.set_text("Übung");
         self.section.set_text(question.subsection());
         self.subsection.set_text(question.subsubsection());
         self.id.set_text(question.id());
         self.question.set_text(question.question());
-        self.button.set_label("A");
         self.answer.set_text(&question.answers()[0]);
+
+        // setup answer button
+        for (i, answer) in question.answers().iter().enumerate() {
+            if self.choose.borrow().get(i).is_none() {
+                let button = gtk::Button::new();
+                self.body.attach(&button, 1, 4 + i as i32, 1, 1);
+                self.choose.borrow_mut().push(button);
+            }
+
+            if let Some(button) = self.choose.borrow().get(i) {
+                button.set_label(&format!("{}", i + 1));
+                button.show();
+            }
+        }
     }
 
     pub fn widget(&self) -> &gtk::Grid {
@@ -74,6 +88,16 @@ impl QuestionView {
     }
 
     pub fn connect_next<F: Fn(&gtk::Button) + 'static>(&self, f: F) {
-        self.button.connect_clicked(f);
+        if let Some(button) = self.choose.borrow().get(0) {
+            button.connect_clicked(f);
+        }
+    }
+
+    pub fn connect_choose<F: Fn(usize) + Copy + 'static>(&self, f: F) {
+        for (i, button) in self.choose.borrow().iter().enumerate() {
+            button.connect_clicked(move |btn| {
+                f(i);
+            });
+        }
     }
 }

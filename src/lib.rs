@@ -49,6 +49,7 @@ pub struct Section {
     questions: Vec<Question>,
 }
 
+#[derive(Debug, Clone)]
 pub struct DataStore {
     sections: Vec<Section>,
     filename: PathBuf
@@ -117,6 +118,13 @@ impl DataStoreHistory {
 
 
 impl DataStore {
+    pub fn new() -> DataStore {
+        DataStore {
+            sections: Vec::new(),
+            filename: PathBuf::new(),
+        }
+    }
+
     pub fn load(path: &Path) -> Result<DataStore, Box<Error>> {
         let file = File::open(path)?;
         let reader = BufReader::new(file);
