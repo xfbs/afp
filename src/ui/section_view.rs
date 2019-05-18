@@ -107,28 +107,45 @@ impl SectionView {
         self.practise.set_label("Üben");
         self.exam.set_label("Prüfung Simulieren");
 
-        for question in section.questions() {
-            let button = gtk::Button::new();
-            button.set_label(question.id());
-            button.set_hexpand(false);
-
-            button.get_style_context().add_class(match question.state() {
-                QuestionState::Green => "green",
-                QuestionState::Yellow => "yellow",
-                QuestionState::Red => "red"
-            });
-
-            let me = self.clone();
-            let question = question.clone();
-            button.connect_clicked(move |_| {
-                me.show_question(&question);
-            });
-            self.questions.add(&button);
-        }
-
         // every time we reload this widget, we want to update the colors
         let questions = self.questions.clone();
+        let me = self.clone();
+        let index = self.index;
+        let ds_clone = ds.clone();
         self.body.connect_map(move |_| {
+            let ds = ds_clone.borrow();
+            if let Some(section) = ds.section(index) {
+                for (i, question) in section.questions().iter().enumerate() {
+                    // if the button doesn't exist, create it.
+                    if questions.get_child_at_index(i as i32).is_none() {
+                        let button = gtk::Button::new();
+                        button.set_label(question.id());
+                        button.set_hexpand(false);
+                        button.show();
+                        let me = me.clone();
+                        let question = question.clone();
+                        button.connect_clicked(move |_| {
+                            me.show_question(&question);
+                        });
+                        questions.add(&button)
+                    }
+
+                    // set color of button.
+                    if let Some(child) = questions.get_child_at_index(i as i32) {
+                        if let Some(button) = child.get_child() {
+                            let style = button.get_style_context();
+                            style.remove_class("green");
+                            style.remove_class("yellow");
+                            style.remove_class("red");
+                            style.add_class(match question.state() {
+                                QuestionState::Green => "green",
+                                QuestionState::Yellow => "yellow",
+                                QuestionState::Red => "red"
+                            });
+                        }
+                    }
+                }
+            }
         });
 
         let me = self.clone();
@@ -141,6 +158,8 @@ impl SectionView {
             }
         });
 
+        // load a suggested question when the practise button
+        // is pressed.
         let me = self.clone();
         let ds_clone = ds.clone();
         self.practise.connect_clicked(move |_| {
