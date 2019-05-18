@@ -3,6 +3,8 @@ name = "afp"
 version = "0.1.0"
 authors = ["Patrick Elsen <pelsen@xfbs.net>"]
 edition = "2018"
+repository = "https://github.com/xfbs/afp"
+description = "Ein kleines Tool, um für die Amateurfunkprüfung zu lernen."
 
 [dependencies]
 gio = "^0"

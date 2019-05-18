@@ -22,7 +22,9 @@ pub struct App {
 impl App {
     pub fn new(name: &str) -> App {
         App {
-            app: gtk::Application::new(name, gio::ApplicationFlags::FLAGS_NONE).expect("application startup failed"),
+            app: gtk::Application::new(name, 
+                                       gio::ApplicationFlags::FLAGS_NONE)
+                .expect("application startup failed"),
             window: Rc::new(RefCell::new(None)),
             main: MainController::new(),
         }
@@ -58,29 +60,53 @@ impl App {
     }
 
     fn activate(&self) {
+        // create window and store handle
         let window = gtk::ApplicationWindow::new(&self.app);
+        *self.window.borrow_mut() = Some(window.clone());
         self.main.activate();
-
-        // menu bar
-        let menu = gio::Menu::new();
-        let menu_bar = gio::Menu::new();
-
-        // define quit action
-        let quit = gio::SimpleAction::new("quit", None);
-        let window_clone = window.clone();
-        quit.connect_activate(move |_, _| {
-            window_clone.destroy();
-        });
-        self.app.add_action(&quit);
-
-        menu.append("Quit", "app.quit");
-        self.app.set_app_menu(&menu);
-        self.app.set_menubar(&menu_bar);
-
+        self.setup_menu(&window);
+        self.setup_actions();
         self.main.add_window(&window);
     }
 
+    fn setup_menu(&self, window: &gtk::ApplicationWindow) {
+        let menu = gio::Menu::new();
+        let menu_bar = gio::Menu::new();
+        menu.append("About", "app.about");
+        menu.append("Quit", "app.quit");
+        self.app.set_app_menu(&menu);
+        self.app.set_menubar(&menu_bar);
+    }
+
     fn setup_actions(&self) {
+        let quit = gio::SimpleAction::new("quit", None);
+        let app = self.clone();
+        quit.connect_activate(move |_, _| {
+            if let Some(window) = app.window.borrow().clone() {
+                window.destroy();
+            }
+        });
+
+        let about = gio::SimpleAction::new("about", None);
+        let app = self.clone();
+        about.connect_activate(move |_, _| {
+            let dialog = gtk::AboutDialog::new();
+            dialog.set_authors(&[env!("CARGO_PKG_AUTHORS")]);
+            dialog.set_website_label(Some("Webseite"));
+            dialog.set_website(Some(env!("CARGO_PKG_REPOSITORY")));
+            dialog.set_license_type(gtk::License::MitX11);
+            dialog.set_program_name("Amateurfunkprüfer");
+            dialog.set_version(env!("CARGO_PKG_VERSION"));
+            dialog.set_comments(env!("CARGO_PKG_DESCRIPTION"));
+            dialog.set_title("Über Amateurfunkprüfer");
+            if let Some(window) = app.window.borrow().as_ref() {
+                dialog.set_transient_for(Some(window));
+            }
+            dialog.run();
+            dialog.destroy();
+        });
+        self.app.add_action(&quit);
+        self.app.add_action(&about);
     }
 
     pub fn init(&self) {
