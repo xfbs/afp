@@ -86,7 +86,7 @@ impl SectionView {
 
         // connect the back button of the question.
         let me = self.clone();
-        self.question.connect_back(move |btn| {
+        self.question.connect_back(move |_| {
             me.show_main();
         });
     }
@@ -105,15 +105,14 @@ impl SectionView {
             button.set_label(question.id());
             button.set_hexpand(false);
 
-            let class = match question.state() {
+            button.get_style_context().add_class(match question.state() {
                 QuestionState::Green => "green",
                 QuestionState::Yellow => "yellow",
                 QuestionState::Red => "red"
-            };
-            button.get_style_context().add_class(class);
+            });
 
-            let me: SectionView = self.clone();
-            let question: Question = question.clone();
+            let me = self.clone();
+            let question = question.clone();
             button.connect_clicked(move |_| {
                 me.show_question(&question);
             });
@@ -122,7 +121,7 @@ impl SectionView {
 
         //let me = self.clone();
         //let sec = section.clone();
-        //self.question.connect_back(move |btn| {
+        //self.question.connect_next(move |btn| {
         //    let len = section.questions().len();
         //});
     }
