@@ -31,28 +31,13 @@ impl SectionView {
     pub fn new(index: usize) -> SectionView {
         SectionView {
             index: index,
-
-            /// Label (for use in tab/notebook switcher)
             label: gtk::Label::new(None),
-
-            /// For the different views available in the section.
             stack: gtk::Stack::new(),
-
-            /// Body of main view.
             body: gtk::Grid::new(),
-
-            /// Title of section (in main view).
             title: gtk::Label::new(None),
-
-            /// Button to start exam mode.
             exam: gtk::Button::new(),
-
-            /// Button to start practise mode.
             practise: gtk::Button::new(),
-
-            /// Info view of questions and their current state.
             questions: gtk::FlowBox::new(),
-
             question: QuestionView::new(),
         }
     }
