@@ -12,7 +12,7 @@ use std::cell::RefCell;
 /// CSS style for this app.
 const STYLE: &'static str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/data/style.css"));
 
-#[derive(Debug, Clone)]
+#[derive(Clone)]
 pub struct App {
     app: gtk::Application,
     main: MainView,

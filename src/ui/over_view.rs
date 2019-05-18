@@ -7,7 +7,7 @@ use std::rc::Rc;
 use std::cell::RefCell;
 use crate::*;
 
-#[derive(Debug, Clone)]
+#[derive(Clone)]
 pub struct OverView {
     body: gtk::Grid,
     label: gtk::Label,

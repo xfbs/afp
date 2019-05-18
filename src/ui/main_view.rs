@@ -8,7 +8,7 @@ use std::cell::RefCell;
 use crate::*;
 use crate::ui::*;
 
-#[derive(Debug, Clone)]
+#[derive(Clone)]
 pub struct MainView {
     pub area: gtk::Notebook,
     pub overview: OverView,

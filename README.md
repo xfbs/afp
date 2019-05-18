@@ -4,8 +4,9 @@ Ein kleines Tool zum üben für die Amateurfunkprüfung. Geschrieben in [Rust](h
 
 ## Installieren
 
-Das Tool kann mit `cargo` kompiliert und ausgeführt werden.
+Das Tool kann mit `cargo` kompiliert und ausgeführt werden. Unter umständen
 
+    export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
     cargo build
     cargo run
 

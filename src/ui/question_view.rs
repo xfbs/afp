@@ -5,9 +5,8 @@ use std::cell::RefCell;
 use std::rc::Rc;
 use gtk::prelude::*;
 use crate::*;
-use glib::signal::SignalHandlerId;
 
-#[derive(Debug, Clone)]
+#[derive(Clone)]
 pub struct QuestionView {
     body: gtk::Grid,
     title_box: gtk::Box,
@@ -19,6 +18,7 @@ pub struct QuestionView {
     answers: gtk::Grid,
     choose: Rc<RefCell<Vec<gtk::Button>>>,
     answer: Rc<RefCell<Vec<gtk::Label>>>,
+    choose_fn: Rc<RefCell<Option<Box<dyn Fn(usize) + 'static>>>>,
     back: gtk::Button,
 }
 
@@ -35,6 +35,7 @@ impl QuestionView {
             question: gtk::Label::new(None),
             choose: Rc::new(RefCell::new(Vec::new())),
             answer: Rc::new(RefCell::new(Vec::new())),
+            choose_fn: Rc::new(RefCell::new(None)),
             back: gtk::Button::new_from_icon_name("go-previous", gtk::IconSize::Button),
         }
     }
@@ -75,6 +76,12 @@ impl QuestionView {
             if self.choose.borrow().get(i).is_none() {
                 let button = gtk::Button::new();
                 self.answers.attach(&button, 0, i as i32, 1, 1);
+                let f = self.choose_fn.clone();
+                button.connect_clicked(move |_| {
+                    if let Some(ref f) = *f.borrow() {
+                        f(i);
+                    }
+                });
                 self.choose.borrow_mut().push(button);
             }
 
@@ -101,21 +108,14 @@ impl QuestionView {
         &self.body
     }
 
+    /// Connect a closure to the back button.
     pub fn connect_back<F: Fn(&gtk::Button) + 'static>(&self, f: F) {
         self.back.connect_clicked(f);
     }
 
-    pub fn connect_next<F: Fn(&gtk::Button) + 'static>(&self, f: F) {
-        if let Some(button) = self.choose.borrow().get(0) {
-            button.connect_clicked(f);
-        }
-    }
-
-    pub fn connect_choose<F: Fn(usize) + Copy + 'static>(&self, f: F) {
-        for (i, button) in self.choose.borrow().iter().enumerate() {
-            button.connect_clicked(move |btn| {
-                f(i);
-            });
-        }
+    /// Connect a closure to when a choice is made. The argument is the numeric
+    /// index of the choice, with 0 being the first (and correct) one always.
+    pub fn connect_choose<F: Fn(usize) + 'static>(&self, f: F) {
+        *self.choose_fn.borrow_mut() = Some(Box::new(f));
     }
 }

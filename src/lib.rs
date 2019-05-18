@@ -188,6 +188,7 @@ impl Section {
 
     pub fn practise(&self) -> Option<&Question> {
         let mut rng = rand::thread_rng();
+        //rng.gen_range(0, self.questions.len());
         self.questions.choose(&mut rng)
     }
 }

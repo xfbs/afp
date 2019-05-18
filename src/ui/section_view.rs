@@ -6,7 +6,7 @@ use gtk::prelude::*;
 use std::cell::RefCell;
 use std::rc::Rc;
 
-#[derive(Debug, Clone)]
+#[derive(Clone)]
 pub struct SectionView {
     index: usize,
     /// Label (for use in tab/notebook switcher)
@@ -94,6 +94,34 @@ impl SectionView {
         self.question.connect_back(move |_| {
             me.show_main();
         });
+
+        let me = self.clone();
+        let ds: Rc<RefCell<DataStore>> = ds.clone();
+        self.question.connect_choose(move |i| {
+            println!("choose: {}", i);
+
+            let mut ds = ds.borrow_mut();
+            match ds.section_mut(me.index) {
+                Some(section) => match section.question_mut(0) {
+                    Some(question) => {
+                        question.answer(i);
+                    },
+                    None => {},
+                },
+                None => {}
+            }
+        });
+        /*
+        let me = self.clone();
+        let sec = section.clone();
+        self.question.connect_next(move |_| {
+            if let Some(question) = sec.practise() {
+                me.show_question(question);
+            } else {
+                me.show_main();
+            }
+        });
+        */
     }
 
     pub fn update(&self, ds: &Rc<RefCell<DataStore>>) {
@@ -152,16 +180,6 @@ impl SectionView {
             }
         });
 
-        let me = self.clone();
-        let sec = section.clone();
-        self.question.connect_next(move |_| {
-            if let Some(question) = sec.practise() {
-                me.show_question(question);
-            } else {
-                me.show_main();
-            }
-        });
-
         // load a suggested question when the practise button
         // is pressed.
         let me = self.clone();
@@ -179,11 +197,6 @@ impl SectionView {
     fn show_question(&self, question: &Question) {
         self.question.update(question);
         self.stack.set_visible_child_full("question", gtk::StackTransitionType::SlideLeft);
-
-        self.question.connect_choose(|i| {
-            println!("choose: {}", i);
-        });
-
     }
 
     fn show_main(&self) {
