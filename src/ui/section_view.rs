@@ -115,7 +115,7 @@ impl SectionView {
 
     fn show_question(&self, question: &Question) {
         self.question.update(question);
-        self.stack.set_visible_child_full("question", gtk::StackTransitionType::SlideRight);
+        self.stack.set_visible_child_full("question", gtk::StackTransitionType::SlideLeft);
     }
 }
 
