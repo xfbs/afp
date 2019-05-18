@@ -7,12 +7,13 @@ use std::rc::Rc;
 use std::cell::RefCell;
 use crate::*;
 use crate::ui::*;
+use crate::ui::view::*;
 
 #[derive(Clone)]
 pub struct MainView {
     pub area: gtk::Notebook,
     pub overview: OverView,
-    pub sections: Rc<RefCell<Vec<SectionView>>>
+    pub sections: Vec<SectionView>
 }
 
 impl MainView {
@@ -23,22 +24,22 @@ impl MainView {
         MainView {
             area: area,
             overview: overview,
-            sections: Rc::new(RefCell::new(Vec::new())),
+            sections: Vec::new(),
         }
     }
 
-    fn add_section(&self, ds: &Rc<RefCell<DataStore>>, i: usize) {
+    fn add_section(&mut self, ds: &Rc<RefCell<DataStore>>, i: usize) {
         let section = SectionView::new(i);
         section.init(ds);
         section.update(ds);
         self.area.append_page(section.widget(), Some(section.label()));
-        self.sections.borrow_mut().push(section);
+        self.sections.push(section);
     }
 
-    pub fn init(&self, datastore: Rc<RefCell<DataStore>>) {
+    pub fn init(&mut self, datastore: Rc<RefCell<DataStore>>) {
         self.overview.init(&datastore.borrow());
         self.overview.update(&datastore.borrow());
-        self.area.append_page(self.overview.widget(), Some(self.overview.label()));
+        self.area.append_page(&self.overview.widget(), Some(&self.overview.label()));
 
         for (i, _) in datastore.borrow().sections().iter().enumerate() {
             self.add_section(&datastore, i);
@@ -46,3 +47,8 @@ impl MainView {
     }
 }
 
+impl View for MainView {
+    fn widget(&self) -> gtk::Widget {
+        self.area.clone().upcast()
+    }
+}

@@ -7,3 +7,11 @@ pub use main_view::*;
 pub use over_view::*;
 pub use section_view::*;
 pub use question_view::*;
+
+trait View {
+    fn widget(&self) -> gtk::Widget;
+}
+
+trait Labeled {
+    fn label(&self) -> gtk::Label;
+}

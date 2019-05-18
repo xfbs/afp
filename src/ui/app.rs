@@ -16,6 +16,7 @@ const STYLE: &'static str = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/d
 pub struct App {
     app: gtk::Application,
     main: MainView,
+    main_controller: MainController,
 }
 
 impl App {
@@ -23,13 +24,20 @@ impl App {
         App {
             app: gtk::Application::new(name, gio::ApplicationFlags::FLAGS_NONE).expect("application startup failed"),
             main: MainView::new(),
+            main_controller: MainController::new(),
         }
     }
 
-    fn startup(app: &gtk::Application) {
-        app.set_accels_for_action("app.quit", &["<Primary>Q"]);
+    fn startup(&self) {
+        self.setup_accels();
+        self.load_css();
+    }
 
-        // load css
+    fn setup_accels(&self) {
+        self.app.set_accels_for_action("app.quit", &["<Primary>Q"]);
+    }
+
+    fn load_css(&self) {
         let provider = gtk::CssProvider::new();
         provider
             .load_from_data(STYLE.as_bytes())
@@ -43,11 +51,13 @@ impl App {
         );
     }
 
-    fn shutdown(_app: &gtk::Application) {
+    fn shutdown(&self) {
         // TODO save state?
     }
 
-    fn activate(app: &gtk::Application, mainview: &MainView) {
+    fn activate(&self) {
+        let app = &self.app;
+        let mainview = &mut self.main.clone();
         let window = gtk::ApplicationWindow::new(app);
         window.set_title("Amateurfunkprüfung");
 
@@ -71,16 +81,6 @@ impl App {
         let datastore = Rc::new(RefCell::new(datastore));
         mainview.init(datastore.clone());
 
-        for (_i, section) in mainview.sections.borrow().iter().enumerate() {
-            let mainview = mainview.clone();
-            let datastore = datastore.clone();
-
-            section.exam.connect_clicked(move |_widget| {
-                datastore.borrow_mut().section_mut(0).unwrap().question_mut(0).unwrap().answer(0);
-                mainview.overview.update(&datastore.borrow());
-            });
-        }
-
         // position window and make visible
         window.add(&mainview.area);
         window.set_default_size(500, 400);
@@ -89,10 +89,12 @@ impl App {
     }
 
     pub fn init(&self) {
-        self.app.connect_startup(Self::startup);
-        self.app.connect_shutdown(Self::shutdown);
-        let mainview = self.main.clone();
-        self.app.connect_activate(move |app| Self::activate(app, &mainview));
+        let app = self.clone();
+        self.app.connect_startup(move |_| app.startup());
+        let app = self.clone();
+        self.app.connect_shutdown(move |_| {app.shutdown();});
+        let app = self.clone();
+        self.app.connect_activate(move |_| app.activate());
     }
 
     pub fn run(&self) {

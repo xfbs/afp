@@ -6,6 +6,7 @@ use std::f64::consts::PI;
 use std::rc::Rc;
 use std::cell::RefCell;
 use crate::*;
+use crate::ui::view::*;
 
 #[derive(Clone)]
 pub struct OverView {
@@ -29,14 +30,6 @@ impl OverView {
             section_labels: Rc::new(RefCell::new(Vec::new())),
             section_charts: Rc::new(RefCell::new(Vec::new())),
         }
-    }
-
-    pub fn widget(&self) -> &gtk::Grid {
-        &self.body
-    }
-
-    pub fn label(&self) -> &gtk::Label {
-        &self.label
     }
 
     pub fn init(&self, datastore: &DataStore) {
@@ -127,5 +120,17 @@ impl OverView {
                 Inhibit(false)
             });
         }
+    }
+}
+
+impl View for OverView {
+    fn widget(&self) -> gtk::Widget {
+        self.body.clone().upcast()
+    }
+}
+
+impl Labeled for OverView {
+    fn label(&self) -> gtk::Label {
+        self.label.clone()
     }
 }
