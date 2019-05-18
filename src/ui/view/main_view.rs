@@ -28,8 +28,12 @@ impl MainView {
         }
     }
 
+    pub fn add_tab<T: View + Labeled>(&self, page: &T) {
+        self.area.append_page(&page.widget(), Some(&page.label()));
+    }
+
     fn add_section(&mut self, ds: &Rc<RefCell<DataStore>>, i: usize) {
-        let section = SectionView::new(i);
+        let section = SectionView::new();
         section.init(ds);
         section.update(ds);
         self.area.append_page(section.widget(), Some(section.label()));

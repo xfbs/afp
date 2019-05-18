@@ -9,14 +9,18 @@ use ui::view::View;
 #[derive(Clone)]
 pub struct MainController {
     view: MainView,
+    overview: OverviewController,
     data: Rc<RefCell<DataStore>>
 }
 
 impl MainController {
     pub fn new() -> MainController {
+        let data = Rc::new(RefCell::new(DataStore::new()));
+
         MainController {
             view: MainView::new(),
-            data: Rc::new(RefCell::new(DataStore::new()))
+            overview: OverviewController::new(&data),
+            data: data,
         }
     }
 
@@ -25,18 +29,29 @@ impl MainController {
     }
 
     pub fn startup(&self) {
+        self.overview.startup();
     }
 
     pub fn activate(&self) {
         self.load_data();
-        self.view.clone().init(self.data.clone());
+        self.activate_overview();
+        self.activate_sections();
     }
 
     pub fn shutdown(&self) {
+        self.overview.shutdown();
     }
 
     fn load_data(&self) {
         *self.data.borrow_mut() = DataStore::load(&std::path::PathBuf::from("/Users/pelsen/.config/afp/datastore.yml")).unwrap();
+    }
+
+    fn activate_overview(&self) {
+        self.overview.activate();
+        self.view.add_tab(self.overview.view());
+    }
+
+    fn activate_sections(&self) {
     }
 
     pub fn add_window(&self, window: &gtk::ApplicationWindow) {

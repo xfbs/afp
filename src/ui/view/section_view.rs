@@ -28,9 +28,9 @@ pub struct SectionView {
 }
 
 impl SectionView {
-    pub fn new(index: usize) -> SectionView {
+    pub fn new() -> SectionView {
         SectionView {
-            index: index,
+            index: 0,
             label: gtk::Label::new(None),
             stack: gtk::Stack::new(),
             body: gtk::Grid::new(),

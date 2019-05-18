@@ -12,6 +12,6 @@ pub trait View {
     fn widget(&self) -> gtk::Widget;
 }
 
-trait Labeled {
+pub trait Labeled {
     fn label(&self) -> gtk::Label;
 }
