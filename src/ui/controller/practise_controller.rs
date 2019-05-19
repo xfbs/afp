@@ -32,6 +32,10 @@ impl PractiseController {
                 self.view.set_subsection(question.subsubsection());
                 self.view.set_id(question.id());
                 self.view.set_question(question.question());
+
+                for (i, answer) in question.answers().iter().enumerate() {
+                    self.view.set_answer(i, &format!("{}", i), answer);
+                }
             }
         }
     }

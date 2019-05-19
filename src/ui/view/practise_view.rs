@@ -82,43 +82,44 @@ impl PractiseView {
         self.question.set_text(text);
     }
 
-    pub fn update(&self, pos: usize, question: &Question) {
-        self.section.set_text(question.subsection());
-        self.subsection.set_text(question.subsubsection());
-        self.id.set_text(question.id());
-        self.question.set_text(question.question());
-
-        // setup answer button
-        for (i, answer) in question.answers().iter().enumerate() {
-            if self.choose.borrow().get(i).is_none() {
-                let button = gtk::Button::new();
-                self.answers.attach(&button, 0, i as i32, 1, 1);
-                let f = self.choose_fn.clone();
-                button.connect_clicked(move |_| {
-                    if let Some(ref f) = *f.borrow() {
-                        f(pos, i);
-                    }
-                });
-                self.choose.borrow_mut().push(button);
-            }
-
-            if let Some(button) = self.choose.borrow().get(i) {
-                button.set_label(&format!("{}", i + 1));
-                button.show();
-            }
-
-            if self.answer.borrow().get(i).is_none() {
-                let label = gtk::Label::new(None);
-                self.answers.attach(&label, 1, i as i32, 4, 1);
-                label.set_hexpand(false);
-                self.answer.borrow_mut().push(label);
-            }
-
-            if let Some(label) = self.answer.borrow().get(i) {
-                label.set_text(&answer);
-                label.show();
-            }
+    pub fn add_answer(&self, row: usize) {
+        if self.answers.get_child_at(0, row as i32).is_none() {
+            let button = gtk::Button::new();
+            self.answers.attach(&button, 0, row as i32, 1, 1);
+            let label = gtk::Label::new(None);
+            self.answers.attach(&label, 1, row as i32, 4, 1);
         }
+    }
+
+    pub fn set_answer(&self, row: usize, btn: &str, text: &str) {
+        self.add_answer(row);
+
+        if let Some(button) = self.get_answer_button(row) {
+            button.show();
+            button.set_label(btn);
+        }
+
+        if let Some(label) = self.get_answer_label(row) {
+            label.show();
+            label.set_text(text);
+        }
+    }
+
+    fn get_answer_button(&self, row: usize) -> Option<gtk::Button> {
+        match self.answers.get_child_at(0, row as i32) {
+            Some(widget) => widget.downcast().ok(),
+            None => None
+        }
+    }
+
+    fn get_answer_label(&self, row: usize) -> Option<gtk::Label> {
+        match self.answers.get_child_at(1, row as i32) {
+            Some(widget) => widget.downcast().ok(),
+            None => None
+        }
+    }
+
+    pub fn update(&self, pos: usize, question: &Question) {
     }
 
     pub fn widget(&self) -> &gtk::Grid {
