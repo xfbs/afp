@@ -44,6 +44,7 @@ impl SectionOverviewController {
 
     fn activate_buttons(&self) {
         // every time we show the view, update the color for the buttons.
+        /*
         let controller = self.clone();
         self.view.widget().connect_map(move |_| {
             let data = controller.data.borrow();
@@ -61,21 +62,29 @@ impl SectionOverviewController {
                     }
                 }
         });
+        */
     }
 
     /// Creates buttons for each question with specified target function.
-    pub fn setup_buttons<F: Fn(usize) + Clone + 'static>(&self, fun: F) {
+    pub fn setup_buttons<F: Fn(usize) + Clone + 'static>(&self, f: F) {
         // TODO: save fun?
         let data = self.data.borrow();
         if let Some(section) = data.section(self.index) {
             // go through all the questions
-            for (i, question) in section.questions().iter().enumerate() {
-                // if the button doesn't exist, create it.
-                if self.view.get_button(i).is_none() {
-                    let button = self.view.add_button(question.id());
-                    let fun = fun.clone();
+            for (ss_id, ss) in section.subsections().iter().enumerate() {
+                let button = self.view.add_button(&format!("{}", ss_id + 1));
+                button.set_tooltip_text(ss.name());
+                let fun = f.clone();
+                button.connect_clicked(move |_| {
+                    fun(ss_id);
+                });
+
+                for (sss_id, sss) in ss.subsubsections().iter().enumerate() {
+                    let button = self.view.add_button(&format!("{}.{}", ss_id + 1, sss_id + 1));
+                    button.set_tooltip_text(sss.name());
+                    let fun = f.clone();
                     button.connect_clicked(move |_| {
-                        fun(i);
+                        fun(ss_id);
                     });
                 }
             }
