@@ -28,8 +28,14 @@ impl PractiseController {
         let data = self.data.borrow();
         if let Some(section) = data.section(self.index) {
             if let Some(question) = section.question(index) {
-                self.view.set_section(question.subsection());
-                self.view.set_subsection(question.subsubsection());
+                if let Some(subsection) = section.subsection(question.subsection()) {
+                    self.view.set_section(subsection.name());
+
+                    if let Some(subsubsection) = subsection.subsubsection(question.subsubsection()) {
+                        self.view.set_subsection(subsubsection.name());
+                    }
+                }
+
                 self.view.set_id(question.id());
                 self.view.set_question(question.question());
 

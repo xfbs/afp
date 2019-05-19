@@ -1,0 +1,116 @@
+---
+sections:
+  - name: Technische Kenntnisse der Klasse E
+    short: Technik E
+    questions:
+      - id: "TA101"
+        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
+        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        question: "0,042 A entspricht"
+        answers:
+          - "40"
+          - "41"
+          - "42"
+          - "43"
+        history: []
+      - id: "TA102"
+        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
+        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        question: "0,042 A entspricht"
+        answers:
+          - "40"
+          - "41"
+          - "42"
+          - "43"
+        history:
+          - time: 100
+            choice: 1
+          - time: 200
+            choice: 2
+          - time: 300
+            choice: 3
+      - id: "TA103"
+        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
+        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        question: "0,042 A entspricht"
+        answers:
+          - "40"
+          - "41"
+          - "42"
+          - "43"
+        history:
+          - time: 100
+            choice: 1
+          - time: 200
+            choice: 0
+          - time: 300
+            choice: 2
+      - id: "TA104"
+        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
+        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        question: "0,042 A entspricht"
+        answers:
+          - "40"
+          - "41"
+          - "42"
+          - "43"
+        history:
+          - time: 100
+            choice: 0
+          - time: 200
+            choice: 0
+          - time: 300
+            choice: 0
+      - id: "TA105"
+        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
+        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        question: "0,042 A entspricht"
+        answers:
+          - "40"
+          - "41"
+          - "42"
+          - "43"
+        history: []
+      - id: "TA106"
+        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
+        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        question: "0,042 A entspricht"
+        answers:
+          - "40"
+          - "41"
+          - "42"
+          - "43"
+        history: []
+      - id: "TA107"
+        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
+        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        question: "0,042 A entspricht"
+        answers:
+          - "40"
+          - "41"
+          - "42"
+          - "43"
+        history: []
+      - id: "TA108"
+        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
+        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        question: "0,042 A entspricht"
+        answers:
+          - "Abakus"
+          - "Simsalabim"
+          - "Dependant"
+          - "Ignorant"
+        history: []
+    progress: progress.yaml
+  - name: Technische Kenntnisse der Klasse A
+    short: Technik A
+    questions: []
+    progress: progress.yaml
+  - name: Betriebliche Kenntnisse
+    short: Betrieb
+    questions: []
+    progress: progress.yaml
+  - name: Kenntnisse von Vorschriften
+    short: Vorschriften
+    questions: []
+    progress: progress.yaml

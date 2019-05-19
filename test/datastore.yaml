@@ -17,8 +17,8 @@ sections:
         subsubsections: []
     questions:
       - id: "TA101"
-        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
-        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        subsection: 1
+        subsubsection: 1
         question: "0,042 A entspricht"
         answers:
           - "40"
@@ -27,8 +27,8 @@ sections:
           - "43"
         history: []
       - id: "TA102"
-        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
-        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        subsection: 1
+        subsubsection: 1
         question: "0,042 A entspricht"
         answers:
           - "40"
@@ -43,8 +43,8 @@ sections:
           - time: 300
             choice: 3
       - id: "TA103"
-        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
-        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        subsection: 1
+        subsubsection: 1
         question: "0,042 A entspricht"
         answers:
           - "40"
@@ -59,8 +59,8 @@ sections:
           - time: 300
             choice: 2
       - id: "TA104"
-        subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
-        subsubsection: "Allgemeine mathematische Grundkenntnisse"
+        subsection: 1
+        subsubsection: 1
         question: "0,042 A entspricht"
         answers:
           - "40"
