@@ -44,7 +44,6 @@ impl SectionOverviewController {
 
     fn activate_buttons(&self) {
         // every time we show the view, update the color for the buttons.
-        /*
         let controller = self.clone();
         self.view.widget().connect_map(move |_| {
             let data = controller.data.borrow();
@@ -54,7 +53,8 @@ impl SectionOverviewController {
                         controller.view.button_remove_class(i, "green");
                         controller.view.button_remove_class(i, "yellow");
                         controller.view.button_remove_class(i, "green");
-                        controller.view.button_add_class(i, match question.state() {
+                        let state = section.state(question.subsection(), question.subsubsection());
+                        controller.view.button_add_class(i, match state {
                             QuestionState::Green => "green",
                             QuestionState::Yellow => "yellow",
                             QuestionState::Red => "red"
@@ -62,11 +62,10 @@ impl SectionOverviewController {
                     }
                 }
         });
-        */
     }
 
     /// Creates buttons for each question with specified target function.
-    pub fn setup_buttons<F: Fn(usize) + Clone + 'static>(&self, f: F) {
+    pub fn setup_buttons<F: Fn(usize, usize) + Clone + 'static>(&self, f: F) {
         // TODO: save fun?
         let data = self.data.borrow();
         if let Some(section) = data.section(self.index) {
@@ -76,7 +75,7 @@ impl SectionOverviewController {
                 button.set_tooltip_text(ss.name());
                 let fun = f.clone();
                 button.connect_clicked(move |_| {
-                    fun(ss_id);
+                    fun(ss_id, 0);
                 });
 
                 for (sss_id, sss) in ss.subsubsections().iter().enumerate() {
@@ -84,7 +83,7 @@ impl SectionOverviewController {
                     button.set_tooltip_text(sss.name());
                     let fun = f.clone();
                     button.connect_clicked(move |_| {
-                        fun(ss_id);
+                        fun(ss_id, sss_id + 1);
                     });
                 }
             }

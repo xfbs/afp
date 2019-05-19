@@ -10,6 +10,7 @@ pub struct SectionController {
     overview: SectionOverviewController,
     practise: PractiseController,
     data: Rc<RefCell<DataStore>>,
+    filter: Rc<RefCell<QuestionFilter>>,
 }
 
 impl SectionController {
@@ -20,6 +21,7 @@ impl SectionController {
             overview: SectionOverviewController::new(data, index),
             practise: PractiseController::new(data, index),
             data: data.clone(),
+            filter: Rc::new(RefCell::new(QuestionFilter::All)),
         }
     }
 
@@ -55,8 +57,8 @@ impl SectionController {
 
     fn activate_overview_buttons(&self) {
         let controller = self.clone();
-        self.overview.setup_buttons(move |num| {
-            controller.show_practise(num);
+        self.overview.setup_buttons(move |ss, sss| {
+            controller.show_practise(ss);
         });
 
         let controller = self.clone();

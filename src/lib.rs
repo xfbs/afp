@@ -50,6 +50,13 @@ pub struct Section {
     subsections: Vec<SubSection>,
 }
 
+#[derive(Debug, PartialEq)]
+pub enum QuestionFilter {
+    All,
+    SubSection(usize),
+    SubSubSection(usize, usize),
+}
+
 #[derive(Debug, Clone, PartialEq)]
 pub struct SubSection {
     name: String,
@@ -236,6 +243,33 @@ impl Section {
         match self.subsection(ss) {
             Some(ss) => ss.subsubsection(sss),
             _ => None,
+        }
+    }
+
+    pub fn state(&self, ss: usize, sss: usize) -> QuestionState {
+        let mut has_non_red = false;
+        let mut is_all_green = true;
+
+        self.questions()
+            .iter()
+            .filter(|question| question.subsection() == ss)
+            .filter(|question| question.subsubsection() == sss)
+            .for_each(|question| match question.state() {
+                QuestionState::Green => {
+                    has_non_red = true;
+                },
+                QuestionState::Yellow => {
+                    has_non_red = true;
+                    is_all_green = false;
+                },
+                QuestionState::Red => {
+                    is_all_green = false;
+                }});
+
+        match (has_non_red, is_all_green) {
+            (true, true) => QuestionState::Green,
+            (true, false) => QuestionState::Yellow,
+            (false, _) => QuestionState::Red,
         }
     }
 }
