@@ -10,7 +10,7 @@ use std::rc::Rc;
 pub struct SectionOverView {
     body: gtk::Grid,
     title: gtk::Label,
-    questions: gtk::FlowBox,
+    subsections: gtk::FlowBox,
     exam: gtk::Button,
     practise: gtk::Button,
 }
@@ -20,7 +20,7 @@ impl SectionOverView {
         SectionOverView {
             body: gtk::Grid::new(),
             title: gtk::Label::new(None),
-            questions: gtk::FlowBox::new(),
+            subsections: gtk::FlowBox::new(),
             exam: gtk::Button::new(),
             practise: gtk::Button::new(),
         }
@@ -29,7 +29,7 @@ impl SectionOverView {
     pub fn setup(&self) {
         self.title.set_hexpand(true);
         self.title.get_style_context().add_class("title");
-        self.questions.set_hexpand(true);
+        self.subsections.set_hexpand(true);
         self.body.set_margin_top(10);
         self.body.set_margin_bottom(10);
         self.body.set_margin_start(10);
@@ -38,7 +38,7 @@ impl SectionOverView {
         self.body.set_row_spacing(20);
         self.body.set_column_homogeneous(true);
         self.body.attach(&self.title, 0, 0, 2, 1);
-        self.body.attach(&self.questions, 0, 1, 2, 1);
+        self.body.attach(&self.subsections, 0, 1, 2, 1);
         self.body.attach(&self.practise, 0, 2, 1, 1);
         self.body.attach(&self.exam, 1, 2, 1, 1);
         self.exam.set_label("Prüfung");
@@ -68,7 +68,7 @@ impl SectionOverView {
     }
 
     pub fn get_button(&self, index: usize) -> Option<gtk::Widget> {
-        match self.questions.get_child_at_index(index as i32) {
+        match self.subsections.get_child_at_index(index as i32) {
             Some(child) => child.get_child(),
             None => None,
         }
@@ -79,7 +79,7 @@ impl SectionOverView {
         button.set_label(label);
         button.set_hexpand(false);
         button.show();
-        self.questions.add(&button);
+        self.subsections.add(&button);
         button
     }
 
