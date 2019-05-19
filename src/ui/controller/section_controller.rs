@@ -33,15 +33,27 @@ impl SectionController {
         }
     }
 
+    /// Switch to the section overview.
     pub fn show_overview(&self) {
         self.view.show("main", gtk::StackTransitionType::SlideRight);
     }
 
+    /// Switch to the practise view.
     pub fn show_practise(&self, num: usize) {
+        self.practise.show(num);
         self.view.show("practise", gtk::StackTransitionType::SlideLeft);
     }
 
-    pub fn activate_overview_buttons(&self) {
+    /// Switch to the practise view with a (suggested) question.
+    pub fn show_next_practise(&self) {
+        let data = self.data.borrow();
+        if let Some(section) = data.section(self.index) {
+            let index = section.practise();
+            self.show_practise(index);
+        }
+    }
+
+    fn activate_overview_buttons(&self) {
         let controller = self.clone();
         self.overview.setup_buttons(move |num| {
             controller.show_practise(num);
@@ -49,14 +61,19 @@ impl SectionController {
 
         let controller = self.clone();
         self.overview.view().connect_practise(move || {
-            let data = controller.data.borrow();
-            if let Some(section) = data.section(controller.index) {
-                let index = section.practise();
-                if let Some(question) = section.question(index) {
-                    controller.show_practise(index);
-                }
-            }
-            controller.show_practise(0);
+            controller.show_next_practise();
+        });
+    }
+    
+    fn activate_views(&self) {
+        self.view.add_named(self.overview.view(), "main");
+        self.view.add_named(self.practise.view(), "practise");
+    }
+
+    fn activate_practise_buttons(&self) {
+        let controller = self.clone();
+        self.practise.connect_back(move || {
+            controller.show_overview();
         });
     }
 }
@@ -70,10 +87,12 @@ impl Controller for SectionController {
     fn activate(&self) {
         self.overview.activate();
         self.activate_overview_buttons();
+
         self.practise.activate();
+        self.activate_practise_buttons();
+
         self.activate_label();
-        self.view.add_named(self.overview.view(), "main");
-        self.view.add_named(self.practise.view(), "practise");
+        self.activate_views();
     }
 
     fn shutdown(&self) {

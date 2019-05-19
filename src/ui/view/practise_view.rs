@@ -41,7 +41,7 @@ impl PractiseView {
         }
     }
 
-    pub fn init(&self, _ds: &Rc<RefCell<DataStore>>) {
+    pub fn setup(&self) {
         self.title.set_text("Übung");
         self.body.set_margin_top(10);
         self.body.set_margin_bottom(10);
@@ -64,6 +64,22 @@ impl PractiseView {
         self.title.get_style_context().add_class("title");
         self.section.get_style_context().add_class("subtitle");
         self.subsection.get_style_context().add_class("subtitle");
+    }
+
+    pub fn set_section(&self, text: &str) {
+        self.section.set_text(text);
+    }
+
+    pub fn set_subsection(&self, text: &str) {
+        self.subsection.set_text(text);
+    }
+
+    pub fn set_id(&self, text: &str) {
+        self.id.set_text(text);
+    }
+
+    pub fn set_question(&self, text: &str) {
+        self.question.set_text(text);
     }
 
     pub fn update(&self, pos: usize, question: &Question) {
