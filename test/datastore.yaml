@@ -2,6 +2,19 @@
 sections:
   - name: Technische Kenntnisse der Klasse E
     short: Technik E
+    subsections:
+      - name: "Allgemeine mathematische Grundkenntnisse und Größen"
+        subsubsections:
+          - "Allgemeine mathematische Grundkenntnisse"
+          - "Größen und Einheiten"
+      - name: "Elektrizitäts-, Elektromagnetismus und Funktheorie"
+        subsubsections: []
+      - name: "Elektrische und elektronische Bauteile"
+        subsubsections: []
+      - name: "Eletronische Schaltungen und deren Merkmale"
+        subsubsections: []
+      - name: "Analoge und digitale Modulationsverfahren"
+        subsubsections: []
     questions:
       - id: "TA101"
         subsection: "Allgemeine mathematische Grundkenntnisse und Größen"
@@ -65,12 +78,15 @@ sections:
   - name: Technische Kenntnisse der Klasse A
     short: Technik A
     questions: []
+    subsections: []
     progress: progress.yaml
   - name: Betriebliche Kenntnisse
     short: Betrieb
     questions: []
+    subsections: []
     progress: progress.yaml
   - name: Kenntnisse von Vorschriften
     short: Vorschriften
     questions: []
+    subsections: []
     progress: progress.yaml

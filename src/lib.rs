@@ -47,6 +47,18 @@ pub struct Section {
     name: String,
     short: String,
     questions: Vec<Question>,
+    subsections: Vec<SubSection>,
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct SubSection {
+    name: String,
+    subsubsections: Vec<SubSubSection>,
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct SubSubSection {
+    name: String,
 }
 
 #[derive(Debug, Clone)]
@@ -65,6 +77,13 @@ struct DataStoreFileSection {
     name: String,
     short: String,
     questions: Vec<DataStoreQuestion>,
+    subsections: Vec<DataStoreSubSection>
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+struct DataStoreSubSection {
+    name: String,
+    subsubsections: Vec<String>
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
@@ -90,6 +109,16 @@ impl DataStoreFileSection {
             name: self.name,
             short: self.short,
             questions: self.questions.into_iter().map(|s| s.load().unwrap()).collect(),
+            subsections: self.subsections.into_iter().map(|s| s.load().unwrap()).collect(),
+        })
+    }
+}
+
+impl DataStoreSubSection {
+    fn load(self) -> Result<SubSection, Box<Error>> {
+        Ok(SubSection {
+            name: self.name,
+            subsubsections: self.subsubsections.into_iter().map(|s| SubSubSection {name: s}).collect(),
         })
     }
 }
@@ -189,6 +218,21 @@ impl Section {
     pub fn practise(&self) -> usize {
         let mut rng = rand::thread_rng();
         rng.gen_range(0, self.questions.len())
+    }
+
+    pub fn subsection(&self, n: usize) -> Option<&SubSection> {
+        self.subsections.get(n)
+    }
+
+    pub fn subsubsection(&self, ss: usize, sss: usize) -> Option<&SubSubSection> {
+        if sss == 0 {
+            None
+        } else {
+            match self.subsections.get(ss) {
+                Some(ss) => ss.subsubsections.get(sss),
+                _ => None
+            }
+        }
     }
 }
 
