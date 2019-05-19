@@ -1,3 +1,4 @@
+dist: xenial
 language: rust
 before_script:
   - sudo apt update
