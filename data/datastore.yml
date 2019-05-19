@@ -8,13 +8,37 @@ sections:
           - "Allgemeine mathematische Grundkenntnisse"
           - "Größen und Einheiten"
       - name: "Elektrizitäts-, Elektromagnetismus und Funktheorie"
-        subsubsections: []
+        subsubsections:
+          - "Leiter, Halbleiter und Isolator"
+          - "Strom- und Spannungsquellen"
+          - "Elektrisches Feld"
+          - "Magnetisches Feld"
+          - "Elektromagnetisches Feld"
+          - "Sinusförmige Signale"
+          - "Nichtsinusförmige Signale"
+          - "Modulierte Signale"
+          - "Ohmsches Gesetz, Leistung und Energie"
       - name: "Elektrische und elektronische Bauteile"
-        subsubsections: []
+        subsubsections:
+          - "Widerstand"
+          - "Kondensator"
+          - "Spule"
+          - "Übertrager und Transformatoren"
+          - "Diode"
+          - "Transistor"
       - name: "Eletronische Schaltungen und deren Merkmale"
-        subsubsections: []
+        subsubsections:
+          - "Serien- und Parallelschaltung von Widerständen, Spulen und Kondensatoren"
+          - "Schwingkreise und Filter"
+          - "Stromversorgung"
+          - "Verstärker"
+          - "Modulator / Demodulator"
+          - "Oszillator"
       - name: "Analoge und digitale Modulationsverfahren"
-        subsubsections: []
+        subsubsections:
+          - "Amplitudenmodulation AM, SSB"
+          - "Frequenzmodulation"
+          - "Text-, Daten- und Bildübertragung"
     questions:
       - id: "TA101"
         subsection: 1
