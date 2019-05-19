@@ -17,9 +17,6 @@ pub struct PractiseView {
     id: gtk::Label,
     question: gtk::Label,
     answers: gtk::Grid,
-    choose: Rc<RefCell<Vec<gtk::Button>>>,
-    answer: Rc<RefCell<Vec<gtk::Label>>>,
-    choose_fn: Rc<RefCell<Option<Box<dyn Fn(usize, usize) + 'static>>>>,
     back: gtk::Button,
 }
 
@@ -34,9 +31,6 @@ impl PractiseView {
             id: gtk::Label::new(None),
             answers: gtk::Grid::new(),
             question: gtk::Label::new(None),
-            choose: Rc::new(RefCell::new(Vec::new())),
-            answer: Rc::new(RefCell::new(Vec::new())),
-            choose_fn: Rc::new(RefCell::new(None)),
             back: gtk::Button::new_from_icon_name("go-previous", gtk::IconSize::Button),
         }
     }
@@ -119,9 +113,6 @@ impl PractiseView {
         }
     }
 
-    pub fn update(&self, pos: usize, question: &Question) {
-    }
-
     pub fn widget(&self) -> &gtk::Grid {
         &self.body
     }
@@ -134,7 +125,6 @@ impl PractiseView {
     /// Connect a closure to when a choice is made. The argument is the numeric
     /// index of the choice, with 0 being the first (and correct) one always.
     pub fn connect_choose<F: Fn(usize, usize) + 'static>(&self, f: F) {
-        *self.choose_fn.borrow_mut() = Some(Box::new(f));
     }
 }
 
