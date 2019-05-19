@@ -2,6 +2,7 @@ use crate::ui::*;
 use crate::*;
 use std::rc::Rc;
 use std::cell::RefCell;
+use std::cell::Cell;
 
 #[derive(Clone)]
 pub struct SectionController {
@@ -10,7 +11,7 @@ pub struct SectionController {
     overview: SectionOverviewController,
     practise: PractiseController,
     data: Rc<RefCell<DataStore>>,
-    filter: Rc<RefCell<QuestionFilter>>,
+    filter: Rc<Cell<QuestionFilter>>,
 }
 
 impl SectionController {
@@ -21,7 +22,7 @@ impl SectionController {
             overview: SectionOverviewController::new(data, index),
             practise: PractiseController::new(data, index),
             data: data.clone(),
-            filter: Rc::new(RefCell::new(QuestionFilter::All)),
+            filter: Rc::new(Cell::new(QuestionFilter::All)),
         }
     }
 
@@ -49,20 +50,27 @@ impl SectionController {
     /// Switch to the practise view with a (suggested) question.
     pub fn show_next_practise(&self) {
         let data = self.data.borrow();
+        let filter = self.filter.get();
         if let Some(section) = data.section(self.index) {
-            let index = section.practise();
+            let index = section.practise(filter);
             self.show_practise(index);
         }
     }
 
+    fn set_filter(&self, filter: QuestionFilter) {
+        self.filter.set(filter);
+    }
+
     fn activate_overview_buttons(&self) {
         let controller = self.clone();
-        self.overview.setup_buttons(move |ss, sss| {
-            controller.show_practise(ss);
+        self.overview.setup_buttons(move |filter| {
+            controller.set_filter(filter);
+            controller.show_next_practise();
         });
 
         let controller = self.clone();
         self.overview.view().connect_practise(move || {
+            controller.set_filter(QuestionFilter::All);
             controller.show_next_practise();
         });
     }

@@ -49,23 +49,36 @@ impl SectionOverviewController {
             let data = controller.data.borrow();
                 if let Some(section) = data.section(controller.index) {
                     // go through all the questions
-                    for (i, question) in section.questions().iter().enumerate() {
-                        controller.view.button_remove_class(i, "green");
-                        controller.view.button_remove_class(i, "yellow");
-                        controller.view.button_remove_class(i, "green");
-                        let state = section.state(question.subsection(), question.subsubsection());
-                        controller.view.button_add_class(i, match state {
-                            QuestionState::Green => "green",
-                            QuestionState::Yellow => "yellow",
-                            QuestionState::Red => "red"
-                        });
+                    let mut i = 0;
+                    for (ss_id, ss) in section.subsections().iter().enumerate() {
+                        // TODO use filter
+                        let state = section.state(ss_id, 0);
+                        controller.set_button_state(i, state);
+                        i += 1;
+
+                        for (sss_id, sss) in ss.subsubsections().iter().enumerate() {
+                            let state = section.state(ss_id, sss_id + 1);
+                            controller.set_button_state(i, state);
+                            i += 1;
+                        }
                     }
                 }
         });
     }
 
+    fn set_button_state(&self, index: usize, state: QuestionState) {
+        self.view.button_remove_class(index, "green");
+        self.view.button_remove_class(index, "yellow");
+        self.view.button_remove_class(index, "green");
+        self.view.button_add_class(index, match state {
+            QuestionState::Green => "green",
+            QuestionState::Yellow => "yellow",
+            QuestionState::Red => "red"
+        });
+    }
+
     /// Creates buttons for each question with specified target function.
-    pub fn setup_buttons<F: Fn(usize, usize) + Clone + 'static>(&self, f: F) {
+    pub fn setup_buttons<F: Fn(QuestionFilter) + Clone + 'static>(&self, f: F) {
         // TODO: save fun?
         let data = self.data.borrow();
         if let Some(section) = data.section(self.index) {
@@ -73,17 +86,19 @@ impl SectionOverviewController {
             for (ss_id, ss) in section.subsections().iter().enumerate() {
                 let button = self.view.add_button(&format!("{}", ss_id + 1));
                 button.set_tooltip_text(ss.name());
+                let filter = QuestionFilter::SubSection(ss_id);
                 let fun = f.clone();
                 button.connect_clicked(move |_| {
-                    fun(ss_id, 0);
+                    fun(filter);
                 });
 
                 for (sss_id, sss) in ss.subsubsections().iter().enumerate() {
                     let button = self.view.add_button(&format!("{}.{}", ss_id + 1, sss_id + 1));
                     button.set_tooltip_text(sss.name());
+                    let filter = QuestionFilter::SubSubSection(ss_id, sss_id);
                     let fun = f.clone();
                     button.connect_clicked(move |_| {
-                        fun(ss_id, sss_id + 1);
+                        fun(filter);
                     });
                 }
             }

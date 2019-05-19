@@ -50,7 +50,7 @@ pub struct Section {
     subsections: Vec<SubSection>,
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub enum QuestionFilter {
     All,
     SubSection(usize),
@@ -222,7 +222,7 @@ impl Section {
         self.questions.get(n)
     }
 
-    pub fn practise(&self) -> usize {
+    pub fn practise(&self, filter: QuestionFilter) -> usize {
         let mut rng = rand::thread_rng();
         rng.gen_range(0, self.questions.len())
     }
@@ -356,6 +356,14 @@ impl Question {
         match self.history.last() {
             Some(entry) => entry.time_since(),
             None => None
+        }
+    }
+
+    pub fn filter(&self) -> QuestionFilter {
+        match (self.subsection, self.subsubsection) {
+            (0, 0) => QuestionFilter::All,
+            (ss, 0) => QuestionFilter::SubSection(ss - 1),
+            (ss, sss) => QuestionFilter::SubSubSection(ss - 1, sss - 1),
         }
     }
 }

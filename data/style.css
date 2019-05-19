@@ -10,15 +10,15 @@
 
 button.red {
     background-image: none;
-    background-color: #aa0000;
+    background-color: #fcd1d1;
 }
 
 button.yellow {
     background-image: none;
-    background-color: #aaaa00;
+    background-color: #ffe7b7;
 }
 
 button.green {
     background-image: none;
-    background-color: #00aa00;
+    background-color: #eeffb7;
 }
