@@ -161,6 +161,10 @@ impl SectionView {
     fn show_main(&self) {
         self.stack.set_visible_child_full("main", gtk::StackTransitionType::SlideRight);
     }
+
+    pub fn show(&self, child: &str, transition: gtk::StackTransitionType) {
+        self.stack.set_visible_child_full(child, transition);
+    }
 }
 
 impl View for SectionView {

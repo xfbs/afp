@@ -32,6 +32,21 @@ impl SectionController {
             self.view.set_label(section.short());
         }
     }
+
+    pub fn show_overview(&self) {
+        self.view.show("main", gtk::StackTransitionType::SlideRight);
+    }
+
+    pub fn show_practise(&self, num: usize) {
+        self.view.show("practise", gtk::StackTransitionType::SlideLeft);
+    }
+
+    pub fn activate_overview_buttons(&self) {
+        let controller = self.clone();
+        self.overview.setup_buttons(move |num| {
+            controller.show_practise(num);
+        });
+    }
 }
 
 impl Controller for SectionController {
@@ -42,6 +57,7 @@ impl Controller for SectionController {
 
     fn activate(&self) {
         self.overview.activate();
+        self.activate_overview_buttons();
         self.practise.activate();
         self.activate_label();
         self.view.add_named(self.overview.view(), "main");
