@@ -46,6 +46,18 @@ impl SectionController {
         self.overview.setup_buttons(move |num| {
             controller.show_practise(num);
         });
+
+        let controller = self.clone();
+        self.overview.view().connect_practise(move || {
+            let data = controller.data.borrow();
+            if let Some(section) = data.section(controller.index) {
+                let index = section.practise();
+                if let Some(question) = section.question(index) {
+                    controller.show_practise(index);
+                }
+            }
+            controller.show_practise(0);
+        });
     }
 }
 

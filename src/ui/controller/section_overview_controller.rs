@@ -26,7 +26,7 @@ impl SectionOverviewController {
 
     pub fn activate(&self) {
         self.activate_title();
-        //self.activate_buttons();
+        self.activate_buttons();
     }
 
     pub fn shutdown(&self) {
@@ -46,22 +46,20 @@ impl SectionOverviewController {
         // every time we show the view, update the color for the buttons.
         let controller = self.clone();
         self.view.widget().connect_map(move |_| {
-                    // set color of button.
-                    /*
-                    if let Some(child) = me.questions.get_child_at_index(i as i32) {
-                        if let Some(button) = child.get_child() {
-                            let style = button.get_style_context();
-                            style.remove_class("green");
-                            style.remove_class("yellow");
-                            style.remove_class("red");
-                            style.add_class(match question.state() {
-                                QuestionState::Green => "green",
-                                QuestionState::Yellow => "yellow",
-                                QuestionState::Red => "red"
-                            });
-                        }
+            let data = controller.data.borrow();
+                if let Some(section) = data.section(controller.index) {
+                    // go through all the questions
+                    for (i, question) in section.questions().iter().enumerate() {
+                        controller.view.button_remove_class(i, "green");
+                        controller.view.button_remove_class(i, "yellow");
+                        controller.view.button_remove_class(i, "green");
+                        controller.view.button_add_class(i, match question.state() {
+                            QuestionState::Green => "green",
+                            QuestionState::Yellow => "yellow",
+                            QuestionState::Red => "red"
+                        });
                     }
-                    */
+                }
         });
     }
 

@@ -82,6 +82,18 @@ impl SectionOverView {
         self.questions.add(&button);
         button
     }
+
+    pub fn connect_exam<F: Fn() + 'static>(&self, fun: F) {
+        self.exam.connect_clicked(move |_| {
+            fun();
+        });
+    }
+
+    pub fn connect_practise<F: Fn() + 'static>(&self, fun: F) {
+        self.practise.connect_clicked(move |_| {
+            fun();
+        });
+    }
 }
 
 impl View for SectionOverView {
