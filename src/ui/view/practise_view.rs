@@ -5,9 +5,10 @@ use std::cell::RefCell;
 use std::rc::Rc;
 use gtk::prelude::*;
 use crate::*;
+use crate::ui::*;
 
 #[derive(Clone)]
-pub struct QuestionView {
+pub struct PractiseView {
     body: gtk::Grid,
     title_box: gtk::Box,
     title: gtk::Label,
@@ -22,9 +23,9 @@ pub struct QuestionView {
     back: gtk::Button,
 }
 
-impl QuestionView {
-    pub fn new() -> QuestionView {
-        QuestionView {
+impl PractiseView {
+    pub fn new() -> PractiseView {
+        PractiseView {
             body: gtk::Grid::new(),
             title_box: gtk::Box::new(gtk::Orientation::Horizontal, 10),
             title: gtk::Label::new(None),
@@ -117,5 +118,11 @@ impl QuestionView {
     /// index of the choice, with 0 being the first (and correct) one always.
     pub fn connect_choose<F: Fn(usize, usize) + 'static>(&self, f: F) {
         *self.choose_fn.borrow_mut() = Some(Box::new(f));
+    }
+}
+
+impl View for PractiseView {
+    fn widget(&self) -> gtk::Widget {
+        self.body.clone().upcast()
     }
 }
