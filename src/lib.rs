@@ -3,7 +3,6 @@ extern crate serde;
 extern crate serde_yaml;
 
 use rand::seq::SliceRandom;
-use rand::Rng;
 use serde::{Deserialize, Serialize};
 use std::error::Error;
 use std::fs::File;

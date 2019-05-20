@@ -1,10 +1,7 @@
 extern crate gtk;
 
 use crate::ui::*;
-use crate::*;
 use gtk::prelude::*;
-use std::cell::RefCell;
-use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct SectionView {
@@ -28,7 +25,6 @@ impl SectionView {
         &self.label
     }
 
-    pub fn init(&self, ds: &Rc<RefCell<DataStore>>) {
         /*
         self.overview.init();
         self.stack.add_named(&self.overview.widget(), "main");
@@ -70,7 +66,6 @@ impl SectionView {
             }
         });
         */
-    }
 
     pub fn set_label(&self, label: &str) {
         self.label.set_text(label);

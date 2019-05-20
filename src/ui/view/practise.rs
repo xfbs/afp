@@ -2,10 +2,7 @@ extern crate glib;
 extern crate gtk;
 
 use crate::ui::*;
-use crate::*;
 use gtk::prelude::*;
-use std::cell::RefCell;
-use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct PractiseView {
@@ -124,7 +121,7 @@ impl PractiseView {
 
     /// Connect a closure to when a choice is made. The argument is the numeric
     /// index of the choice, with 0 being the first (and correct) one always.
-    pub fn connect_choose<F: Fn(usize, usize) + 'static>(&self, f: F) {}
+    pub fn connect_choose<F: Fn(usize, usize) + 'static>(&self, _f: F) {}
 }
 
 impl View for PractiseView {

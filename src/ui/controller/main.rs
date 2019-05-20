@@ -1,6 +1,5 @@
 use crate::ui::*;
 use crate::*;
-use gio::prelude::*;
 use gtk::prelude::*;
 use std::cell::RefCell;
 use std::rc::Rc;

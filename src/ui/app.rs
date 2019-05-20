@@ -62,12 +62,12 @@ impl App {
         let window = gtk::ApplicationWindow::new(&self.app);
         *self.window.borrow_mut() = Some(window.clone());
         self.main.activate();
-        self.setup_menu(&window);
+        self.setup_menu();
         self.setup_actions();
         self.main.add_window(&window);
     }
 
-    fn setup_menu(&self, window: &gtk::ApplicationWindow) {
+    fn setup_menu(&self) {
         let menu = gio::Menu::new();
         let menu_bar = gio::Menu::new();
         menu.append("About", "app.about");

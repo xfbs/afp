@@ -1,10 +1,7 @@
 extern crate gtk;
 
 use crate::ui::*;
-use crate::*;
 use gtk::prelude::*;
-use std::cell::RefCell;
-use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct SectionOverView {

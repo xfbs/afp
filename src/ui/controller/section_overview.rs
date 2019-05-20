@@ -55,7 +55,7 @@ impl SectionOverviewController {
                     controller.set_button_state(i, state);
                     i += 1;
 
-                    for (sss_id, sss) in ss.subsubsections().iter().enumerate() {
+                    for (sss_id, _) in ss.subsubsections().iter().enumerate() {
                         let state = section.state(QuestionFilter::SubSubSection(ss_id, sss_id));
                         controller.set_button_state(i, state);
                         i += 1;

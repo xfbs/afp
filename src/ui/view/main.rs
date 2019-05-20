@@ -2,12 +2,7 @@ extern crate gio;
 extern crate gtk;
 
 use crate::ui::view::*;
-use crate::ui::*;
-use crate::*;
-use gio::prelude::*;
 use gtk::prelude::*;
-use std::cell::RefCell;
-use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct MainView {
