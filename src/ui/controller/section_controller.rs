@@ -53,7 +53,8 @@ impl SectionController {
         let data = self.data.borrow();
         let filter = self.filter.get();
         if let Some(section) = data.section(self.index) {
-            let index = section.practise(filter);
+            // FIXME: error handling.
+            let index = section.practise(filter).unwrap();
             self.show_practise(index);
         }
     }

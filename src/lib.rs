@@ -252,9 +252,17 @@ impl Section {
         self.questions.get(n)
     }
 
-    pub fn practise(&self, filter: QuestionFilter) -> usize {
+    /// Find a question that might be a good candidate to practise that
+    /// matches the filter.
+    pub fn practise(&self, filter: QuestionFilter) -> Option<usize> {
+        let candidates = self.questions.iter()
+            .enumerate()
+            .filter(|(_, question)| filter.includes(question.filter()))
+            .map(|(index, _)| index)
+            .collect::<Vec<usize>>();
+
         let mut rng = rand::thread_rng();
-        rng.gen_range(0, self.questions.len())
+        candidates.choose(&mut rng).map(|v| *v)
     }
 
     pub fn subsection(&self, n: usize) -> Option<&SubSection> {
