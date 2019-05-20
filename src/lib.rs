@@ -255,7 +255,9 @@ impl Section {
     /// Find a question that might be a good candidate to practise that
     /// matches the filter.
     pub fn practise(&self, filter: QuestionFilter) -> Option<usize> {
-        let candidates = self.questions.iter()
+        let candidates = self
+            .questions
+            .iter()
             .enumerate()
             .filter(|(_, question)| filter.includes(question.filter()))
             .map(|(index, _)| index)
