@@ -1,13 +1,13 @@
-extern crate gtk;
 extern crate gio;
+extern crate gtk;
 
-use gtk::prelude::*;
-use gio::prelude::*;
-use std::rc::Rc;
-use std::cell::RefCell;
-use crate::*;
-use crate::ui::*;
 use crate::ui::view::*;
+use crate::ui::*;
+use crate::*;
+use gio::prelude::*;
+use gtk::prelude::*;
+use std::cell::RefCell;
+use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct MainView {
@@ -19,9 +19,7 @@ impl MainView {
         let area = gtk::Notebook::new();
         let overview = OverView::new();
 
-        MainView {
-            area: area,
-        }
+        MainView { area: area }
     }
 
     pub fn add_tab<T: View + Labeled>(&self, page: &T) {

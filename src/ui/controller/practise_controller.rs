@@ -1,8 +1,8 @@
 use crate::ui::*;
 use crate::*;
-use std::rc::Rc;
-use std::cell::RefCell;
 use gtk::prelude::*;
+use std::cell::RefCell;
+use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct PractiseController {
@@ -31,7 +31,8 @@ impl PractiseController {
                 if let Some(subsection) = section.subsection(question.subsection()) {
                     self.view.set_section(subsection.name());
 
-                    if let Some(subsubsection) = subsection.subsubsection(question.subsubsection()) {
+                    if let Some(subsubsection) = subsection.subsubsection(question.subsubsection())
+                    {
                         self.view.set_subsection(subsubsection.name());
                     }
                 }
@@ -58,9 +59,7 @@ impl Controller for PractiseController {
         self.view.setup();
     }
 
-    fn activate(&self) {
-    }
+    fn activate(&self) {}
 
-    fn shutdown(&self) {
-    }
+    fn shutdown(&self) {}
 }

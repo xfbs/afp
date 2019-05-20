@@ -1,9 +1,9 @@
-use std::cell::RefCell;
-use std::rc::Rc;
-use gtk::prelude::*;
-use gio::prelude::*;
 use crate::ui::*;
 use crate::*;
+use gio::prelude::*;
+use gtk::prelude::*;
+use std::cell::RefCell;
+use std::rc::Rc;
 use ui::view::View;
 
 #[derive(Clone)]
@@ -45,7 +45,10 @@ impl MainController {
     }
 
     fn load_data(&self) {
-        *self.data.borrow_mut() = DataStore::load(&std::path::PathBuf::from("/Users/pelsen/.config/afp/datastore.yml")).unwrap();
+        *self.data.borrow_mut() = DataStore::load(&std::path::PathBuf::from(
+            "/Users/pelsen/.config/afp/datastore.yml",
+        ))
+        .unwrap();
     }
 
     fn activate_overview(&self) {

@@ -1,8 +1,8 @@
 use crate::ui::*;
 use crate::*;
-use std::rc::Rc;
-use std::cell::RefCell;
 use std::cell::Cell;
+use std::cell::RefCell;
+use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct SectionController {
@@ -44,7 +44,8 @@ impl SectionController {
     /// Switch to the practise view.
     pub fn show_practise(&self, num: usize) {
         self.practise.show(num);
-        self.view.show("practise", gtk::StackTransitionType::SlideLeft);
+        self.view
+            .show("practise", gtk::StackTransitionType::SlideLeft);
     }
 
     /// Switch to the practise view with a (suggested) question.
@@ -74,7 +75,7 @@ impl SectionController {
             controller.show_next_practise();
         });
     }
-    
+
     fn activate_views(&self) {
         self.view.add_named(self.overview.view(), "main");
         self.view.add_named(self.practise.view(), "practise");

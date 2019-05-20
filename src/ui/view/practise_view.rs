@@ -1,11 +1,11 @@
-extern crate gtk;
 extern crate glib;
+extern crate gtk;
 
+use crate::ui::*;
+use crate::*;
+use gtk::prelude::*;
 use std::cell::RefCell;
 use std::rc::Rc;
-use gtk::prelude::*;
-use crate::*;
-use crate::ui::*;
 
 #[derive(Clone)]
 pub struct PractiseView {
@@ -102,14 +102,14 @@ impl PractiseView {
     fn get_answer_button(&self, row: usize) -> Option<gtk::Button> {
         match self.answers.get_child_at(0, row as i32) {
             Some(widget) => widget.downcast().ok(),
-            None => None
+            None => None,
         }
     }
 
     fn get_answer_label(&self, row: usize) -> Option<gtk::Label> {
         match self.answers.get_child_at(1, row as i32) {
             Some(widget) => widget.downcast().ok(),
-            None => None
+            None => None,
         }
     }
 
@@ -124,8 +124,7 @@ impl PractiseView {
 
     /// Connect a closure to when a choice is made. The argument is the numeric
     /// index of the choice, with 0 being the first (and correct) one always.
-    pub fn connect_choose<F: Fn(usize, usize) + 'static>(&self, f: F) {
-    }
+    pub fn connect_choose<F: Fn(usize, usize) + 'static>(&self, f: F) {}
 }
 
 impl View for PractiseView {

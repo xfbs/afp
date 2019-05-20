@@ -1,7 +1,7 @@
 use crate::ui::*;
 use crate::*;
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct OverviewController {
@@ -17,16 +17,14 @@ impl OverviewController {
         }
     }
 
-    pub fn startup(&self) {
-    }
+    pub fn startup(&self) {}
 
     pub fn activate(&self) {
         self.view.init(&self.data.borrow());
         self.view.update(&self.data.borrow());
     }
 
-    pub fn shutdown(&self) {
-    }
+    pub fn shutdown(&self) {}
 
     pub fn view(&self) -> &OverView {
         &self.view

@@ -7,4 +7,3 @@ fn main() {
     app.init();
     app.run();
 }
-

@@ -1,23 +1,23 @@
+extern crate rand;
 extern crate serde;
 extern crate serde_yaml;
-extern crate rand;
 
-use serde::{Serialize, Deserialize};
+use rand::seq::SliceRandom;
+use rand::Rng;
+use serde::{Deserialize, Serialize};
 use std::error::Error;
 use std::fs::File;
 use std::io::BufReader;
 use std::path::Path;
 use std::path::PathBuf;
-use std::time::{SystemTime, Duration};
-use rand::Rng;
-use rand::seq::SliceRandom;
+use std::time::{Duration, SystemTime};
 
 pub mod ui;
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct History {
     time: SystemTime,
-    choice: usize
+    choice: usize,
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -27,7 +27,7 @@ pub struct Question {
     answers: Vec<String>,
     subsection: usize,
     subsubsection: usize,
-    history: Vec<History>
+    history: Vec<History>,
 }
 
 #[derive(Debug, PartialEq)]
@@ -39,7 +39,7 @@ pub enum QuestionState {
     Yellow,
 
     /// corrent three times last three attampts
-    Green
+    Green,
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -71,12 +71,12 @@ pub struct SubSubSection {
 #[derive(Debug, Clone)]
 pub struct DataStore {
     sections: Vec<Section>,
-    filename: PathBuf
+    filename: PathBuf,
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 struct DataStoreFile {
-    sections: Vec<DataStoreFileSection>
+    sections: Vec<DataStoreFileSection>,
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
@@ -84,13 +84,13 @@ struct DataStoreFileSection {
     name: String,
     short: String,
     questions: Vec<DataStoreQuestion>,
-    subsections: Vec<DataStoreSubSection>
+    subsections: Vec<DataStoreSubSection>,
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 struct DataStoreSubSection {
     name: String,
-    subsubsections: Vec<String>
+    subsubsections: Vec<String>,
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
@@ -100,13 +100,13 @@ struct DataStoreQuestion {
     answers: Vec<String>,
     subsection: usize,
     subsubsection: usize,
-    history: Vec<DataStoreHistory>
+    history: Vec<DataStoreHistory>,
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 struct DataStoreHistory {
     time: u64,
-    choice: usize
+    choice: usize,
 }
 
 impl QuestionFilter {
@@ -131,8 +131,16 @@ impl DataStoreFileSection {
         Ok(Section {
             name: self.name,
             short: self.short,
-            questions: self.questions.into_iter().map(|s| s.load().unwrap()).collect(),
-            subsections: self.subsections.into_iter().map(|s| s.load().unwrap()).collect(),
+            questions: self
+                .questions
+                .into_iter()
+                .map(|s| s.load().unwrap())
+                .collect(),
+            subsections: self
+                .subsections
+                .into_iter()
+                .map(|s| s.load().unwrap())
+                .collect(),
         })
     }
 }
@@ -141,7 +149,11 @@ impl DataStoreSubSection {
     fn load(self) -> Result<SubSection, Box<Error>> {
         Ok(SubSection {
             name: self.name,
-            subsubsections: self.subsubsections.into_iter().map(|s| SubSubSection {name: s}).collect(),
+            subsubsections: self
+                .subsubsections
+                .into_iter()
+                .map(|s| SubSubSection { name: s })
+                .collect(),
         })
     }
 }
@@ -154,7 +166,11 @@ impl DataStoreQuestion {
             answers: self.answers,
             subsection: self.subsection,
             subsubsection: self.subsubsection,
-            history: self.history.into_iter().map(|s| s.load().unwrap()).collect()
+            history: self
+                .history
+                .into_iter()
+                .map(|s| s.load().unwrap())
+                .collect(),
         })
     }
 }
@@ -163,11 +179,10 @@ impl DataStoreHistory {
     fn load(self) -> Result<History, Box<Error>> {
         Ok(History {
             time: SystemTime::UNIX_EPOCH + Duration::from_secs(self.time),
-            choice: self.choice
+            choice: self.choice,
         })
     }
 }
-
 
 impl DataStore {
     pub fn new() -> DataStore {
@@ -184,13 +199,12 @@ impl DataStore {
 
         Ok(DataStore {
             // FIXME: error handling.
-            sections: ds.sections.into_iter().map(|s| s.load().unwrap()).collect(), 
-            filename: path.to_path_buf()
+            sections: ds.sections.into_iter().map(|s| s.load().unwrap()).collect(),
+            filename: path.to_path_buf(),
         })
     }
 
-    pub fn save_as(&self, _path: &Path) {
-    }
+    pub fn save_as(&self, _path: &Path) {}
 
     pub fn save(&self) {
         self.save_as(&self.filename)
@@ -272,14 +286,15 @@ impl Section {
             .for_each(|question| match question.state() {
                 QuestionState::Green => {
                     has_non_red = true;
-                },
+                }
                 QuestionState::Yellow => {
                     has_non_red = true;
                     is_all_green = false;
-                },
+                }
                 QuestionState::Red => {
                     is_all_green = false;
-                }});
+                }
+            });
 
         match (has_non_red, is_all_green) {
             (true, true) => QuestionState::Green,
@@ -295,7 +310,7 @@ impl SubSection {
         &self.name
     }
 
-    /// Retrieves a subsubsection. 
+    /// Retrieves a subsubsection.
     pub fn subsubsection(&self, n: usize) -> Option<&SubSubSection> {
         if n == 0 {
             None
@@ -352,7 +367,9 @@ impl Question {
 
     /// State (if the questions is considered to be answered correctly).
     pub fn state(&self) -> QuestionState {
-        let correct_of_last_three = self.history.iter()
+        let correct_of_last_three = self
+            .history
+            .iter()
             .rev()
             .take(3)
             .map(|h| h.correct())
@@ -362,7 +379,7 @@ impl Question {
         match correct_of_last_three {
             3 => QuestionState::Green,
             0 => QuestionState::Red,
-            _ => QuestionState::Yellow
+            _ => QuestionState::Yellow,
         }
     }
 
@@ -370,7 +387,7 @@ impl Question {
     pub fn stale_time(&self) -> Option<Duration> {
         match self.history.last() {
             Some(entry) => entry.time_since(),
-            None => None
+            None => None,
         }
     }
 
@@ -387,7 +404,7 @@ impl History {
     pub fn new(time: SystemTime, choice: usize) -> History {
         History {
             time: time,
-            choice: choice
+            choice: choice,
         }
     }
 
@@ -410,7 +427,7 @@ impl History {
     pub fn time_since(&self) -> Option<Duration> {
         match self.time.elapsed() {
             Ok(duration) => Some(duration),
-            _ => None
+            _ => None,
         }
     }
 }
@@ -433,8 +450,14 @@ fn test_check_sections() {
     let ds = DataStore::load(&d).ok().unwrap();
 
     assert_eq!(ds.sections.len(), 4);
-    assert_eq!(ds.section(0).unwrap().name(), "Technische Kenntnisse der Klasse E");
-    assert_eq!(ds.section(1).unwrap().name(), "Technische Kenntnisse der Klasse A");
+    assert_eq!(
+        ds.section(0).unwrap().name(),
+        "Technische Kenntnisse der Klasse E"
+    );
+    assert_eq!(
+        ds.section(1).unwrap().name(),
+        "Technische Kenntnisse der Klasse A"
+    );
     assert_eq!(ds.section(2).unwrap().name(), "Betriebliche Kenntnisse");
     assert_eq!(ds.section(3).unwrap().name(), "Kenntnisse von Vorschriften");
 
@@ -457,15 +480,36 @@ fn test_check_questions() {
 
     assert_eq!(ds.section(0).unwrap().questions().len(), 4);
     assert_eq!(ds.section(0).unwrap().questions()[0].id(), "TA101");
-    assert_eq!(ds.section(0).unwrap().questions()[0].question(), "0,042 A entspricht");
+    assert_eq!(
+        ds.section(0).unwrap().questions()[0].question(),
+        "0,042 A entspricht"
+    );
     //assert_eq!(ds.section(0).unwrap().questions()[0].subsection(), "Allgemeine mathematische Grundkenntnisse und Größen");
     //assert_eq!(ds.section(0).unwrap().questions()[0].subsubsection(), "Allgemeine mathematische Grundkenntnisse");
-    assert_eq!(ds.section(0).unwrap().questions()[0].answers(), &vec!["40", "41", "42", "43"].into_iter().map(String::from).collect() as &Vec<String>);
+    assert_eq!(
+        ds.section(0).unwrap().questions()[0].answers(),
+        &vec!["40", "41", "42", "43"]
+            .into_iter()
+            .map(String::from)
+            .collect() as &Vec<String>
+    );
 
-    assert_eq!(ds.section(0).unwrap().questions()[0].state(), QuestionState::Red);
-    assert_eq!(ds.section(0).unwrap().questions()[1].state(), QuestionState::Red);
-    assert_eq!(ds.section(0).unwrap().questions()[2].state(), QuestionState::Yellow);
-    assert_eq!(ds.section(0).unwrap().questions()[3].state(), QuestionState::Green);
+    assert_eq!(
+        ds.section(0).unwrap().questions()[0].state(),
+        QuestionState::Red
+    );
+    assert_eq!(
+        ds.section(0).unwrap().questions()[1].state(),
+        QuestionState::Red
+    );
+    assert_eq!(
+        ds.section(0).unwrap().questions()[2].state(),
+        QuestionState::Yellow
+    );
+    assert_eq!(
+        ds.section(0).unwrap().questions()[3].state(),
+        QuestionState::Green
+    );
 }
 
 #[test]

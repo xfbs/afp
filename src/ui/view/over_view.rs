@@ -1,12 +1,12 @@
-extern crate gtk;
 extern crate gio;
+extern crate gtk;
 
+use crate::ui::view::*;
+use crate::*;
 use gtk::prelude::*;
+use std::cell::RefCell;
 use std::f64::consts::PI;
 use std::rc::Rc;
-use std::cell::RefCell;
-use crate::*;
-use crate::ui::view::*;
 
 #[derive(Clone)]
 pub struct OverView {
@@ -52,7 +52,8 @@ impl OverView {
         self.title.set_text("Übersicht");
         self.title.get_style_context().add_class("title");
         self.title.set_hexpand(true);
-        self.body.attach(&self.title, 0, 0, datastore.sections().len() as i32, 1);
+        self.body
+            .attach(&self.title, 0, 0, datastore.sections().len() as i32, 1);
 
         for (i, _section) in datastore.sections().iter().enumerate() {
             let label = gtk::Label::new(None);
@@ -72,7 +73,9 @@ impl OverView {
         for (i, section) in datastore.sections().iter().enumerate() {
             // title
             self.section_labels.borrow()[i].set_text(section.short());
-            self.section_labels.borrow()[i].get_style_context().add_class("subtitle");
+            self.section_labels.borrow()[i]
+                .get_style_context()
+                .add_class("subtitle");
 
             let count = section.count();
             let count_green = section.count_by_state(QuestionState::Green);
@@ -92,11 +95,13 @@ impl OverView {
                 cairo.translate(-width / 2.0, -height / 2.0);
                 cairo.set_line_width(lwidth);
                 let draw_part = |cairo: &cairo::Context, start: f64, stop: f64| {
-                    cairo.arc(width / 2.0 + 0.5 * lwidth,
-                              height / 2.0,
-                              width / 2.0 - lwidth, 
-                              start * 2.0 * PI, 
-                              stop * 2.0 *  PI);
+                    cairo.arc(
+                        width / 2.0 + 0.5 * lwidth,
+                        height / 2.0,
+                        width / 2.0 - lwidth,
+                        start * 2.0 * PI,
+                        stop * 2.0 * PI,
+                    );
                 };
 
                 if count > 0 {
