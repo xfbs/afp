@@ -115,8 +115,8 @@ sections:
           - time: 300
             choice: 1
       - id: "TD101"
-        subsection: 1
-        subsubsection: 3
+        subsection: 2
+        subsubsection: 1
         question: "0,042 A entspricht"
         answers:
           - "40"

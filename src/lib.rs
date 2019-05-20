@@ -109,6 +109,22 @@ struct DataStoreHistory {
     choice: usize
 }
 
+impl QuestionFilter {
+    pub fn includes(self, other: QuestionFilter) -> bool {
+        match self {
+            QuestionFilter::All => true,
+            QuestionFilter::SubSection(ss) => match other {
+                QuestionFilter::SubSection(ssp) => ss == ssp,
+                QuestionFilter::SubSubSection(ssp, _) => ss == ssp,
+                _ => false,
+            },
+            QuestionFilter::SubSubSection(ss, sss) => match other {
+                QuestionFilter::SubSubSection(ssp, sssp) => ss == ssp && sss == sssp,
+                _ => false,
+            },
+        }
+    }
+}
 
 impl DataStoreFileSection {
     fn load(self) -> Result<Section, Box<Error>> {
@@ -246,14 +262,13 @@ impl Section {
         }
     }
 
-    pub fn state(&self, ss: usize, sss: usize) -> QuestionState {
+    pub fn state(&self, filter: QuestionFilter) -> QuestionState {
         let mut has_non_red = false;
         let mut is_all_green = true;
 
         self.questions()
             .iter()
-            .filter(|question| question.subsection() == ss)
-            .filter(|question| question.subsubsection() == sss)
+            .filter(|question| filter.includes(question.filter()))
             .for_each(|question| match question.state() {
                 QuestionState::Green => {
                     has_non_red = true;
