@@ -1,14 +1,14 @@
-mod main_view;
-mod over_view;
-mod practise_view;
-mod section_over_view;
-mod section_view;
+mod main;
+mod overview;
+mod section;
+mod section_overview;
+mod practise;
 
-pub use main_view::*;
-pub use over_view::*;
-pub use practise_view::*;
-pub use section_over_view::*;
-pub use section_view::*;
+pub use main::*;
+pub use overview::*;
+pub use section::*;
+pub use practise::*;
+pub use section_overview::*;
 
 pub trait View {
     fn widget(&self) -> gtk::Widget;

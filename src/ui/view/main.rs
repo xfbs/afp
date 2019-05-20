@@ -16,10 +16,7 @@ pub struct MainView {
 
 impl MainView {
     pub fn new() -> MainView {
-        let area = gtk::Notebook::new();
-        let overview = OverView::new();
-
-        MainView { area: area }
+        MainView { area: gtk::Notebook::new() }
     }
 
     pub fn add_tab<T: View + Labeled>(&self, page: &T) {

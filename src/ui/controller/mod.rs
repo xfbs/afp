@@ -1,14 +1,14 @@
-mod main_controller;
-mod overview_controller;
-mod practise_controller;
-mod section_controller;
-mod section_overview_controller;
+mod main;
+mod overview;
+mod practise;
+mod section;
+mod section_overview;
 
-pub use main_controller::*;
-pub use overview_controller::*;
-pub use practise_controller::*;
-pub use section_controller::*;
-pub use section_overview_controller::*;
+pub use main::*;
+pub use overview::*;
+pub use practise::*;
+pub use section::*;
+pub use section_overview::*;
 
 pub trait Controller {
     fn startup(&self);
