@@ -25,47 +25,47 @@ impl SectionView {
         &self.label
     }
 
-        /*
-        self.overview.init();
-        self.stack.add_named(&self.overview.widget(), "main");
+    /*
+    self.overview.init();
+    self.stack.add_named(&self.overview.widget(), "main");
 
-        self.question.init(ds);
-        self.stack.add_named(self.question.widget(), "question");
+    self.question.init(ds);
+    self.stack.add_named(self.question.widget(), "question");
 
-        // connect the back button of the question.
-        let me = self.clone();
-        self.question.connect_back(move |_| {
-            me.show_main();
-        });
+    // connect the back button of the question.
+    let me = self.clone();
+    self.question.connect_back(move |_| {
+        me.show_main();
+    });
 
-        let me = self.clone();
-        let ds: Rc<RefCell<DataStore>> = ds.clone();
-        self.question.connect_choose(move |question, choice| {
-            println!("choose: {} {}", question, choice);
+    let me = self.clone();
+    let ds: Rc<RefCell<DataStore>> = ds.clone();
+    self.question.connect_choose(move |question, choice| {
+        println!("choose: {} {}", question, choice);
 
-            let mut ds = ds.borrow_mut();
-            match ds.section_mut(me.index) {
-                Some(section) => {
-                    match section.question_mut(question) {
-                        Some(question) => {
-                            question.answer(choice);
-                        },
-                        None => panic!(),
+        let mut ds = ds.borrow_mut();
+        match ds.section_mut(me.index) {
+            Some(section) => {
+                match section.question_mut(question) {
+                    Some(question) => {
+                        question.answer(choice);
+                    },
+                    None => panic!(),
+                }
+
+                if choice == 0 {
+                    let next = section.practise();
+                    if let Some(question) = section.question(next) {
+                        me.show_question(next, question);
+                    } else {
+                        me.show_main();
                     }
-
-                    if choice == 0 {
-                        let next = section.practise();
-                        if let Some(question) = section.question(next) {
-                            me.show_question(next, question);
-                        } else {
-                            me.show_main();
-                        }
-                    }
-                },
-                None => panic!(),
-            }
-        });
-        */
+                }
+            },
+            None => panic!(),
+        }
+    });
+    */
 
     pub fn set_label(&self, label: &str) {
         self.label.set_text(label);
