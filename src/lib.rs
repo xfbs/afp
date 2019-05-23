@@ -6,7 +6,9 @@ use rand::seq::SliceRandom;
 use serde::{Deserialize, Serialize};
 use std::error::Error;
 use std::fs::File;
-use std::io::BufReader;
+use std::fs::OpenOptions;
+use std::io::prelude::*;
+use std::io::{BufReader, BufWriter};
 use std::path::Path;
 use std::path::PathBuf;
 use std::time::{Duration, SystemTime};
@@ -286,18 +288,15 @@ impl DataStore {
         })
     }
 
-    fn to_file(&self) -> DataStoreFile {
-        self.into()
+    pub fn save_as(&self, path: &Path) -> Result<(), std::io::Error> {
+        let file = OpenOptions::new().write(true).create_new(true).open(path)?;
+        let writer = BufWriter::new(&file);
+        let data: DataStoreFile = self.into();
+        serde_yaml::to_writer(writer, &data).unwrap();
+        Ok(())
     }
 
-    fn to_string(&self) -> Result<String, serde_yaml::Error> {
-        let dsf = self.to_file();
-        serde_yaml::to_string(&dsf)
-    }
-
-    pub fn save_as(&self, _path: &Path) {}
-
-    pub fn save(&self) {
+    pub fn save(&self) -> Result<(), std::io::Error> {
         self.save_as(&self.filename)
     }
 

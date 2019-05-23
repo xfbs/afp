@@ -41,6 +41,10 @@ impl MainController {
 
     pub fn shutdown(&self) {
         self.overview.shutdown();
+        self.data
+            .borrow()
+            .save()
+            .unwrap_or_else(|_| panic!("error saving file!"));
     }
 
     fn load_data(&self) {
