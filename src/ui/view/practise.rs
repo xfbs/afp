@@ -3,9 +3,9 @@ extern crate gtk;
 
 use crate::ui::*;
 use gtk::prelude::*;
-use std::rc::Rc;
 use std::cell::Cell;
 use std::cell::RefCell;
+use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct PractiseView {
@@ -99,6 +99,7 @@ impl PractiseView {
 
         if let Some(button) = self.get_answer_button(row) {
             button.show();
+            button.get_style_context().remove_class("red");
             button.set_label(btn);
         }
 

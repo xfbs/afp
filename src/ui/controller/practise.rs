@@ -1,14 +1,15 @@
 use crate::ui::*;
 use crate::*;
-use std::cell::RefCell;
-use std::rc::Rc;
 use gtk::prelude::*;
+use std::cell::{Cell, RefCell};
+use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct PractiseController {
     index: usize,
     view: PractiseView,
     data: Rc<RefCell<DataStore>>,
+    filter: Rc<Cell<QuestionFilter>>,
 }
 
 impl PractiseController {
@@ -17,6 +18,7 @@ impl PractiseController {
             index: index,
             view: PractiseView::new(),
             data: data.clone(),
+            filter: Rc::new(Cell::new(QuestionFilter::All)),
         }
     }
 
@@ -24,9 +26,11 @@ impl PractiseController {
         &self.view
     }
 
-    pub fn show(&self, index: usize) {
+    pub fn show(&self) {
         let data = self.data.borrow();
         if let Some(section) = data.section(self.index) {
+            // FIXME error handling?
+            let index = section.practise(self.filter.get()).unwrap();
             if let Some(question) = section.question(index) {
                 if let Some(subsection) = section.subsection(question.subsection()) {
                     self.view.set_section(subsection.name());
@@ -54,11 +58,19 @@ impl PractiseController {
     }
 
     pub fn activate_choose(&self) {
+        let me = self.clone();
         self.view.connect_choose(move |button, index| {
             if index != 0 {
+                // answer is wrong. mark button.
                 button.get_style_context().add_class("red");
+            } else {
+                me.show();
             }
         });
+    }
+
+    pub fn set_filter(&self, filter: QuestionFilter) {
+        self.filter.set(filter);
     }
 }
 

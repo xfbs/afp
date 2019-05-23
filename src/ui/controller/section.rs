@@ -42,38 +42,23 @@ impl SectionController {
     }
 
     /// Switch to the practise view.
-    pub fn show_practise(&self, num: usize) {
-        self.practise.show(num);
+    pub fn show_practise(&self) {
+        self.practise.show();
         self.view
             .show("practise", gtk::StackTransitionType::SlideLeft);
-    }
-
-    /// Switch to the practise view with a (suggested) question.
-    pub fn show_next_practise(&self) {
-        let data = self.data.borrow();
-        let filter = self.filter.get();
-        if let Some(section) = data.section(self.index) {
-            // FIXME: error handling.
-            let index = section.practise(filter).unwrap();
-            self.show_practise(index);
-        }
-    }
-
-    fn set_filter(&self, filter: QuestionFilter) {
-        self.filter.set(filter);
     }
 
     fn activate_overview_buttons(&self) {
         let controller = self.clone();
         self.overview.setup_buttons(move |filter| {
-            controller.set_filter(filter);
-            controller.show_next_practise();
+            controller.practise.set_filter(filter);
+            controller.show_practise();
         });
 
         let controller = self.clone();
         self.overview.view().connect_practise(move || {
-            controller.set_filter(QuestionFilter::All);
-            controller.show_next_practise();
+            controller.practise.set_filter(QuestionFilter::All);
+            controller.show_practise();
         });
     }
 
