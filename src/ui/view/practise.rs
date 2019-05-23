@@ -3,7 +3,6 @@ extern crate gtk;
 
 use crate::ui::*;
 use gtk::prelude::*;
-use std::cell::Cell;
 use std::cell::RefCell;
 use std::rc::Rc;
 
