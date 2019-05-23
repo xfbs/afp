@@ -18,7 +18,7 @@ pub struct PractiseView {
     question: gtk::Label,
     answers: gtk::Grid,
     back: gtk::Button,
-    answer_fn: Rc<RefCell<Option<Box<dyn Fn(usize)>>>>,
+    answer_fn: Rc<RefCell<Option<Box<dyn Fn(&gtk::Button, usize)>>>>,
 }
 
 impl PractiseView {
@@ -82,10 +82,10 @@ impl PractiseView {
         if self.answers.get_child_at(0, row as i32).is_none() {
             let button = gtk::Button::new();
             let me = self.clone();
-            button.connect_clicked(move |_| {
+            button.connect_clicked(move |button| {
                 let answer_fn = me.answer_fn.borrow();
                 if let Some(ref fun) = *answer_fn {
-                    fun(row);
+                    fun(button, row);
                 }
             });
             self.answers.attach(&button, 0, row as i32, 1, 1);
@@ -133,7 +133,9 @@ impl PractiseView {
 
     /// Connect a closure to when a choice is made. The argument is the numeric
     /// index of the choice, with 0 being the first (and correct) one always.
-    pub fn connect_choose<F: Fn(usize, usize) + 'static>(&self, _f: F) {}
+    pub fn connect_choose<F: Fn(&gtk::Button, usize) + 'static>(&self, f: F) {
+        *self.answer_fn.borrow_mut() = Some(Box::new(f));
+    }
 }
 
 impl View for PractiseView {

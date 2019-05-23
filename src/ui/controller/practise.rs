@@ -51,6 +51,12 @@ impl PractiseController {
             fun();
         });
     }
+
+    pub fn connect_choose<F: Fn(usize) + 'static>(&self, fun: F) {
+        self.view.connect_choose(move |_button, index| {
+            fun(index);
+        });
+    }
 }
 
 impl Controller for PractiseController {
