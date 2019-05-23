@@ -128,6 +128,14 @@ impl QuestionFilter {
     }
 }
 
+impl DataStoreFile {
+    fn import(ds: &DataStore) -> DataStoreFile {
+        DataStoreFile {
+            sections: vec![]
+        }
+    }
+}
+
 impl DataStoreFileSection {
     fn load(self) -> Result<Section, Box<Error>> {
         Ok(Section {
@@ -204,6 +212,15 @@ impl DataStore {
             sections: ds.sections.into_iter().map(|s| s.load().unwrap()).collect(),
             filename: path.to_path_buf(),
         })
+    }
+
+    fn to_file(&self) -> DataStoreFile {
+        DataStoreFile::import(&self)
+    }
+
+    fn to_string(&self) -> Result<String, serde_yaml::Error> {
+        let dsf = self.to_file();
+        serde_yaml::to_string(&dsf)
     }
 
     pub fn save_as(&self, _path: &Path) {}
@@ -496,8 +513,6 @@ fn test_check_questions() {
         ds.section(0).unwrap().questions()[0].question(),
         "0,042 A entspricht"
     );
-    //assert_eq!(ds.section(0).unwrap().questions()[0].subsection(), "Allgemeine mathematische Grundkenntnisse und Größen");
-    //assert_eq!(ds.section(0).unwrap().questions()[0].subsubsection(), "Allgemeine mathematische Grundkenntnisse");
     assert_eq!(
         ds.section(0).unwrap().questions()[0].answers(),
         &vec!["40", "41", "42", "43"]
