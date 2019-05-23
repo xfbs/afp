@@ -68,8 +68,10 @@ impl PractiseController {
     pub fn activate_choose(&self) {
         let me = self.clone();
         self.view.connect_choose(move |button, index| {
-            // record answer
             {
+                // record answer (in a different scope so the borrowed mut
+                // data doesn't prevent it from being able to borrow it as
+                // immutable later).
                 let mut data = me.data.borrow_mut();
                 if let Some(section) = data.section_mut(me.section) {
                     if let Some(question) = section.question_mut(me.question.get()) {
