@@ -128,9 +128,15 @@ impl QuestionFilter {
     }
 }
 
-impl DataStoreFile {
-    fn import(ds: &DataStore) -> DataStoreFile {
-        DataStoreFile { sections: vec![] }
+impl From<&DataStore> for DataStoreFile {
+    fn from(datastore: &DataStore) -> DataStoreFile {
+        DataStoreFile {
+            sections: datastore
+                .sections
+                .iter()
+                .map(|section| section.into())
+                .collect(),
+        }
     }
 }
 
@@ -153,6 +159,55 @@ impl DataStoreFileSection {
     }
 }
 
+impl From<&Section> for DataStoreFileSection {
+    fn from(section: &Section) -> DataStoreFileSection {
+        DataStoreFileSection {
+            name: section.name().into(),
+            short: section.short().into(),
+            questions: section
+                .questions()
+                .iter()
+                .map(|question| question.into())
+                .collect(),
+            subsections: section
+                .subsections()
+                .iter()
+                .map(|subsection| subsection.into())
+                .collect(),
+        }
+    }
+}
+
+impl From<&Question> for DataStoreQuestion {
+    fn from(question: &Question) -> Self {
+        DataStoreQuestion {
+            id: question.id().into(),
+            question: question.question().into(),
+            answers: question.answers().clone(),
+            subsection: question.subsection(),
+            subsubsection: question.subsubsection(),
+            history: question
+                .history()
+                .iter()
+                .map(|history| history.into())
+                .collect(),
+        }
+    }
+}
+
+impl From<&History> for DataStoreHistory {
+    fn from(history: &History) -> Self {
+        DataStoreHistory {
+            time: history
+                .time()
+                .duration_since(SystemTime::UNIX_EPOCH)
+                .map(|time| time.as_secs())
+                .unwrap_or(0),
+            choice: history.choice(),
+        }
+    }
+}
+
 impl DataStoreSubSection {
     fn load(self) -> Result<SubSection, Box<Error>> {
         Ok(SubSection {
@@ -163,6 +218,25 @@ impl DataStoreSubSection {
                 .map(|s| SubSubSection { name: s })
                 .collect(),
         })
+    }
+}
+
+impl From<&SubSection> for DataStoreSubSection {
+    fn from(subsection: &SubSection) -> Self {
+        DataStoreSubSection {
+            name: subsection.name().into(),
+            subsubsections: subsection
+                .subsubsections()
+                .iter()
+                .map(|subsubsection| subsubsection.into())
+                .collect(),
+        }
+    }
+}
+
+impl From<&SubSubSection> for String {
+    fn from(subsubsection: &SubSubSection) -> String {
+        subsubsection.name().into()
     }
 }
 
@@ -213,7 +287,7 @@ impl DataStore {
     }
 
     fn to_file(&self) -> DataStoreFile {
-        DataStoreFile::import(&self)
+        self.into()
     }
 
     fn to_string(&self) -> Result<String, serde_yaml::Error> {
@@ -424,6 +498,10 @@ impl Question {
             (ss, 0) => QuestionFilter::SubSection(ss - 1),
             (ss, sss) => QuestionFilter::SubSubSection(ss - 1, sss - 1),
         }
+    }
+
+    pub fn history(&self) -> &Vec<History> {
+        &self.history
     }
 }
 
