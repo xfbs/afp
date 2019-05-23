@@ -3,6 +3,9 @@ extern crate gtk;
 
 use crate::ui::*;
 use gtk::prelude::*;
+use std::rc::Rc;
+use std::cell::Cell;
+use std::cell::RefCell;
 
 #[derive(Clone)]
 pub struct PractiseView {
@@ -15,6 +18,7 @@ pub struct PractiseView {
     question: gtk::Label,
     answers: gtk::Grid,
     back: gtk::Button,
+    answer_fn: Rc<RefCell<Option<Box<dyn Fn(usize)>>>>,
 }
 
 impl PractiseView {
@@ -29,6 +33,7 @@ impl PractiseView {
             answers: gtk::Grid::new(),
             question: gtk::Label::new(None),
             back: gtk::Button::new_from_icon_name("go-previous", gtk::IconSize::Button),
+            answer_fn: Rc::new(RefCell::new(None)),
         }
     }
 
@@ -76,6 +81,13 @@ impl PractiseView {
     pub fn add_answer(&self, row: usize) {
         if self.answers.get_child_at(0, row as i32).is_none() {
             let button = gtk::Button::new();
+            let me = self.clone();
+            button.connect_clicked(move |_| {
+                let answer_fn = me.answer_fn.borrow();
+                if let Some(ref fun) = *answer_fn {
+                    fun(row);
+                }
+            });
             self.answers.attach(&button, 0, row as i32, 1, 1);
             let label = gtk::Label::new(None);
             self.answers.attach(&label, 1, row as i32, 4, 1);
