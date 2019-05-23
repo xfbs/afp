@@ -32,7 +32,8 @@ impl PractiseController {
         let data = self.data.borrow();
         if let Some(section) = data.section(self.section) {
             // get new question
-            section.practise(self.filter.get())
+            section
+                .practise(self.filter.get())
                 .map(|question| self.question.set(question))
                 .unwrap_or_else(|| panic!("can't load question!"));
 
