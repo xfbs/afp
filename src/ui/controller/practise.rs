@@ -7,6 +7,7 @@ use std::rc::Rc;
 #[derive(Clone)]
 pub struct PractiseController {
     section: usize,
+    question: Rc<Cell<usize>>,
     view: PractiseView,
     data: Rc<RefCell<DataStore>>,
     filter: Rc<Cell<QuestionFilter>>,
@@ -16,6 +17,7 @@ impl PractiseController {
     pub fn new(data: &Rc<RefCell<DataStore>>, section: usize) -> PractiseController {
         PractiseController {
             section: section,
+            question: Rc::new(Cell::new(0)),
             view: PractiseView::new(),
             data: data.clone(),
             filter: Rc::new(Cell::new(QuestionFilter::All)),
@@ -29,9 +31,15 @@ impl PractiseController {
     pub fn show(&self) {
         let data = self.data.borrow();
         if let Some(section) = data.section(self.section) {
-            // FIXME error handling?
-            let index = section.practise(self.filter.get()).unwrap();
-            if let Some(question) = section.question(index) {
+            // get new question
+            if let Some(question) = section.practise(self.filter.get()) {
+                self.question.set(question);
+            } else {
+                panic!("can't load question!");
+            }
+
+            // display question
+            if let Some(question) = section.question(self.question.get()) {
                 if let Some(subsection) = section.subsection(question.subsection()) {
                     self.view.set_section(subsection.name());
 
@@ -60,6 +68,17 @@ impl PractiseController {
     pub fn activate_choose(&self) {
         let me = self.clone();
         self.view.connect_choose(move |button, index| {
+            // record answer
+            {
+                let mut data = me.data.borrow_mut();
+                if let Some(section) = data.section_mut(me.section) {
+                    if let Some(question) = section.question_mut(me.question.get()) {
+                        question.answer(index);
+                    }
+                }
+            }
+
+            // mark button as red or show next question if it was correct.
             if index != 0 {
                 // answer is wrong. mark button.
                 button.get_style_context().add_class("red");
