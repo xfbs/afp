@@ -2,6 +2,7 @@ use crate::ui::*;
 use crate::*;
 use std::cell::RefCell;
 use std::rc::Rc;
+use gtk::prelude::*;
 
 #[derive(Clone)]
 pub struct PractiseController {
@@ -52,9 +53,11 @@ impl PractiseController {
         });
     }
 
-    pub fn connect_choose<F: Fn(usize) + 'static>(&self, fun: F) {
-        self.view.connect_choose(move |_button, index| {
-            fun(index);
+    pub fn activate_choose(&self) {
+        self.view.connect_choose(move |button, index| {
+            if index != 0 {
+                button.get_style_context().add_class("red");
+            }
         });
     }
 }
@@ -64,7 +67,9 @@ impl Controller for PractiseController {
         self.view.setup();
     }
 
-    fn activate(&self) {}
+    fn activate(&self) {
+        self.activate_choose();
+    }
 
     fn shutdown(&self) {}
 }
