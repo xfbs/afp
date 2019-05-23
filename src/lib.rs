@@ -289,7 +289,7 @@ impl DataStore {
     }
 
     pub fn save_as(&self, path: &Path) -> Result<(), std::io::Error> {
-        let file = OpenOptions::new().write(true).create_new(true).open(path)?;
+        let file = OpenOptions::new().write(true).open(path)?;
         let writer = BufWriter::new(&file);
         let data: DataStoreFile = self.into();
         serde_yaml::to_writer(writer, &data).unwrap();
