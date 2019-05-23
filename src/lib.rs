@@ -11,6 +11,9 @@ use std::path::Path;
 use std::path::PathBuf;
 use std::time::{Duration, SystemTime};
 
+pub const DEFAULT_DATASTORE: &'static str =
+    include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/data/datastore.yml"));
+
 pub mod ui;
 
 #[derive(Debug, Clone, PartialEq)]
