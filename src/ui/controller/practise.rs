@@ -6,16 +6,16 @@ use std::rc::Rc;
 
 #[derive(Clone)]
 pub struct PractiseController {
-    index: usize,
+    section: usize,
     view: PractiseView,
     data: Rc<RefCell<DataStore>>,
     filter: Rc<Cell<QuestionFilter>>,
 }
 
 impl PractiseController {
-    pub fn new(data: &Rc<RefCell<DataStore>>, index: usize) -> PractiseController {
+    pub fn new(data: &Rc<RefCell<DataStore>>, section: usize) -> PractiseController {
         PractiseController {
-            index: index,
+            section: section,
             view: PractiseView::new(),
             data: data.clone(),
             filter: Rc::new(Cell::new(QuestionFilter::All)),
@@ -28,7 +28,7 @@ impl PractiseController {
 
     pub fn show(&self) {
         let data = self.data.borrow();
-        if let Some(section) = data.section(self.index) {
+        if let Some(section) = data.section(self.section) {
             // FIXME error handling?
             let index = section.practise(self.filter.get()).unwrap();
             if let Some(question) = section.question(index) {
