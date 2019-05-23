@@ -130,9 +130,7 @@ impl QuestionFilter {
 
 impl DataStoreFile {
     fn import(ds: &DataStore) -> DataStoreFile {
-        DataStoreFile {
-            sections: vec![]
-        }
+        DataStoreFile { sections: vec![] }
     }
 }
 
