@@ -15,6 +15,7 @@
   BoldFont = {Helvetica Neue Bold},
 ]
 \renewcommand{\familydefault}{\sfdefault}
+\usepackage{microtype}
 
 % space to leave in between answers.
 \renewcommand{\arraystretch}{1.2}
@@ -25,6 +26,9 @@
   \setcounter{answer}{1}
   \begin{tabular}{@{}cp{6.5cm}@{}}
   \textbf{#1} & \textbf{#2}\\
+  \ifcsname #1\endcsname
+    Hi & oops\\
+  \fi
 }{
   \end{tabular}
   \bigskip
@@ -35,6 +39,16 @@
   \textbf{\Alph{answer}}
   \stepcounter{answer}
   & #1\\}
+  
+\usepackage{tikz}
+\usetikzlibrary{circuits.ee.IEC}
+\usetikzlibrary{positioning}
+\newcommand{\graphic}[1]{&#1\\}
+\tikzset{
+  every circuit symbol/.style={draw,very thick},
+  every circuit wire/.style={draw,very thick},
+  every circuit/.style={draw,very thick,huge circuit symbols}}
+
 
 % quotes setup
 \usepackage{babel}
@@ -60,6 +74,7 @@ Er kann jederzeit erweitert und aktualisiert werden. Neuauflagen werden im Amtsb
   \newpage
   \tableofcontents
   \twocolumn
+  
   \include{technik_e_questions}
 \end{document}
 
