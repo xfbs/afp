@@ -43,7 +43,7 @@ impl PractiseView {
         self.body.set_margin_start(10);
         self.body.set_margin_end(10);
         self.body.set_column_spacing(10);
-        self.body.set_row_spacing(20);
+        self.body.set_row_spacing(15);
         self.body.set_column_homogeneous(true);
         self.answers.set_column_homogeneous(true);
         self.answers.set_column_spacing(10);
