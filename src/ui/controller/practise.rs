@@ -7,6 +7,7 @@ use gtk::prelude::*;
 use permutation::Permutation;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
+use rand::seq::SliceRandom;
 
 #[derive(Clone)]
 pub struct PractiseController {
@@ -61,16 +62,18 @@ impl PractiseController {
 
                 for (num, answer) in question.answers().iter().enumerate() {
                     let index = permutation.apply_idx(num);
-                    self.view
-                        .set_answer(index, &format!("{} {}", index, num), answer);
+                    self.view.set_answer(index, &format!("{} {}", index, num), answer);
                 }
             }
         }
     }
 
     fn create_permutation(&self, size: usize) {
-        let permutation = Permutation::one(size);
-        *self.permutation.borrow_mut() = permutation;
+        let mut rng = rand::thread_rng();
+        let mut permuted = (0..size).collect::<Vec<usize>>();
+        permuted.shuffle(&mut rng);
+        let permutation = Permutation::from_vec(permuted);
+        self.permutation.replace(permutation);
     }
 
     pub fn connect_back<F: Fn() + 'static>(&self, fun: F) {
