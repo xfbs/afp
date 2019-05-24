@@ -43,61 +43,43 @@ sections:
       - id: "TA101"
         subsection: 1
         subsubsection: 1
-        question: "0,042 A entspricht 1.1"
+        question: "0,042 A entspricht"
         answers:
-          - "40"
-          - "41"
-          - "42"
-          - "43"
+          - "42⋅10⁻³ A"
+          - "42⋅10³ A"
+          - "42⋅10⁻² A"
+          - "42⋅10⁻¹ A"
         history: []
       - id: "TA102"
         subsection: 1
         subsubsection: 1
-        question: "0,042 A entspricht 1.1"
+        question: "0,00042 A entspricht"
         answers:
-          - "40"
-          - "41"
-          - "42"
-          - "43"
-        history:
-          - time: 100
-            choice: 1
-          - time: 200
-            choice: 2
-          - time: 300
-            choice: 3
+          - "420⋅10⁻⁶"
+          - "420⋅10⁶"
+          - "420⋅10⁻⁵"
+          - "42⋅10⁻⁶"
+        history: []
       - id: "TA103"
         subsection: 1
         subsubsection: 1
-        question: "0,042 A entspricht 1.1"
+        question: "100 mW entspricht"
         answers:
-          - "40"
-          - "41"
-          - "42"
-          - "43"
-        history:
-          - time: 100
-            choice: 1
-          - time: 200
-            choice: 0
-          - time: 300
-            choice: 2
+          - "10⁻¹ W"
+          - "0.001 W"
+          - "0.01 W"
+          - "10⁻² W"
+        history: []
       - id: "TA104"
         subsection: 1
         subsubsection: 1
-        question: "0,042 A entspricht 1.1"
+        question: "4 200 000 Hz entspricht"
         answers:
-          - "40"
-          - "41"
-          - "42"
-          - "43"
-        history:
-          - time: 100
-            choice: 0
-          - time: 200
-            choice: 0
-          - time: 300
-            choice: 0
+          - "4,2⋅10⁶ Hz"
+          - "4,2⋅10⁵ Hz"
+          - "42⋅10⁶ Hz"
+          - "42⋅10⁻⁵ Hz"
+        history: []
       - id: "TB101"
         subsection: 1
         subsubsection: 2
