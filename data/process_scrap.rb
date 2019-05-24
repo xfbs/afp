@@ -35,14 +35,37 @@ rows.each do |left, right|
   end
 end
 
+def fix(str)
+  s = str.gsub("%", "\\%")
+
+  if s =~ /{|}/
+    puts s
+  end
+
+  s
+end
+
+sections = CSV.new(File.read(ARGV[1])).to_a
+
 questions.keys.sort.each do |id|
   question = questions[id]
 
-  puts "\\begin{question}{#{question[:id]}}{#{question[:question]}}"
-  
-  question[:answers].each do |_, answer|
-    puts "\\answer{#{answer}}"
+  while sections[0] && question[:id][0...sections[0][0].size] == sections[0][0]
+    if sections[0][0].size == 2
+      puts "\\section{#{fix(sections[0][1])}}"
+    else
+      puts "\\subsection{#{fix(sections[0][1])}}"
+    end
+    puts
+    sections.shift
   end
 
+  puts "\\begin{question}{#{fix(question[:id])}}{#{fix(question[:question])}}"
+  
+  question[:answers].each do |_, answer|
+    puts "\\answer{#{fix(answer || "")}}"
+  end
+
+  puts "\\end{question}"
   puts
 end
