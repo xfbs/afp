@@ -42,23 +42,31 @@ impl PractiseView {
         self.body.set_margin_bottom(10);
         self.body.set_margin_start(10);
         self.body.set_margin_end(10);
-        self.body.set_column_spacing(20);
+        self.body.set_column_spacing(10);
         self.body.set_row_spacing(20);
+        self.body.set_column_homogeneous(true);
         self.answers.set_column_homogeneous(true);
         self.answers.set_column_spacing(10);
         self.answers.set_row_spacing(5);
         self.title_box.add(&self.back);
         self.title_box.set_center_widget(&self.title);
-        self.body.attach(&self.title_box, 0, 0, 4, 1);
-        self.body.attach(&self.section, 1, 1, 2, 1);
-        self.body.attach(&self.subsection, 1, 2, 2, 1);
+        self.body.attach(&self.title_box, 0, 0, 7, 1);
+        self.body.attach(&self.section, 1, 1, 5, 1);
+        self.body.attach(&self.subsection, 1, 2, 5, 1);
         self.body.attach(&self.id, 1, 3, 1, 1);
-        self.body.attach(&self.question, 2, 3, 1, 1);
-        self.body.attach(&self.answers, 1, 4, 2, 1);
+        self.body.attach(&self.question, 2, 3, 4, 1);
+        self.body.attach(&self.answers, 1, 4, 5, 1);
         self.section.set_hexpand(true);
         self.title.get_style_context().add_class("title");
         self.section.get_style_context().add_class("subtitle");
+        self.section.set_xalign(0.0);
+        self.section.set_line_wrap(true);
         self.subsection.get_style_context().add_class("subtitle");
+        self.subsection.set_xalign(0.0);
+        self.subsection.set_line_wrap(true);
+        self.id.set_xalign(0.5);
+        self.question.set_xalign(0.0);
+        self.question.set_line_wrap(true);
     }
 
     pub fn set_section(&self, text: &str) {
@@ -105,6 +113,8 @@ impl PractiseView {
         if let Some(label) = self.get_answer_label(row) {
             label.show();
             label.set_text(text);
+            label.set_xalign(0.0);
+            label.set_line_wrap(true);
         }
     }
 
