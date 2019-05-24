@@ -1,13 +1,17 @@
+extern crate permutation;
+
 use crate::ui::*;
 use crate::*;
 use gtk::prelude::*;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
+use permutation::Permutation;
 
 #[derive(Clone)]
 pub struct PractiseController {
     section: usize,
     question: Rc<Cell<usize>>,
+    permutation: Rc<Cell<Permutation>>,
     view: PractiseView,
     data: Rc<RefCell<DataStore>>,
     filter: Rc<Cell<QuestionFilter>>,
@@ -18,6 +22,7 @@ impl PractiseController {
         PractiseController {
             section: section,
             question: Rc::new(Cell::new(0)),
+            permutation: Rc::new(Cell::new(Permutation::one(0))),
             view: PractiseView::new(),
             data: data.clone(),
             filter: Rc::new(Cell::new(QuestionFilter::All)),
