@@ -5,9 +5,9 @@ use crate::ui::*;
 use crate::*;
 use gtk::prelude::*;
 use permutation::Permutation;
+use rand::seq::SliceRandom;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
-use rand::seq::SliceRandom;
 
 #[derive(Clone)]
 pub struct PractiseController {
@@ -62,7 +62,8 @@ impl PractiseController {
 
                 for (num, answer) in question.answers().iter().enumerate() {
                     let index = permutation.apply_idx(num);
-                    self.view.set_answer(index, &format!("{} {}", index, num), answer);
+                    self.view
+                        .set_answer(index, &format!("{} {}", index, num), answer);
                 }
             }
         }
