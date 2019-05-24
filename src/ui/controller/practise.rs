@@ -3,9 +3,9 @@ extern crate permutation;
 use crate::ui::*;
 use crate::*;
 use gtk::prelude::*;
+use permutation::Permutation;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
-use permutation::Permutation;
 
 #[derive(Clone)]
 pub struct PractiseController {
