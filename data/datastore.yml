@@ -183,14 +183,11 @@ sections:
     short: Technik A
     questions: []
     subsections: []
-    progress: progress.yaml
   - name: Betriebliche Kenntnisse
     short: Betrieb
     questions: []
     subsections: []
-    progress: progress.yaml
   - name: Kenntnisse von Vorschriften
     short: Vorschriften
     questions: []
     subsections: []
-    progress: progress.yaml
