@@ -1,4 +1,5 @@
 extern crate permutation;
+extern crate rand;
 
 use crate::ui::*;
 use crate::*;
@@ -11,7 +12,7 @@ use std::rc::Rc;
 pub struct PractiseController {
     section: usize,
     question: Rc<Cell<usize>>,
-    permutation: Rc<Cell<Permutation>>,
+    permutation: Rc<RefCell<Permutation>>,
     view: PractiseView,
     data: Rc<RefCell<DataStore>>,
     filter: Rc<Cell<QuestionFilter>>,
@@ -22,7 +23,7 @@ impl PractiseController {
         PractiseController {
             section: section,
             question: Rc::new(Cell::new(0)),
-            permutation: Rc::new(Cell::new(Permutation::one(0))),
+            permutation: Rc::new(RefCell::new(Permutation::one(0))),
             view: PractiseView::new(),
             data: data.clone(),
             filter: Rc::new(Cell::new(QuestionFilter::All)),
@@ -55,12 +56,21 @@ impl PractiseController {
 
                 self.view.set_id(question.id());
                 self.view.set_question(question.question());
+                self.create_permutation(question.answers.len());
+                let permutation = self.permutation.borrow();
 
-                for (i, answer) in question.answers().iter().enumerate() {
-                    self.view.set_answer(i, &format!("{}", i), answer);
+                for (num, answer) in question.answers().iter().enumerate() {
+                    let index = permutation.apply_idx(num);
+                    self.view
+                        .set_answer(index, &format!("{} {}", index, num), answer);
                 }
             }
         }
+    }
+
+    fn create_permutation(&self, size: usize) {
+        let permutation = Permutation::one(size);
+        *self.permutation.borrow_mut() = permutation;
     }
 
     pub fn connect_back<F: Fn() + 'static>(&self, fun: F) {
@@ -72,6 +82,9 @@ impl PractiseController {
     pub fn activate_choose(&self) {
         let me = self.clone();
         self.view.connect_choose(move |button, index| {
+            // compute actual answer number
+            let num = me.permutation.borrow().apply_inv_idx(index);
+
             {
                 // record answer (in a different scope so the borrowed mut
                 // data doesn't prevent it from being able to borrow it as
@@ -79,13 +92,13 @@ impl PractiseController {
                 let mut data = me.data.borrow_mut();
                 if let Some(section) = data.section_mut(me.section) {
                     if let Some(question) = section.question_mut(me.question.get()) {
-                        question.answer(index);
+                        question.answer(num);
                     }
                 }
             }
 
             // mark button as red or show next question if it was correct.
-            if index != 0 {
+            if num != 0 {
                 // answer is wrong. mark button.
                 button.get_style_context().add_class("red");
             } else {
