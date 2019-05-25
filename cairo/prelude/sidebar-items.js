@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Pattern",""]],"trait":[["Gradient",""],["MatrixTrait",""],["PatternTrait",""],["SurfaceExt",""]]});
