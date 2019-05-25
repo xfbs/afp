@@ -58,10 +58,14 @@ impl PractiseView {
         self.body.attach(&self.answers, 1, 4, 5, 1);
         self.title.get_style_context().add_class("title");
         self.section.set_hexpand(true);
-        self.section.get_style_context().add_class("question-subsection");
+        self.section
+            .get_style_context()
+            .add_class("question-subsection");
         self.section.set_xalign(0.0);
         self.section.set_line_wrap(true);
-        self.subsection.get_style_context().add_class("question-subsubsection");
+        self.subsection
+            .get_style_context()
+            .add_class("question-subsubsection");
         self.subsection.set_xalign(0.0);
         self.subsection.set_line_wrap(true);
         self.id.set_xalign(0.5);
