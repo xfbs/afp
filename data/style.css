@@ -8,6 +8,24 @@
     font-size: medium;
 }
 
+.question-subsection {
+  font-weight: bold;
+  font-size: medium;
+}
+
+.question-subsubsection {
+  font-weight: bold;
+  font-size: medium;
+}
+
+.question-id {
+  font-weight: bold;
+}
+
+.question-text {
+  font-weight: bold;
+}
+
 button.red {
     background-image: none;
     background-color: #fcd1d1;

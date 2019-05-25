@@ -56,17 +56,20 @@ impl PractiseView {
         self.body.attach(&self.id, 1, 3, 1, 1);
         self.body.attach(&self.question, 2, 3, 4, 1);
         self.body.attach(&self.answers, 1, 4, 5, 1);
-        self.section.set_hexpand(true);
         self.title.get_style_context().add_class("title");
-        self.section.get_style_context().add_class("subtitle");
+        self.section.set_hexpand(true);
+        self.section.get_style_context().add_class("question-subsection");
         self.section.set_xalign(0.0);
         self.section.set_line_wrap(true);
-        self.subsection.get_style_context().add_class("subtitle");
+        self.subsection.get_style_context().add_class("question-subsubsection");
         self.subsection.set_xalign(0.0);
         self.subsection.set_line_wrap(true);
         self.id.set_xalign(0.5);
+        self.id.set_yalign(1.0);
+        self.id.get_style_context().add_class("question-id");
         self.question.set_xalign(0.0);
         self.question.set_line_wrap(true);
+        self.question.get_style_context().add_class("question-text");
     }
 
     pub fn set_section(&self, text: &str) {
@@ -108,6 +111,7 @@ impl PractiseView {
             button.show();
             button.get_style_context().remove_class("red");
             button.set_label(btn);
+            button.set_vexpand(false);
         }
 
         if let Some(label) = self.get_answer_label(row) {
