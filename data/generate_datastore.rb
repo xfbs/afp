@@ -24,6 +24,9 @@ datastore["sections"] = sections.map do |name|
       section["subsections"].last["subsubsections"] << handle($1)
     when /\\begin{question}/
       question = {"answers" => []}
+      question["subsection"] = section["subsections"].size
+      question["subsubsection"] = section["subsections"].last["subsubsections"].size
+      question["history"] = []
       qsec.split("\n").each do |line|
         case line
         when /\\begin{question}{(.+)}{(.+)}/
