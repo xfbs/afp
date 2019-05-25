@@ -62,8 +62,12 @@ impl PractiseController {
 
                 for (num, answer) in question.answers().iter().enumerate() {
                     let index = permutation.apply_idx(num);
+                    let alph = (0..25)
+                        .map(|offset| (('A' as u8) + offset) as char)
+                        .nth(index)
+                        .unwrap_or('?');
                     self.view
-                        .set_answer(index, &format!("{} {}", index, num), answer);
+                        .set_answer(index, &format!("{}", alph), answer);
                 }
             }
         }
