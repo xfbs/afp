@@ -2,174 +2,3919 @@
 sections:
   - name: Technische Kenntnisse der Klasse E
     short: Technik E
-    subsections:
-      - name: "1.1 Allgemeine mathematische Grundkenntnisse und Größen"
-        subsubsections:
-          - "1.1.1 Allgemeine mathematische Grundkenntnisse"
-          - "1.1.2 Größen und Einheiten"
-      - name: "1.2 Elektrizitäts-, Elektromagnetismus und Funktheorie"
-        subsubsections:
-          - "1.2.1 Leiter, Halbleiter und Isolator"
-          - "1.2.2 Strom- und Spannungsquellen"
-          - "1.2.3 Elektrisches Feld"
-          - "1.2.4 Magnetisches Feld"
-          - "1.2.5 Elektromagnetisches Feld"
-          - "1.2.6 Sinusförmige Signale"
-          - "1.2.7 Nichtsinusförmige Signale"
-          - "1.2.8 Modulierte Signale"
-          - "1.2.9 Ohmsches Gesetz, Leistung und Energie"
-      - name: "1.3 Elektrische und elektronische Bauteile"
-        subsubsections:
-          - "1.3.1 Widerstand"
-          - "1.3.2 Kondensator"
-          - "1.3.3 Spule"
-          - "1.3.4 Übertrager und Transformatoren"
-          - "1.3.5 Diode"
-          - "1.3.6 Transistor"
-      - name: "1.4 Eletronische Schaltungen und deren Merkmale"
-        subsubsections:
-          - "1.4.1 Serien- und Parallelschaltung von Widerständen, Spulen und Kondensatoren"
-          - "1.4.2 Schwingkreise und Filter"
-          - "1.4.3 Stromversorgung"
-          - "1.4.4 Verstärker"
-          - "1.4.5 Modulator / Demodulator"
-          - "1.4.6 Oszillator"
-      - name: "1.5 Analoge und digitale Modulationsverfahren"
-        subsubsections:
-          - "1.5.1 Amplitudenmodulation AM, SSB"
-          - "1.5.2 Frequenzmodulation"
-          - "1.5.3 Text-, Daten- und Bildübertragung"
     questions:
-      - id: "TA101"
-        subsection: 1
-        subsubsection: 1
+      - id: TA101
         question: "0,042 A entspricht"
         answers:
-          - "42⋅10⁻³ A"
-          - "42⋅10³ A"
-          - "42⋅10⁻² A"
-          - "42⋅10⁻¹ A"
-        history: []
-      - id: "TA102"
+          - 42⋅10-3 A.
+          - 42⋅103 A.
+          - 42⋅10-2 A.
+          - 42⋅10-1 A.
         subsection: 1
         subsubsection: 1
+        history:
+          - time: 1558744320
+            choice: 0
+          - time: 1558744321
+            choice: 0
+          - time: 1558744325
+            choice: 0
+          - time: 1558744327
+            choice: 1
+          - time: 1558744329
+            choice: 0
+          - time: 1558744337
+            choice: 0
+          - time: 1558744348
+            choice: 0
+          - time: 1558744351
+            choice: 0
+          - time: 1558744355
+            choice: 0
+          - time: 1558744359
+            choice: 0
+          - time: 1558744360
+            choice: 0
+          - time: 1558744361
+            choice: 0
+          - time: 1558744364
+            choice: 0
+          - time: 1558744365
+            choice: 0
+      - id: TA102
         question: "0,00042 A entspricht"
         answers:
-          - "420⋅10⁻⁶"
-          - "420⋅10⁶"
-          - "420⋅10⁻⁵"
-          - "42⋅10⁻⁶"
-        history: []
-      - id: "TA103"
+          - 420.10-6 A.
+          - 420.106 A.
+          - 420.10-5 A.
+          - 42.10-6 A.
         subsection: 1
         subsubsection: 1
-        question: "100 mW entspricht"
+        history:
+          - time: 1558744317
+            choice: 2
+          - time: 1558744318
+            choice: 0
+          - time: 1558744335
+            choice: 0
+          - time: 1558744336
+            choice: 0
+          - time: 1558744341
+            choice: 0
+          - time: 1558744342
+            choice: 0
+          - time: 1558744344
+            choice: 0
+          - time: 1558744345
+            choice: 0
+          - time: 1558744357
+            choice: 0
+      - id: TA103
+        question: 100 mW entspricht
         answers:
-          - "10⁻¹ W"
-          - "0.001 W"
-          - "0.01 W"
-          - "10⁻² W"
-        history: []
-      - id: "TA104"
+          - 10-1 W.
+          - "0,001 W."
+          - "0,01 W."
+          - 10-2 W.
         subsection: 1
         subsubsection: 1
-        question: "4 200 000 Hz entspricht"
+        history:
+          - time: 1558744320
+            choice: 0
+          - time: 1558744322
+            choice: 0
+          - time: 1558744330
+            choice: 0
+          - time: 1558744339
+            choice: 0
+          - time: 1558744346
+            choice: 0
+          - time: 1558744347
+            choice: 0
+          - time: 1558744356
+            choice: 0
+          - time: 1558744362
+            choice: 0
+      - id: TA104
+        question: 4 200 000 Hz entspricht
         answers:
-          - "4,2⋅10⁶ Hz"
-          - "4,2⋅10⁵ Hz"
-          - "42⋅10⁶ Hz"
-          - "42⋅10⁻⁵ Hz"
-        history: []
-      - id: "TB101"
+          - "4,2⋅106 Hz."
+          - "4,2⋅105 Hz."
+          - 42⋅106 Hz.
+          - 42⋅10-5 Hz.
+        subsection: 1
+        subsubsection: 1
+        history:
+          - time: 1558744323
+            choice: 0
+          - time: 1558744329
+            choice: 0
+          - time: 1558744338
+            choice: 0
+          - time: 1558744343
+            choice: 0
+          - time: 1558744350
+            choice: 0
+          - time: 1558744353
+            choice: 0
+          - time: 1558744354
+            choice: 0
+          - time: 1558744358
+            choice: 0
+          - time: 1558744363
+            choice: 0
+      - id: TA201
+        question: Welche Einheit wird für die elektrische Spannung verwendet?
+        answers:
+          - Volt (V)
+          - Ampere (A)
+          - Ohm (Ω)
+          - Amperestunden (Ah)
         subsection: 1
         subsubsection: 2
-        question: "0,042 A entspricht 1.2"
+        history: []
+      - id: TA202
+        question: Welche Einheit wird für die elektrische Ladung verwendet?
         answers:
-          - "40"
-          - "41"
-          - "42"
-          - "43"
-        history:
-          - time: 100
-            choice: 1
-          - time: 200
-            choice: 1
-          - time: 300
-            choice: 1
-      - id: "TD101"
+          - Amperesekunde (As)
+          - Kilowatt (kW)
+          - Joule (J)
+          - Ampere (A)
+        subsection: 1
+        subsubsection: 2
+        history: []
+      - id: TA203
+        question: Welche Einheit wird für die elektrische Leistung verwendet?
+        answers:
+          - Watt (W)
+          - Kilowattstunden (kWh)
+          - Joule (J)
+          - Amperestunden (Ah)
+        subsection: 1
+        subsubsection: 2
+        history: []
+      - id: TA204
+        question: In welcher Einheit wird der elektrische Widerstand angegeben?
+        answers:
+          - Ohm
+          - Farad
+          - Siemens
+          - Henry
+        subsection: 1
+        subsubsection: 2
+        history: []
+      - id: TA205
+        question: Welche der nachfolgenden Antworten enthält nur Basiseinheiten nach dem internationalen Einheitensystem?
+        answers:
+          - "Ampere, Kelvin, Meter, Sekunde"
+          - "Sekunde, Meter, Volt, Watt"
+          - "Farad, Henry, Ohm, Sekunde"
+          - "Grad, Hertz, Ohm, Sekunde"
+        subsection: 1
+        subsubsection: 2
+        history: []
+      - id: TA206
+        question: "0,22 μF sind"
+        answers:
+          - 220 nF.
+          - 22 nF.
+          - 220 pF.
+          - 22 pF.
+        subsection: 1
+        subsubsection: 2
+        history: []
+      - id: TA207
+        question: "3,75 MHz sind"
+        answers:
+          - 3750 kHz.
+          - 375 kHz.
+          - "0,0375 GHz."
+          - "0,375 GHz."
+        subsection: 1
+        subsubsection: 2
+        history: []
+      - id: TA208
+        question: Welche Einheit wird für die Kapazität verwendet?
+        answers:
+          - Farad (F)
+          - Ohm (Ω)
+          - Siemens (S)
+          - Henry (H)
+        subsection: 1
+        subsubsection: 2
+        history: []
+      - id: TB101
+        question: Welche Gruppe enthält insgesamt die besten gut leitenden Metalle?
+        answers:
+          - "Silber, Kupfer, Aluminium"
+          - "Silber, Kupfer, Blei"
+          - "Kupfer, Eisen, Zinn"
+          - "Aluminium, Kupfer, Quecksilber"
         subsection: 2
         subsubsection: 1
-        question: "0,042 A entspricht 2.1"
+        history: []
+      - id: TB102
+        question: Welches der genannten Metalle hat die beste elektrische Leitfähigkeit?
         answers:
-          - "40"
-          - "41"
-          - "42"
-          - "43"
-        history:
-          - time: 100
-            choice: 0
-          - time: 200
-            choice: 0
-          - time: 300
-            choice: 0
-      - id: "TD101"
+          - Silber
+          - Kupfer
+          - Gold
+          - Zinn
+        subsection: 2
+        subsubsection: 1
+        history: []
+      - id: TB103
+        question: Welches der genannten Metalle hat die schlechteste elektrische Leitfähigkeit?
+        answers:
+          - Zinn
+          - Kupfer
+          - Gold
+          - Aluminium
+        subsection: 2
+        subsubsection: 1
+        history: []
+      - id: TB104
+        question: Welche Gruppe von Materialien enthält nur Nichtleiter (Isolatoren)?
+        answers:
+          - "Epoxid, Polyethylen (PE), Polystyrol (PS)"
+          - "Pertinax, Polyvinylchlorid (PVC), Graphit"
+          - "Polyethylen (PE), Messing, Konstantan"
+          - "Teflon, Pertinax, Bronze"
+        subsection: 2
+        subsubsection: 1
+        history: []
+      - id: TB105
+        question: Was verstehen Sie unter Halbleitermaterialien?
+        answers:
+          - "Einige Stoffe (z.B. Silizium, Germanium) sind in reinem Zustand bei Raumtemperatur gute Isolatoren. Durch geringfügige Zusätze von geeigneten anderen Stoffen oder bei hohen Temperaturen werden sie jedoch zu Leitern."
+          - "Einige Stoffe (z.B. Silizium, Germanium) sind in reinem Zustand bei Raumtemperatur gute Leiter. Durch geringfügige Zusätze von geeigneten anderen Stoffen oder bei hohen Temperaturen nimmt jedoch ihre Leitfähigkeit ab."
+          - "Einige Stoffe wie z.B. Indium oder Magnesium sind in reinem Zustand gute Isolatoren. Durch geringfügige Zusätze von Silizium, Germanium oder geeigneten anderen Stoffen werden sie jedoch zu Leitern."
+          - "Einige Stoffe (z.B. Silizium, Germanium) sind in trockenem Zustand gute Elektrolyten. Durch geringfügige Zusätze von Wismut oder Tellur kann man daraus entweder N-leitendes- oder P-leitendes Material für Anoden bzw. Kathoden von Halbleiterbauelementen herstellen."
+        subsection: 2
+        subsubsection: 1
+        history: []
+      - id: TB201
+        question: Welche Spannung zeigt der Spannungsmesser in folgender Schaltung?
+        answers:
+          - 0 V
+          - 3 V
+          - "-3 V"
+          - "1,5 V"
         subsection: 2
         subsubsection: 2
-        question: "0,042 A entspricht 2.2"
+        history: []
+      - id: TB202
+        question: Folgende Schaltung eines Akkus besteht aus Zellen von je 2 V. Jede Zelle kann 10 Ah Ladung liefern. Welche Daten hat der Akku?
         answers:
-          - "40"
-          - "41"
-          - "42"
-          - "43"
-        history:
-          - time: 100
-            choice: 0
-          - time: 200
-            choice: 0
-          - time: 300
-            choice: 0
-      - id: "TD101"
+          - 12 V / 10 Ah
+          - 12 V / 60 Ah
+          - 2 V / 10 Ah
+          - 2 V / 60 Ah
+        subsection: 2
+        subsubsection: 2
+        history: []
+      - id: TB203
+        question: Was versteht man unter „technischer Stromrichtung“ in der Elektrotechnik?
+        answers:
+          - "Man nimmt an, dass der Strom vom Pluspol zum Minuspol fließt."
+          - "Man nimmt an, dass der Strom vom Minuspol zum Pluspol fließt."
+          - Es ist die Flussrichtung der Elektronen vom Minuspol zum Pluspol.
+          - Es ist die Flussrichtung der Elektronen vom Pluspol zum Minuspol.
+        subsection: 2
+        subsubsection: 2
+        history: []
+      - id: TB204
+        question: Kann in folgender Schaltung von zwei gleichen Spannungsquellen Strom fließen? Welche Begründung ist richtig?
+        answers:
+          - "Nein, weil kein geschlossener Stromkreis vorhanden ist."
+          - "Nein, weil der Pluspol mit dem Minuspol verbunden ist."
+          - "Ja, sogar Kurzschlussstrom, weil der Pluspol mit dem Minuspol verbunden ist."
+          - Ja. Der Strom hängt vom Innenwiderstand der Batterien ab.
+        subsection: 2
+        subsubsection: 2
+        history: []
+      - id: TB205
+        question: "Wie lange könnte man mit einem voll geladenen Akku mit 55 Ah einen Amateurfunkempfänger betreiben, der einen Strom von 0,8 A aufnimmt?"
+        answers:
+          - 68 Stunden und 45 Minuten
+          - Genau 44 Stunden
+          - 6 Stunden 52 Minuten und 30 Sekunden
+          - 69 Stunden und 15 Minuten
+        subsection: 2
+        subsubsection: 2
+        history: []
+      - id: TB301
+        question: Welche Einheit wird für die elektrische Feldstärke verwendet?
+        answers:
+          - Volt pro Meter (V/m)
+          - Watt pro Quadratmeter (W/m2)
+          - Ampere pro Meter (A/m)
+          - Henry pro Meter (H/m)
         subsection: 2
         subsubsection: 3
-        question: "0,042 A entspricht 2.3"
+        history: []
+      - id: TB302
+        question: Wie nennt man das Feld zwischen zwei parallelen Kondensatorplatten bei Anschluss einer Gleichspannung?
         answers:
-          - "40"
-          - "41"
-          - "42"
-          - "43"
-        history:
-          - time: 100
-            choice: 0
-          - time: 200
-            choice: 0
-          - time: 300
-            choice: 0
-      - id: "TD101"
+          - Homogenes elektrisches Feld
+          - Homogenes magnetisches Feld
+          - Polarisiertes elektrisches Feld
+          - Polarisiertes magnetisches Feld
+        subsection: 2
+        subsubsection: 3
+        history: []
+      - id: TB303
+        question: Wie werden die mit X gekennzeichneten Feldlinien einer Vertikalantenne bezeichnet?
+        answers:
+          - Elektrische Feldlinien
+          - Magnetische Feldlinien
+          - Polarisierte Feldlinien
+          - Horizontale Feldlinien
+        subsection: 2
+        subsubsection: 3
+        history: []
+      - id: TB401
+        question: Welche Einheit wird für die magnetische Feldstärke verwendet?
+        answers:
+          - Ampere pro Meter (A/m)
+          - Watt pro Quadratmeter (W/m2)
+          - Volt pro Meter (V/m)
+          - Henry pro Meter (H/m)
         subsection: 2
         subsubsection: 4
-        question: "0,042 A entspricht 2.4"
+        history: []
+      - id: TB402
+        question: Wie nennt man das Feld im Innern einer langen Zylinderspule beim Fließen eines Gleichstroms?
         answers:
-          - "40"
-          - "41"
-          - "42"
-          - "43"
+          - Homogenes magnetisches Feld
+          - Homogenes elektrisches Feld
+          - Konzentrisches magnetisches Feld
+          - Zentriertes magnetisches Feld
+        subsection: 2
+        subsubsection: 4
+        history: []
+      - id: TB403
+        question: "Wenn Strom durch einen gestreckten Leiter fließt, entsteht ein"
+        answers:
+          - Magnetfeld aus konzentrischen Kreisen um den Leiter.
+          - elektrisches Feld aus konzentrischen Kreisen um den Leiter.
+          - homogenes Magnetfeld um den Leiter.
+          - homogenes elektrisches Feld um den Leiter.
+        subsection: 2
+        subsubsection: 4
+        history: []
+      - id: TB404
+        question: Wie werden die mit X gekennzeichneten Feldlinien einer Vertikalantenne bezeichnet?
+        answers:
+          - Magnetische Feldlinien
+          - Elektrische Feldlinien
+          - Radiale Feldlinien
+          - Vertikale Feldlinien
+        subsection: 2
+        subsubsection: 4
+        history: []
+      - id: TB405
+        question: Welcher der nachfolgenden Werkstoffe ist ein ferromagnetischer Stoff?
+        answers:
+          - Eisen
+          - Chrom
+          - Kupfer
+          - Aluminium
+        subsection: 2
+        subsubsection: 4
+        history: []
+      - id: TB501
+        question: "Wodurch entsteht ein elektromagnetisches Feld? Ein elektromagnetisches Feld entsteht,"
+        answers:
+          - "wenn ein zeitlich schnell veränderlicher Strom durch einen elektrischen Leiter fließt, dessen Länge mindestens 1/100 der Wellenlänge ist."
+          - "wenn durch einen elektrischen Leiter, dessen Länge mindestens 1/100 der Wellenlänge ist, ein konstanter Strom fließt."
+          - "wenn sich elektrische Ladungen in einem Leiter befinden, dessen Länge mindestens 1/100 der Wellenlänge ist."
+          - "wenn an einem elektrischen Leiter, dessen Länge mindestens 1/100 der Wellenlänge ist, eine konstante Spannung angelegt wird."
+        subsection: 2
+        subsubsection: 5
+        history: []
+      - id: TB502
+        question: Wie erfolgt die Ausbreitung einer elektromagnetischen Welle? Die Ausbreitung erfolgt
+        answers:
+          - durch eine Wechselwirkung zwischen elektrischem und magnetischem Feld.
+          - nur über das elektrische Feld. Das magnetische Feld ist nur im Nahfeld vorhanden.
+          - nur über das magnetische Feld. Das elektrische Feld ist nur im Nahfeld vorhanden.
+          - über die sich unabhängig voneinander ausbreitenden und senkrecht zueinander stehenden elektrischen und magnetischen Felder.
+        subsection: 2
+        subsubsection: 5
+        history: []
+      - id: TB503
+        question: Das folgende Bild zeigt die Feldlinien eines elektromagnetischen Feldes. Welche Polari sation hat die skizzierte Wellenfront?
+        answers:
+          - Horizontale Polarisation
+          - Vertikale Polarisation
+          - Rechtsdrehende Polarisation
+          - Zirkulare Polarisation
+        subsection: 2
+        subsubsection: 5
+        history: []
+      - id: TB504
+        question: Der Winkel zwischen den elektrischen und magnetischen Feldkomponenten eines elektromagnetischen Feldes beträgt im Fernfeld
+        answers:
+          - 90°.
+          - 45°.
+          - 180°.
+          - 360°.
+        subsection: 2
+        subsubsection: 5
+        history: []
+      - id: TB505
+        question: Die Polarisation des Sendesignals in der Hauptstrahlrichtung dieser Richtantenne ist
+        answers:
+          - vertikal.
+          - horizontal.
+          - rechtsdrehend.
+          - linksdrehend.
+        subsection: 2
+        subsubsection: 5
+        history: []
+      - id: TB601
+        question: Welches ist die Einheit der Wellenlänge?
+        answers:
+          - m
+          - m/s
+          - Hz
+          - s/m
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB602
+        question: "Welcher Wellenlänge λ entspricht die Frequenz 1,84 MHz?"
+        answers:
+          - 163 m
+          - "16,3 m"
+          - "10,5 m"
+          - "61,3 m"
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB603
+        question: "Welcher Wellenlänge λ entspricht die Frequenz 28,48 MHz?"
+        answers:
+          - "10,5 m"
+          - 163 m
+          - "9,49 m"
+          - "61,3 m"
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB604
+        question: "Eine Wellenlänge von 2,06 m entspricht einer Frequenz von"
+        answers:
+          - "145,631 MHz"
+          - "148,927 MHz"
+          - "150,247 MHz"
+          - "135,754 MHz"
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB605
+        question: "Eine Wellenlänge von 80,0 m entspricht einer Frequenz von"
+        answers:
+          - "3,75 MHz"
+          - "3,65 MHz"
+          - "3,56 MHz"
+          - "3,57 MHz"
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB606
+        question: Welche Bezeichnung ist für eine Schwingung von 145 000 000 Perioden pro Sekunde richtig?
+        answers:
+          - 145 MHz
+          - 145 μs
+          - 145 kHz
+          - 145 km/s
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB607
+        question: Die Periodendauer von 50 μs entspricht einer Frequenz von
+        answers:
+          - 20 kHz
+          - 2 MHz
+          - 200 kHz
+          - 20 MHz
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB608
+        question: Den Frequenzbereich zwischen 30 und 300 MHz bezeichnet man als
+        answers:
+          - VHF (very high frequency)
+          - UHF (ultra high frequency)
+          - MF (medium frequency)
+          - SHF (super high frequency)
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB609
+        question: Das 70-cm-Band befindet sich im
+        answers:
+          - UHF-Bereich.
+          - VHF-Bereich.
+          - SHF-Bereich.
+          - EHF-Bereich.
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB610
+        question: Welche Frequenz hat die in diesem Oszillogramm dargestellte Spannung?
+        answers:
+          - "83,3 kHz"
+          - "833,3 kHz"
+          - "8,3 MHz"
+          - "83,3 MHz"
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB611
+        question: Welche Frequenz hat das in diesem Schirmbild dargestellte Signal?
+        answers:
+          - "8,33 MHz"
+          - "16,7 MHz"
+          - "8,33 kHz"
+          - 833 kHz
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB612
+        question: Eine sinusförmige Wechselspannung hat einen Spitzenwert von 12 V. Wie groß ist der Effektivwert der Wechselspannung?
+        answers:
+          - "8,5 V"
+          - "6,0 V"
+          - 17 V
+          - 24 V
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB613
+        question: Ein sinusförmiges Signal hat einen Effektivwert von 12 V. Wie groß ist der Spitzen- Spitzen-Wert?
+        answers:
+          - "33,9 V"
+          - 24 V
+          - "16,97 V"
+          - "36,4 V"
+        subsection: 2
+        subsubsection: 6
+        history: []
+      - id: TB701
+        question: Welche Signalform sollte der Träger einer hochfrequenten Schwingung haben?
+        answers:
+          - sinusförmig
+          - rechteckförmig
+          - dreieckförmig
+          - kreisförmig
+        subsection: 2
+        subsubsection: 7
+        history: []
+      - id: TB702
+        question: "Ein periodische Schwingung, die wie das folgende Signal aussieht, besteht"
+        answers:
+          - aus der Grundwelle mit ganzzahligen Vielfachen dieser Frequenz (Oberwellen).
+          - aus der Grundwelle und Teilen dieser Frequenz (Unterwellen).
+          - aus nur einer einzigen Frequenz.
+          - aus der Grundwelle mit vielen Nebenfrequenzen.
+        subsection: 2
+        subsubsection: 7
+        history: []
+      - id: TB801
+        question: Was ist der Unterschied zwischen AM und SSB?
+        answers:
+          - "AM hat einen Träger und zwei Seitenbänder, SSB arbeitet mit Trägerunterdrückung und einem Seitenband."
+          - "AM hat einen Träger und ein Seitenband, SSB arbeitet mit Trägerunterdrückung und hat zwei Seitenbänder."
+          - "AM hat keinen Träger und zwei Seitenbänder, SSB arbeitet mit Trägerunterdrückung und einem Seitenband."
+          - "AM hat keinen Träger und zwei Seitenbänder, SSB arbeitet mit Träger und einem Seitenband."
+        subsection: 2
+        subsubsection: 8
+        history: []
+      - id: TB802
+        question: Was ist der Unterschied zwischen LSB und USB?
+        answers:
+          - "LSB arbeitet mit Trägerunterdrückung und dem unteren Seitenband, USB arbeitet mit Trägerunterdrückung und dem oberen Seitenband."
+          - "LSB arbeitet mit Träger und zwei Seitenbändern, USB arbeitet mit Trägerunterdrückung und einem Seitenband."
+          - "LSB arbeitet mit Träger und einem Seitenband, USB arbeitet mit Trägerunterdrückung und beiden Seitenbändern."
+          - "LSB arbeitet mit Trägerunterdrückung und dem oberen Seitenband, USB arbeitet mit Trägerunterdrückung und dem unteren Seitenband."
+        subsection: 2
+        subsubsection: 8
+        history: []
+      - id: TB803
+        question: Welche Aussage über modulierte Signale ist richtig?
+        answers:
+          - Bei FM ändert sich die Amplitude des Sendesignals bei Modulation nicht.
+          - Bei SSB ändert sich die Amplitude des Sendesignals bei Modulation nicht.
+          - Bei FM ändert sich die Amplitude des Sendesignals bei Modulation im Rhythmus der Sprache.
+          - Bei AM ändert sich die Amplitude des Sendesignals bei Modulation nicht.
+        subsection: 2
+        subsubsection: 8
+        history: []
+      - id: TB804
+        question: Was ist der Unterschied zwischen FSK und AFSK?
+        answers:
+          - Bei FSK wird der Träger direkt und bei AFSK mit Hilfe des Audiosignals moduliert.
+          - Bei FSK wird der Träger frequenzmoduliert und bei AFSK amplitudenmoduliert.
+          - Bei FSK wird der Träger frequenzmoduliert und bei AFSK wird der Träger unterdrückt.
+          - Bei FSK wird der Träger amplitudenmoduliert und bei AFSK frequenzmoduliert.
+        subsection: 2
+        subsubsection: 8
+        history: []
+      - id: TB805
+        question: "Wie groß ist die HF-Bandbreite, die bei der Übertragung eines SSB-Signals entsteht?"
+        answers:
+          - Sie entspricht genau der Bandbreite des NF- Signals.
+          - Sie entspricht der Hälfte der Bandbreite des NF-Signals.
+          - Sie entspricht der doppelten Bandbreite des NF-Signals.
+          - "Sie ist Null, weil bei SSB-Modulation der HF- Träger unterdrückt wird."
+        subsection: 2
+        subsubsection: 8
+        history: []
+      - id: TB806
+        question: "Ein Träger von 3,65 MHz wird mit der NF- Frequenz von 2 kHz in SSB (LSB) moduliert. Welche Frequenz/Frequenzen treten im modulierten HF-Signal hauptsächlich auf?"
+        answers:
+          - "3,648 MHz"
+          - "3,650 MHz"
+          - "3,652 MHz"
+          - "3,648 MHz und 3,652 MHz"
+        subsection: 2
+        subsubsection: 8
+        history: []
+      - id: TB901
+        question: Die Maßeinheit der elektrischen Leistung ist
+        answers:
+          - Watt
+          - Joule
+          - Kilowattstunden
+          - Amperestunden
+        subsection: 2
+        subsubsection: 9
+        history: []
+      - id: TB902
+        question: Welcher der nachfolgenden Zusammenhänge ist richtig?
+        answers:
+          - U = R ⋅ I
+          - I = U ⋅R
+          - IR = U
+          - RI = U
+        subsection: 2
+        subsubsection: 9
+        history: []
+      - id: TB903
+        question: Welche Spannung lässt einen Strom von 2 A durch einen Widerstand von 50 Ohm flie- ßen?
+        answers:
+          - 100 Volt
+          - 200 Volt
+          - 25 Volt
+          - 52 Volt
+        subsection: 2
+        subsubsection: 9
+        history: []
+      - id: TB904
+        question: Welcher Widerstand ist erforderlich um einen Strom von 3 A bei einer Spannung von 90 Volt fließen zu lassen?
+        answers:
+          - 30 Ω
+          - 1/30 Ω
+          - 270 Ω
+          - 93 Ω
+        subsection: 2
+        subsubsection: 9
+        history: []
+      - id: TB905
+        question: "Eine Stromversorgung nimmt bei 230 V einen Strom von 0,63 A auf. Welche elektrische Arbeit (Energie) wird bei einer Betriebsdauer von 7 Stunden verbraucht?"
+        answers:
+          - "1,01 kWh"
+          - "0,1 kWh"
+          - "2,56 kWh"
+          - "20,7 kWh"
+        subsection: 2
+        subsubsection: 9
+        history: []
+      - id: TB906
+        question: Eine Glühlampe hat einen Nennwert von 12 V und 48 W. Bei einer 12-V-Versorgung beträgt die Stromentnahme
+        answers:
+          - 4 A.
+          - 250 mA.
+          - 750 mA.
+          - 36 A.
+        subsection: 2
+        subsubsection: 9
+        history: []
+      - id: TB907
+        question: Der Effektivwert der Spannung an einer künstlichen 50-Ω-Antenne wird mit 100 V gemessen. Die Leistung an der Last beträgt
+        answers:
+          - 200 W.
+          - 141 W.
+          - 100 W.
+          - 283 W.
+        subsection: 2
+        subsubsection: 9
+        history: []
+      - id: TB908
+        question: Ein mit einer künstlichen 50-Ω-Antenne in Serie geschaltetes Amperemeter zeigt 2 A an. Die Leistung in der Last beträgt
+        answers:
+          - 200 W.
+          - 100 W.
+          - 25 W.
+          - 250 W.
+        subsection: 2
+        subsubsection: 9
+        history: []
+      - id: TB909
+        question: Ein Mobil-Transceiver (Sender-Empfänger) hat bei Sendebetrieb eine Leistungsaufnahme von 100 Watt aus dem 12-V-Bordnetz des Kraftfahrzeuges. Wie groß ist die Stromaufnahme?
+        answers:
+          - "8,33 A"
+          - "16,6 A"
+          - 1200 A
+          - "0,12 A"
+        subsection: 2
+        subsubsection: 9
+        history: []
+      - id: TB910
+        question: "Ein 100-Ω-Widerstand, an dem 10 V anliegen, muss mindestens eine Belastbarkeit haben von"
+        answers:
+          - 1 W.
+          - 10 W.
+          - "0,01 W."
+          - 100 mW.
+        subsection: 2
+        subsubsection: 9
+        history: []
+      - id: TB911
+        question: "Welche Belastbarkeit muss ein Vorwiderstand haben, an dem bei einem Strom von 50 mA eine Spannung von 50 V abfallen soll?"
+        answers:
+          - "2,5 W"
+          - 1 W
+          - 25 W
+          - 250 mW
+        subsection: 2
+        subsubsection: 9
+        history: []
+      - id: TC101
+        question: "Die Farbringe gelb, violett und orange auf einem Widerstand mit 4 Farbringen bedeuten einen Widerstandswert von"
+        answers:
+          - 47 kΩ
+          - "4,7 kΩ"
+          - 470 kΩ
+          - "4,7 MΩ"
+        subsection: 3
+        subsubsection: 1
+        history: []
+      - id: TC102
+        question: "Die Farbringe gelb, violett und rot auf einem Widerstand mit 4 Farbringen bedeuten einen Widerstandswert von"
+        answers:
+          - "4,7 kΩ"
+          - 47 kΩ
+          - 470 kΩ
+          - "4,7 MΩ"
+        subsection: 3
+        subsubsection: 1
+        history: []
+      - id: TC103
+        question: "Die Farbringe rot, violett und orange auf einem Widerstand mit 4 Farbringen bedeuten einen Widerstandswert von"
+        answers:
+          - 27 kΩ
+          - "2,7 kΩ"
+          - 270 kΩ
+          - "2,7 MΩ"
+        subsection: 3
+        subsubsection: 1
+        history: []
+      - id: TC104
+        question: "Die Farbringe rot, violett und rot auf einem Widerstand mit 4 Farbringen bedeuten einen Widerstandswert von"
+        answers:
+          - "2,7 kΩ"
+          - 27 kΩ
+          - 270 kΩ
+          - "2,7 MΩ"
+        subsection: 3
+        subsubsection: 1
+        history: []
+      - id: TC105
+        question: Welches Bauteil hat folgendes Schaltzeichen?
+        answers:
+          - NTC
+          - PTC
+          - LDR
+          - VDR
+        subsection: 3
+        subsubsection: 1
+        history: []
+      - id: TC106
+        question: Welches der folgenden Bauteile ist ein NTC?
+        answers:
+          - C
+          - D
+        subsection: 3
+        subsubsection: 1
+        history: []
+      - id: TC107
+        question: Welches der folgenden Schaltsymbole stellt einen PTC-Widerstand dar?
+        answers:
+          - C
+          - D
+        subsection: 3
+        subsubsection: 1
+        history: []
+      - id: TC108
+        question: "Ein Widerstand hat eine Toleranz von 10 \\%. Bei einem nominalen Widerstandswert von 5,6 kΩ liegt der tatsächliche Wert zwischen"
+        answers:
+          - 5040 und 6160 Ω.
+          - 4760 und 6440 Ω.
+          - "4,7 und 6,8 kΩ."
+          - "5,2 und 6,3 kΩ."
+        subsection: 3
+        subsubsection: 1
+        history: []
+      - id: TC109
+        question: Welche Bauart von Widerstand folgender Auswahl ist am besten für eine künstliche Antenne (Dummy Load) geeignet?
+        answers:
+          - Ein Metalloxidwiderstand
+          - Ein Kohleschichtwiderstand
+          - Ein keramischer Drahtwiderstand
+          - Ein frei gewickelter Drahtwiderstand aus Kupferdraht
+        subsection: 3
+        subsubsection: 1
+        history: []
+      - id: TC110
+        question: Welchen Wert hat ein SMD-Widerstand mit der Kennzeichnung 221?
+        answers:
+          - 220 Ω
+          - 221 Ω
+          - 22 Ω
+          - 22 kΩ
+        subsection: 3
+        subsubsection: 1
+        history: []
+      - id: TC111
+        question: Welchen Wert hat ein SMD-Widerstand mit der Kennzeichnung 223?
+        answers:
+          - 22 kΩ
+          - 221 Ω
+          - 22 Ω
+          - 220 Ω
+        subsection: 3
+        subsubsection: 1
+        history: []
+      - id: TC201
+        question: Welche Aussage zur Kapazität eines Plattenkondensators ist richtig?
+        answers:
+          - "Je größer der Plattenabstand ist, desto kleiner ist die Kapazität."
+          - "Je größer die angelegte Spannung ist, desto kleiner ist die Kapazität."
+          - "Je größer die Plattenoberfläche ist, desto kleiner ist die Kapazität."
+          - "Je größer die Dielektrizitätszahl ist, desto kleiner ist die Kapazität."
+        subsection: 3
+        subsubsection: 2
+        history: []
+      - id: TC202
+        question: "Ein Bauelement, bei dem sich Platten auf einer isolierten Achse befinden, die zwischen fest stehende Platten hineingedreht werden können, nennt man"
+        answers:
+          - Drehkondensator.
+          - Tauchkondensator.
+          - Keramischer Kondensator.
+          - Rotorkondensator.
+        subsection: 3
+        subsubsection: 2
+        history: []
+      - id: TC203
+        question: Welche Kapazität hat nebenstehend abgebildeter Kondensator?
+        answers:
+          - 330 μF
+          - "3,3 μF"
+          - 33 μF
+          - 33000 μF
+        subsection: 3
+        subsubsection: 2
+        history: []
+      - id: TC204
+        question: Welche Kapazität hat nebenstehend abgebildeter Kondensator?
+        answers:
+          - 470 pF
+          - "4,7 pF"
+          - 47 pF
+          - 47000 pF
+        subsection: 3
+        subsubsection: 2
+        history: []
+      - id: TC205
+        question: Welche Kapazität hat nebenstehend abgebildeter Kondensator?
+        answers:
+          - "8,2 pF"
+          - 820 pF
+          - 82 pF
+          - "0,82 pF"
+        subsection: 3
+        subsubsection: 2
+        history: []
+      - id: TC206
+        question: "Drei Kondensatoren mit den Kapazitäten C1 = 0,1 μF, C2 = 150 nF und C3 = 50000 pF werden parallel geschaltet. Wie groß ist die Gesamtkapazität?"
+        answers:
+          - "0,3 μF"
+          - "2,73 nF"
+          - "0,027 μF"
+          - "0,255 μF"
+        subsection: 3
+        subsubsection: 2
+        history: []
+      - id: TC207
+        question: Bei welchem der folgenden Bauformen von Kondensatoren muss beim Einbau auf die Polarität geachtet werden?
+        answers:
+          - Elektrolytkondensator
+          - Keramischer Kondensator
+          - Styroflexkondensator
+          - Plattenkondensator
+        subsection: 3
+        subsubsection: 2
+        history: []
+      - id: TC208
+        question: Mit zunehmender Frequenz
+        answers:
+          - sinkt der Wechselstromwiderstand von Kondensatoren.
+          - sinkt der Wechselstromwiderstand von Kondensatoren bis zu einem Minimum und steigt dann wieder.
+          - steigt der Wechselstromwiderstand von Kondensatoren.
+          - steigt der Wechselstromwiderstand von Kondensatoren bis zu einem Maximum und sinkt dann wieder.
+        subsection: 3
+        subsubsection: 2
+        history: []
+      - id: TC301
+        question: "Wie ändert sich die Induktivität einer Spule von 12 μH, wenn die Windungszahl bei gleicher Wickellänge verdoppelt wird?"
+        answers:
+          - Die Induktivität steigt auf 48 μH.
+          - Die Induktivität steigt auf 24 μH.
+          - Die Induktivität sinkt auf 6 μH.
+          - Die Induktivität sinkt auf 3 μH.
+        subsection: 3
+        subsubsection: 3
+        history: []
+      - id: TC302
+        question: "Wie ändert sich die Induktivität einer Spule von 12 μH, wenn die Wicklung auf dem Wickelkörper bei gleicher Windungszahl auf die doppelte Länge auseinander gezogen wird?"
+        answers:
+          - Die Induktivität sinkt auf 6 μH.
+          - Die Induktivität steigt auf 24 μH.
+          - Die Induktivität steigt auf 48 μH.
+          - Die Induktivität sinkt auf 3 μH.
+        subsection: 3
+        subsubsection: 3
+        history: []
+      - id: TC303
+        question: Wie kann man die Induktivität einer Spule vergrößern?
+        answers:
+          - Durch Stauchen der Spule (Verkürzen der Spulenlänge).
+          - Durch Auseinanderziehen der Spule (Vergrößerung der Spulenlänge).
+          - Durch Einführen eines Kupferkerns in die Spule.
+          - Durch Einbau der Spule in einen Abschirmbecher.
+        subsection: 3
+        subsubsection: 3
+        history: []
+      - id: TC304
+        question: "Das folgende Bild zeigt einen Kern, um den ein Kabel für den Bau einer Netzdrossel gewickelt ist. Der Kern sollte aus"
+        answers:
+          - Ferrit bestehen.
+          - Kunststoff bestehen.
+          - Stahl bestehen.
+          - aus gut leitendem Material bestehen.
+        subsection: 3
+        subsubsection: 3
+        history: []
+      - id: TC305
+        question: "Schaltet man zwei Glühlampen gleichzeitig an eine Spannungsquelle, wobei eine Glühlampe zum Helligkeitsausgleich über einen Widerstand und die andere über eine Spule mit vielen Windungen und Eisenkern angeschlossen ist, so"
+        answers:
+          - leuchtet H1 zuerst.
+          - leuchtet H2 zuerst.
+          - leuchten H1 und H2 genau gleich schnell.
+          - leuchtet H2 kurz auf und geht wieder aus. H1 leuchtet.
+        subsection: 3
+        subsubsection: 3
+        history: []
+      - id: TC306
+        question: Mit zunehmender Frequenz
+        answers:
+          - steigt der Wechselstromwiderstand einer Spule.
+          - sinkt der Wechselstromwiderstand einer Spule.
+          - sinkt der Wechselstromwiderstand einer Spule bis zu einem Minimum und steigt dann wieder.
+          - steigt der Wechselstromwiderstand einer Spule bis zu einem Maximum und sinkt dann wieder.
+        subsection: 3
+        subsubsection: 3
+        history: []
+      - id: TC401
+        question: "Ein Trafo liegt an 230 Volt und gibt 11,5 Volt ab. Seine Primärwicklung hat 600 Windungen. Wie groß ist seine Sekundärwindungszahl?"
+        answers:
+          - 30 Windungen
+          - 20 Windungen
+          - 52 Windungen
+          - 180 Windungen
+        subsection: 3
+        subsubsection: 4
+        history: []
+      - id: TC402
+        question: Ein Trafo liegt an 45 Volt und gibt 180 Volt ab. Seine Primärwicklung hat 150 Windungen. Wie groß ist seine Sekundärwindungszahl?
+        answers:
+          - 600 Windungen
+          - 850 Windungen
+          - 46 Windungen
+          - 30 Windungen
+        subsection: 3
+        subsubsection: 4
+        history: []
+      - id: TC403
+        question: "Die Primärspule eines Übertragers hat die fünffache Anzahl von Windungen der Sekundärspule. Wie hoch ist die erwartete Sekundärspannung, wenn die Primärspule an eine 230-V-Stromversorgung angeschlossen wird?"
+        answers:
+          - 46 Volt
+          - "9,2 Volt"
+          - 23 Volt
+          - 1150 Volt
+        subsection: 3
+        subsubsection: 4
+        history: []
+      - id: TC501
+        question: "P-dotiertes Halbleitermaterial ist solches, das mit einem zusätzlichen Stoff versehen wurde, der"
+        answers:
+          - weniger als vier Valenzelektronen enthält.
+          - mehr als vier Valenzelektronen enthält.
+          - genau vier Valenzelektronen enthält.
+          - keine Valenzelektronen enthält.
+        subsection: 3
+        subsubsection: 5
+        history: []
+      - id: TC502
+        question: N-leitendes Halbleitermaterial ist gekennzeichnet durch
+        answers:
+          - Überschuss an freien Elektronen.
+          - das Fehlen von Dotierungsatomen.
+          - das Fehlen von Atomen im Gitter des Halbleiterkristalls.
+          - bewegliche Elektronenlücken.
+        subsection: 3
+        subsubsection: 5
+        history: []
+      - id: TC503
+        question: Ein in Durchlassrichtung betriebener PN- Übergang ermöglicht
+        answers:
+          - den Stromfluss von P nach N.
+          - den Stromfluss von N nach P.
+          - keinen Stromfluss.
+          - den Elektronenfluss von P nach N.
+        subsection: 3
+        subsubsection: 5
+        history: []
+      - id: TC504
+        question: Eine in Sperrrichtung betriebene Diode hat
+        answers:
+          - einen hohen Widerstand.
+          - eine hohe Kapazität.
+          - eine geringe Impedanz.
+          - eine hohe Induktivität.
+        subsection: 3
+        subsubsection: 5
+        history: []
+      - id: TC505
+        question: Die Auswahlantworten enthalten Silizium- Dioden mit unterschiedlichen Arbeitspunkten. Bei welcher Antwort befindet sich die Diode in leitendem Zustand?
+        answers:
+          - "0,7 V 1,3 V"
+          - "-2,6 V -2,0 V"
+          - 15 V 9 V
+          - "3,4 V 4,0 V"
+        subsection: 3
+        subsubsection: 5
+        history: []
+      - id: TC506
+        question: Die Auswahlantworten enthalten Silizium- Dioden mit unterschiedlichen Arbeitspunkten. Bei welcher Antwort befindet sich die Diode in leitendem Zustand?
+        answers:
+          - "-2 V -2,6 V"
+          - "5,3 V 4,7 V"
+          - 15 V 18 V
+          - "3,9 V 3,2 V"
+        subsection: 3
+        subsubsection: 5
+        history: []
+      - id: TC507
+        question: Wie verhält sich die Kapazität einer Kapazitätsdiode (Varicap)?
+        answers:
+          - Sie nimmt mit abnehmender Sperrspannung zu.
+          - Sie erhöht sich mit zunehmender Durchlassspannung.
+          - Sie nimmt mit zunehmender Sperrspannung zu.
+          - Sie erhöht sich mit zunehmendem Durchlassstrom.
+        subsection: 3
+        subsubsection: 5
+        history: []
+      - id: TC508
+        question: Wozu dient folgende Schaltung? Sie dient
+        answers:
+          - zur Spannungsstabilisierung.
+          - zur Signalbegrenzung.
+          - als Leuchtanzeige.
+          - zur Stromgewinnung.
+        subsection: 3
+        subsubsection: 5
+        history: []
+      - id: TC509
+        question: Wozu dient die folgende Schaltung? Sie dient
+        answers:
+          - als Leuchtanzeige.
+          - zur Signalbegrenzung.
+          - zur Spannungsstabilisierung.
+          - zur Stromgewinnung.
+        subsection: 3
+        subsubsection: 5
+        history: []
+      - id: TC601
+        question: Was versteht man unter Stromverstärkung beim Transistor?
+        answers:
+          - Mit einem geringen Strom (Basisstrom) wird ein großer Strom (Kollektorstrom) gesteuert.
+          - Mit einem geringen Strom (Emitterstrom) wird ein großer Strom (Kollektorstrom) gesteuert.
+          - Mit einem geringen Strom (Emitterstrom) wird ein großer Strom (Basisstrom) gesteuert.
+          - Mit einem geringen Strom (Kollektorstrom) wird ein großer Strom (Emitterstrom) gesteuert.
+        subsection: 3
+        subsubsection: 6
+        history: []
+      - id: TC602
+        question: Das Verhältnis von Kollektorstrom zum Basisstrom eines Transistors liegt üblicherweise im Bereich von
+        answers:
+          - 10 zu 1  bis  900 zu 1.
+          - 1 zu 50  bis 1 zu 100.
+          - 1000 zu 1  bis  5000 zu 1.
+          - 1 zu 100  bis 1 zu 500.
+        subsection: 3
+        subsubsection: 6
+        history: []
+      - id: TC603
+        question: Bei diesem Bauelement handelt es sich um einen
+        answers:
+          - NPN-Transistor.
+          - PNP-Transistor.
+          - Sperrschicht-FET.
+          - MOSFET.
+        subsection: 3
+        subsubsection: 6
+        history: []
+      - id: TC604
+        question: Bei diesem Bauelement handelt es sich um einen
+        answers:
+          - PNP-Transistor.
+          - NPN-Transistor.
+          - P-Kanal-FET.
+          - N-Kanal-FET.
+        subsection: 3
+        subsubsection: 6
+        history: []
+      - id: TC605
+        question: Welche Kollektorspannungen haben NPNund PNP-Transistoren?
+        answers:
+          - "NPN-Transistoren benötigen positive, PNP- Transistoren negative Kollektorspannungen."
+          - NPN- und PNP-Transistoren benötigen negative Kollektorspannungen.
+          - "PNP-Transistoren benötigen positive, NPN- Transistoren negative Kollektorspannung."
+          - PNP- und NPN-Transistoren benötigen positive Kollektorspannungen.
+        subsection: 3
+        subsubsection: 6
+        history: []
+      - id: TC606
+        question: Bei einem bipolaren Transistor in leitendem Zustand befindet sich die Emitter-Basis- Diode
+        answers:
+          - in Durchlassrichtung.
+          - im Leerlauf.
+          - im Kurzschluss.
+          - in Sperrrichtung.
+        subsection: 3
+        subsubsection: 6
+        history: []
+      - id: TC607
+        question: Welche Transistortypen sind bipolare Transistoren?
+        answers:
+          - NPN- und PNP-Transistoren
+          - Dual-Gate-MOS-FETs
+          - Isolierschicht-FETs
+          - Sperrschicht-FETs
+        subsection: 3
+        subsubsection: 6
+        history: []
+      - id: TC608
+        question: Wie lauten die Bezeichnungen der Anschlüsse eines bipolaren Transistors?
+        answers:
+          - "Emitter, Basis, Kollektor"
+          - "Emitter, Drain, Source"
+          - "Drain, Source, Kollektor"
+          - "Drain, Gate, Source"
+        subsection: 3
+        subsubsection: 6
+        history: []
+      - id: TC609
+        question: Ein bipolarer Transistor ist
+        answers:
+          - stromgesteuert.
+          - spannungsgesteuert.
+          - thermisch gesteuert.
+          - ein Gleichspannungsverstärker.
+        subsection: 3
+        subsubsection: 6
+        history: []
+      - id: TC610
+        question: "Wenn die Basisspannung eines NPN- Transistors gleich der Emitterspannung ist,"
+        answers:
+          - fließt kein Kollektorstrom.
+          - "fließt ein Kollektorstrom von etwa 0,6 A."
+          - liegt der Kollektorstrom zwischen 10 mA und 2 A.
+          - fließt ein sehr hoher Kollektor-Kurzschlussstrom.
+        subsection: 3
+        subsubsection: 6
+        history: []
+      - id: TC611
+        question: Wie erfolgt die Steuerung des Stroms im Feldeffekttransistor (FET)?
+        answers:
+          - Die Gatespannung steuert den Widerstand des Kanals zwischen Source und Drain.
+          - Die Gatespannung ist allein verantwortlich für den Drainstrom.
+          - Der Gatestrom ist allein verantwortlich für den Drainstrom.
+          - Der Gatestrom steuert den Widerstand des Kanals zwischen Source und Drain.
+        subsection: 3
+        subsubsection: 6
+        history: []
+      - id: TC612
+        question: Wie bezeichnet man die Anschlüsse des nebenstehenden Transistors?
+        answers:
+          - "1 ... Drain, 2 ... Source,"
+          - "1 ... Source, 2 ... Drain,"
+          - "1 ... Anode, 2 ... Katode,"
+          - "1 ... Kollektor, 2 ... Emitter,"
+        subsection: 3
+        subsubsection: 6
+        history: []
+      - id: TD101
+        question: "Wie groß ist der Ersatzwiderstand der Gesamtschaltung? Gegeben: R1 = 500 Ω,  R2 = 1000 Ω und R3 = 1 kΩ"
+        answers:
+          - 1 kΩ
+          - "2,5 kΩ"
+          - 501 Ω
+          - "5,1 kΩ"
+        subsection: 4
+        subsubsection: 1
+        history: []
+      - id: TD102
+        question: "Wie groß ist der Ersatzwiderstand der Gesamtschaltung? Gegeben: R1 = 1 kΩ,  R2 = 2000 Ω und R3 = 2 kΩ"
+        answers:
+          - 2 kΩ
+          - "2,5 kΩ"
+          - 501 Ω
+          - "5,1 kΩ"
+        subsection: 4
+        subsubsection: 1
+        history: []
+      - id: TD103
+        question: "Wie groß ist der Ersatzwiderstand der Gesamtschaltung? Gegeben: R1 = 500 Ω,  R2 = 500 Ω und R3 = 1 kΩ"
+        answers:
+          - 500 Ω
+          - 250 Ω
+          - 1 kΩ
+          - 2 kΩ
+        subsection: 4
+        subsubsection: 1
+        history: []
+      - id: TD104
+        question: "Wie groß ist der Ersatzwiderstand der Gesamtschaltung? Gegeben: R1 = 500 Ω,  R2 = 1,5 kΩ und R3 = 2 kΩ"
+        answers:
+          - 1 kΩ
+          - 4 kΩ
+          - 500 Ω
+          - 2 kΩ
+        subsection: 4
+        subsubsection: 1
+        history: []
+      - id: TD105
+        question: "Welche Gesamtkapazität hat die folgende Schaltung? Gegeben: C1 = 0,01 μF;  C2 = 5 nF,  C3 = 5000 pF"
+        answers:
+          - 5 nF
+          - "0,015 nF"
+          - "7,5 nF"
+          - 10 nF
+        subsection: 4
+        subsubsection: 1
+        history: []
+      - id: TD106
+        question: "Welche Gesamtkapazität hat die folgende Schaltung? Gegeben: C1 = 0,02 μF; C2 = 10 nF; C3 = 10000 pF"
+        answers:
+          - 10 nF
+          - 5 nF
+          - "2,5 nF"
+          - 40 nF
+        subsection: 4
+        subsubsection: 1
+        history: []
+      - id: TD107
+        question: "Welche Gesamtkapazität hat die folgende Schaltung? Gegeben: C1 = 0,01 μF; C2 = 10 nF; C3 = 5000 pF"
+        answers:
+          - 10 nF
+          - 5 nF
+          - "2,5 nF"
+          - "0,015 nF"
+        subsection: 4
+        subsubsection: 1
+        history: []
+      - id: TD108
+        question: "Die Gesamtspannung U an folgendem Spannungsteiler beträgt 12,2 V. Die Widerstände haben die Werte R1 = 10 kΩ und R2 = 2,2 kΩ. Wie groß ist die Teilspannung U2?"
+        answers:
+          - "2,20 V"
+          - "2,64 V"
+          - "10,0 V"
+          - "1,22 V"
+        subsection: 4
+        subsubsection: 1
+        history: []
+      - id: TD109
+        question: Zwei Widerstände mit R1 = 20 Ω und R2 = 30 Ω sind parallel geschaltet. Wie groß ist der Ersatzwiderstand?
+        answers:
+          - 12 Ω
+          - 50 Ω
+          - 15 Ω
+          - "3,5 Ω"
+        subsection: 4
+        subsubsection: 1
+        history: []
+      - id: TD110
+        question: Zwei Widerstände mit R1 = 100 Ω und R2 = 150 Ω sind parallel geschaltet. Wie groß ist der Ersatzwiderstand?
+        answers:
+          - 60 Ω
+          - 250 Ω
+          - 75 Ω
+          - "17,5 Ω"
+        subsection: 4
+        subsubsection: 1
+        history: []
+      - id: TD201
+        question: Der Impedanzfrequenzgang in der Abbildung zeigt die Kennlinie
+        answers:
+          - eines Serienschwingkreises.
+          - eines Parallelschwingkreises.
+          - einer Induktivität.
+          - einer Kapazität.
+        subsection: 4
+        subsubsection: 2
+        history: []
+      - id: TD202
+        question: Der im folgenden Bild dargestellte Impedanzfrequenzgang ist typisch für
+        answers:
+          - einen Parallelschwingkreis.
+          - einen Kondensator.
+          - eine Spule.
+          - einen Serienschwingkreis.
+        subsection: 4
+        subsubsection: 2
+        history: []
+      - id: TD203
+        question: Welcher Schwingkreis passt zu dem neben der jeweiligen Schaltung dargestellten Verlauf des Scheinwiderstandes?
+        answers:
+          - ""
+          - ""
+          - ""
+          - ""
+        subsection: 4
+        subsubsection: 2
+        history: []
+      - id: TD204
+        question: "Wie ändert sich die Resonanzfrequenz eines Schwingkreises, wenn 1. die Spule weniger Windungen erhält, 2. die Länge der Spule durch Zusammenschieben der Drahtwicklung verringert wird, 3. ein Ferritkern in das Innere der Spule gebracht wird?"
+        answers:
+          - Die Resonanzfrequenz wird bei 1. größer und bei 2. und 3. kleiner.
+          - Die Resonanzfrequenz wird bei 1. und 2. kleiner und bei 3. größer.
+          - Die Resonanzfrequenz wird bei 1. kleiner und bei 2. und 3. größer.
+          - Die Resonanzfrequenz wird bei 1. und 2. grö- ßer und bei 3. kleiner.
+        subsection: 4
+        subsubsection: 2
+        history: []
+      - id: TD205
+        question: Wie verhält sich ein Parallelschwingkreis bei der Resonanzfrequenz?
+        answers:
+          - Wie ein hochohmiger Widerstand.
+          - Wie ein niederohmiger Widerstand.
+          - Wie ein Kondensator mit sehr kleiner Kapazität.
+          - Wie eine Spule mit sehr großer Induktivität.
+        subsection: 4
+        subsubsection: 2
+        history: []
+      - id: TD206
+        question: Was stellt die folgende Schaltung dar?
+        answers:
+          - Hochpass
+          - Sperrkreis
+          - Bandpass
+          - Tiefpass
+        subsection: 4
+        subsubsection: 2
+        history: []
+      - id: TD207
+        question: Was stellt die folgende Schaltung dar?
+        answers:
+          - Sperrkreis
+          - Saugkreis
+          - Bandpass
+          - Tiefpass
+        subsection: 4
+        subsubsection: 2
+        history: []
+      - id: TD208
+        question: Was stellt die folgende Schaltung dar?
+        answers:
+          - Tiefpass
+          - Sperrkreis
+          - Bandpass
+          - Hochpass
+        subsection: 4
+        subsubsection: 2
+        history: []
+      - id: TD209
+        question: Was stellt die folgende Schaltung dar?
+        answers:
+          - Saugkreis
+          - Sperrkreis
+          - Bandpass
+          - Tiefpass
+        subsection: 4
+        subsubsection: 2
+        history: []
+      - id: TD210
+        question: Welche der nachfolgenden Eigenschaften trifft auf einen Hochpass zu?
+        answers:
+          - Frequenzen oberhalb der Grenzfrequenz werden durchgelassen.
+          - Frequenzen unterhalb der Grenzfrequenz werden verstärkt.
+          - Frequenzen oberhalb der Grenzfrequenz werden stark bedämpft.
+          - Frequenzen unterhalb der Grenzfrequenz werden ungedämpft durchgelassen.
+        subsection: 4
+        subsubsection: 2
+        history: []
+      - id: TD301
+        question: Welche Eigenschaften sollten Strom- und Spannungsquellen aufweisen?
+        answers:
+          - Spannungsquellen sollten einen möglichst niedrigen Innenwiderstand und Stromquellen einen möglichst hohen Innenwiderstand haben.
+          - Strom- und Spannungsquellen sollten einen möglichst niedrigen Innenwiderstand haben.
+          - Strom- und Spannungsquellen sollten einen möglichst hohen Innenwiderstand haben.
+          - Spannungsquellen sollten einen möglichst hohen Innenwiderstand und Stromquellen einen möglichst niedrigen Innenwiderstand haben.
+        subsection: 4
+        subsubsection: 3
+        history: []
+      - id: TD302
+        question: "Die Leerlaufspannung einer Gleichspannungsquelle beträgt 13,5 V. Wenn die Spannungsquelle einen Strom von 1 A abgibt, sinkt die Klemmenspannung auf 12,4 V. Wie groß ist der Innenwiderstand der Spannungsquelle?"
+        answers:
+          - "1,1 Ω"
+          - "13,5 Ω"
+          - "12,4 Ω"
+          - "1,2 Ω"
+        subsection: 4
+        subsubsection: 3
+        history: []
+      - id: TD303
+        question: "Die Leerlaufspannung einer Gleichspannungsquelle beträgt 13,5 V. Wenn die Spannungsquelle einen Strom von 2 A abgibt, sinkt die Klemmenspannung auf 13 V. Wie groß ist der Innenwiderstand der Spannungsquelle?"
+        answers:
+          - "0,25 Ω"
+          - "6,75 Ω"
+          - 13 Ω
+          - "6,5 Ω"
+        subsection: 4
+        subsubsection: 3
+        history: []
+      - id: TD304
+        question: "Berechnen Sie die Leerlaufausgangsspannung dieser Schaltung für ein Transformationsverhältnis von 5:1."
+        answers:
+          - Zirka 65 Volt
+          - Zirka 46 Volt
+          - Zirka 40 Volt
+          - Zirka 28 Volt
+        subsection: 4
+        subsubsection: 3
+        history: []
+      - id: TD305
+        question: "Berechnen Sie die Leerlaufausgangsspannung dieser Schaltung für ein Transformationsverhältnis von 8:1."
+        answers:
+          - Zirka 40 Volt
+          - Zirka 46 Volt
+          - Zirka 65 Volt
+          - Zirka 28 Volt
+        subsection: 4
+        subsubsection: 3
+        history: []
+      - id: TD306
+        question: Welches ist der Hauptnachteil eines Schaltnetzteils gegenüber einem konventionellen Netzteil?
+        answers:
+          - "Ein Schaltnetzteil erzeugt Oberwellen seiner Taktfrequenz, die beim Empfang zu Störungen führen können."
+          - Ein Schaltnetzteil benötigt einen größeren Transformator.
+          - Ein Schaltnetzteil kann keine so hohen Ströme abgeben.
+          - Ein Schaltnetzteil hat höhere Verluste.
+        subsection: 4
+        subsubsection: 3
+        history: []
+      - id: TD401
+        question: In welcher der folgenden Zeilen werden nur Verstärker-Bauelemente genannt?
+        answers:
+          - "Transistor, MOSFET, Operationsverstärker, Röhre"
+          - "Transistor, Halbleiterdiode, Operationsverstärker, Röhre"
+          - "Transistor, Varicap-Diode, Operationsverstärker, Röhre"
+          - "Transistor, MOSFET, Halbleiterdiode, Röhre"
+        subsection: 4
+        subsubsection: 4
+        history: []
+      - id: TD402
+        question: "Was versteht man in der Elektronik unter Verstärkung? Man spricht von Verstärkung, wenn"
+        answers:
+          - das Ausgangssignal gegenüber dem Eingangssignal in der Leistung größer ist.
+          - das Eingangssignal gegenüber dem Ausgangssignal in der Leistung größer ist.
+          - z.B. bei einem Transformator die Ausgangsspannung größer ist als die Eingangsspannung.
+          - das Eingangssignal gegenüber dem Ausgangssignal in der Spannung größer ist.
+        subsection: 4
+        subsubsection: 4
+        history: []
+      - id: TD403
+        question: Was ist ein Operationsverstärker?
+        answers:
+          - Operationsverstärker sind Gleichstrom gekoppelte Verstärker mit sehr hohem Verstärkungsfaktor und großer Linearität.
+          - Operationsverstärker sind Wechselstrom gekoppelte Verstärker mit niedrigem Eingangswiderstand und großer Linearität.
+          - Operationsverstärker sind in Empfängerstufen eingebaute Analogverstärker mit sehr niedrigem Verstärkungsfaktor aber großer Linearität.
+          - Operationsverstärker sind digitale Schaltkreise mit hohem Verstärkungsfaktor.
+        subsection: 4
+        subsubsection: 4
+        history: []
+      - id: TD404
+        question: Ein IC (integrated circuit) ist
+        answers:
+          - eine komplexe Schaltung auf einem Halbleiterkristallplättchen.
+          - eine aus vielen einzelnen Bauteilen aufgebaute Schaltung auf einer Platine.
+          - "eine miniaturisierte, aus SMD-Bauteilen aufgebaute Schaltung."
+          - eine Zusammenschaltung verschiedener Baugruppen zu einer Funktionseinheit.
+        subsection: 4
+        subsubsection: 4
+        history: []
+      - id: TD405
+        question: Worauf beruht die Verstärkerwirkung von Elektronenröhren?
+        answers:
+          - Das von der Gitterspannung hervorgerufene elektrische Feld steuert den Anodenstrom.
+          - Die Anodenspannung steuert das magnetische Feld an der Anode und damit den Anodenstrom.
+          - Die Heizspannung steuert das elektrische Feld an der Kathode und damit den Anodenstrom.
+          - Die Katodenvorspannung steuert das magnetische Feld an der Kathode und damit den Gitterstrom.
+        subsection: 4
+        subsubsection: 4
+        history: []
+      - id: TD501
+        question: Durch Modulation
+        answers:
+          - werden Informationen auf einen oder mehrere Träger übertragen.
+          - wird einem oder mehreren Trägern Informationen entnommen.
+          - werden Sprach- und CW-Signale kombiniert.
+          - werden dem Signal NF-Komponenten entnommen.
+        subsection: 4
+        subsubsection: 5
+        history: []
+      - id: TD502
+        question: Welche Aussage zum Frequenzmodulator ist richtig? Durch das Informationssignal
+        answers:
+          - wird die Frequenz des Trägers beeinflusst. Die Amplitude des Trägers bleibt dabei konstant.
+          - wird die Amplitude des Trägers beeinflusst. Die Frequenz des Trägers bleibt dabei konstant.
+          - werden gleichzeitig Frequenz und Amplitude des Trägers beeinflusst.
+          - findet keinerlei Beeinflussung von Trägerfrequenz oder Trägeramplitude statt. Die Information steuert nur die Kapazität des Oszillators.
+        subsection: 4
+        subsubsection: 5
+        history: []
+      - id: TD503
+        question: Zur Aufbereitung des SSB-Signals müssen
+        answers:
+          - der Träger und ein Seitenband unterdrückt oder ausgefiltert werden.
+          - der Träger hinzugesetzt und ein Seitenband ausgefiltert werden.
+          - der Träger unterdrückt und ein Seitenband hinzugesetzt werden.
+          - der Träger unterdrückt und beide Seitenbänder ausgefiltert werden.
+        subsection: 4
+        subsubsection: 5
+        history: []
+      - id: TD504
+        question: Wie kann ein SSB-Signal erzeugt werden?
+        answers:
+          - Im Balancemodulator wird ein Zweiseitenband- Signal erzeugt. Das Seitenbandfilter selektiert ein Seitenband heraus.
+          - Im Balancemodulator wird ein Zweiseitenband- Signal erzeugt. Ein auf die Trägerfrequenz abgestimmter Saugkreis filtert den Träger aus.
+          - Im Balancemodulator wird ein Einseitenband- Signal erzeugt. Ein auf die Trägerfrequenz abgestimmter Sperrkreis filtert den Träger aus.
+          - Im Balancemodulator wird ein Zweiseitenband- Signal erzeugt. In einem Frequenzteiler wird ein Seitenband abgespalten.
+        subsection: 4
+        subsubsection: 5
+        history: []
+      - id: TD601
+        question: Was verstehen Sie unter einem „Oszillator“?
+        answers:
+          - Es ist ein Schwingungserzeuger.
+          - Es ist ein sehr schmales Filter.
+          - Es ist ein Messgerät zur Anzeige von Schwingungen.
+          - Es ist ein FM-Modulator.
+        subsection: 4
+        subsubsection: 6
+        history: []
+      - id: TD602
+        question: "Was ist ein LC-Oszillator? Es ist ein Schwingungserzeuger, wobei die Frequenz"
+        answers:
+          - von einer Spule und einem Kondensator (LC- Schwingkreis) bestimmt wird.
+          - durch einen hochstabilen Quarz bestimmt wird.
+          - mittels LC-Tiefpass gefiltert wird.
+          - mittels LC-Hochpass gefiltert wird.
+        subsection: 4
+        subsubsection: 6
+        history: []
+      - id: TD603
+        question: "Was ist ein Quarz-Oszillator? Es ist ein Schwingungserzeuger, wobei die Frequenz"
+        answers:
+          - durch einen hochstabilen Quarz bestimmt wird.
+          - allein durch einen Quarz erzeugt wird.
+          - mittels Quarz-Tiefpass gefiltert wird.
+          - mittels Quarz-Hochpass gefiltert wird.
+        subsection: 4
+        subsubsection: 6
+        history: []
+      - id: TD604
+        question: "Wie verhält sich die Frequenz eines LC- Oszillators bei Temperaturanstieg, wenn die Kapazität des Schwingkreiskondensators mit dem Temperaturanstieg geringer wird?"
+        answers:
+          - Die Frequenz wird erhöht.
+          - Die Schwingungen reißen ab (Aussetzer).
+          - Die Frequenz wird niedriger.
+          - Die Frequenz bleibt stabil.
+        subsection: 4
+        subsubsection: 6
+        history: []
+      - id: TD605
+        question: Im VFO eines Senders steigt die Induktivität der Oszillatorspule mit der Temperatur. Der Kondensator bleibt sehr stabil. Welche Auswirkungen hat dies bei steigender Temperatur?
+        answers:
+          - Die VFO-Frequenz wandert nach unten.
+          - Die VFO-Frequenz wandert nach oben.
+          - Die VFO-Ausgangsspannung nimmt zu.
+          - Die VFO-Ausgangsspannung nimmt ab.
+        subsection: 4
+        subsubsection: 6
+        history: []
+      - id: TD606
+        question: "Der Vorteil von Quarzoszillatoren gegenüber LC-Oszillatoren liegt darin, dass sie"
+        answers:
+          - eine bessere Frequenzstabilität aufweisen.
+          - eine breitere Resonanzkurve haben.
+          - einen geringeren Anteil an Oberwellen erzeugen.
+          - ein sehr viel geringes Seitenbandrauschen erzeugen.
+        subsection: 4
+        subsubsection: 6
+        history: []
+      - id: TE101
+        question: Wie unterscheidet sich SSB (J3E) von AM (A3E) in Bezug auf die Bandbreite?
+        answers:
+          - Die Sendeart J3E beansprucht weniger als die halbe Bandbreite der Sendeart A3E.
+          - Die Sendeart J3E beansprucht etwas mehr als die halbe Bandbreite der Sendeart A3E.
+          - Die Sendeart J3E beansprucht etwa 1/4 Bandbreite der Sendeart A3E.
+          - "Die unterschiedlichen Modulationsarten lassen keinen Vergleich zu, da sie grundverschieden erzeugt werden."
+        subsection: 5
+        subsubsection: 1
+        history: []
+      - id: TE102
+        question: Welches der nachfolgenden Modulationsverfahren hat die geringste Störanfälligkeit bei Funkanlagen in Kraftfahrzeugen?
+        answers:
+          - FM
+          - SSB
+          - DSB
+          - AM
+        subsection: 5
+        subsubsection: 1
+        history: []
+      - id: TE103
+        question: Das folgende Oszillogramm zeigt ein AM- Signal. Der Modulationsgrad beträgt hier zirka
+        answers:
+          - "50 \\%."
+          - "33 \\%."
+          - "67 \\%."
+          - "75 \\%."
+        subsection: 5
+        subsubsection: 1
+        history: []
+      - id: TE104
+        question: Das folgende Oszillogramm zeigt ein AM- Signal. Der Modulationsgrad beträgt hier zirka
+        answers:
+          - "45 \\%."
+          - "55 \\%."
+          - "30 \\%."
+          - "75 \\%."
+        subsection: 5
+        subsubsection: 1
+        history: []
+      - id: TE105
+        question: Das folgende Oszillogramm zeigt
+        answers:
+          - ein typisches Zweiton-SSB-Testsignal.
+          - ein typisches Einton-FM-Testsignal.
+          - "ein typisches 100\\%-AM-Signal."
+          - ein typisches CW-Signal.
+        subsection: 5
+        subsubsection: 1
+        history: []
+      - id: TE106
+        question: Das folgende Oszillogramm zeigt ein typisches Zweiton-SSB-Testsignal. Bestimmen Sie den Modulationsgrad!
+        answers:
+          - "Man kann keinen Modulationsgrad bestimmen, da es keinen Träger gibt."
+          - "Er beträgt 100 \\%."
+          - "Er beträgt 0 \\%."
+          - "Er beträgt ca. 50 \\%."
+        subsection: 5
+        subsubsection: 1
+        history: []
+      - id: TE201
+        question: Wodurch wird bei Frequenzmodulation die Lautstärke-Information übertragen?
+        answers:
+          - Durch die Größe der Trägerfrequenzauslenkung.
+          - Durch die Geschwindigkeit der Trägerfrequenz- änderung.
+          - Durch die Änderung der Geschwindigkeit des Frequenzhubes.
+          - Durch die Größe der Amplitude des HF-Signals.
+        subsection: 5
+        subsubsection: 2
+        history: []
+      - id: TE202
+        question: FM hat gegenüber SSB den Vorteil der
+        answers:
+          - geringeren Beeinflussung durch Störquellen.
+          - geringen Anforderungen an die Bandbreite.
+          - größeren Entfernungsüberbrückung.
+          - besseren Kreisgüte.
+        subsection: 5
+        subsubsection: 2
+        history: []
+      - id: TE203
+        question: "Ein zu großer Hub eines FM-Senders führt dazu,"
+        answers:
+          - dass die HF-Bandbreite zu groß wird.
+          - dass die Sendeendstufe übersteuert wird.
+          - dass Verzerrungen auf Grund unerwünschter Unterdrückung der Trägerfrequenz auftreten.
+          - dass Verzerrungen auf Grund gegenseitiger Auslöschung der Seitenbänder auftreten.
+        subsection: 5
+        subsubsection: 2
+        history: []
+      - id: TE204
+        question: Größerer Frequenzhub führt bei einem FM- Sender zu
+        answers:
+          - einer größeren HF-Bandbreite.
+          - einer Erhöhung der Senderausgangsleistung.
+          - einer Erhöhung der Amplitude der Trägerfrequenz.
+          - einer Reduktion der Amplituden der Seitenbänder.
+        subsection: 5
+        subsubsection: 2
+        history: []
+      - id: TE301
+        question: Welche HF-Bandbreite beansprucht ein 1200-Baud-Packet-Radio-AFSK-Signal?
+        answers:
+          - 12 kHz
+          - 25 kHz
+          - "ca. 6,6 kHz"
+          - ca. 3 kHz
+        subsection: 5
+        subsubsection: 3
+        history: []
+      - id: TE302
+        question: Welche HF-Bandbreite beansprucht ein 9600-Baud-FM-Packet-Radio-Signal?
+        answers:
+          - 20 kHz
+          - "12,5 kHz"
+          - "ca. 6,6 kHz"
+          - ca. 3 kHz
+        subsection: 5
+        subsubsection: 3
+        history: []
+      - id: TE303
+        question: Welche NF-Zwischenträgerfrequenzen werden in der Regel in Packet Radio bei 1200 Baud benutzt?
+        answers:
+          - 1200 / 2200 Hz
+          - 850 / 1200 kHz
+          - 500 / 1750 Hz
+          - 300 / 2700 Hz
+        subsection: 5
+        subsubsection: 3
+        history: []
+      - id: TE304
+        question: Was versteht man bei Packet Radio unter einem TNC (Terminal Network Controller)? Ein TNC
+        answers:
+          - besteht aus einem Modem und dem Controller für die digitale Aufbereitung der Daten.
+          - wandelt nur die Töne in digitale Daten und schickt diese an den PC.
+          - wandelt nur die Töne in digitale Daten und schickt diese an den Sender.
+          - ist ein Modem (Modulator und Demodulator) für digitale Signale.
+        subsection: 5
+        subsubsection: 3
+        history: []
+      - id: TE305
+        question: Was bedeutet im Prinzip „Packet Radio“? Die Daten werden
+        answers:
+          - paketweise (stoßweise) gesendet.
+          - in der Mailbox in Paketen aufbewahrt.
+          - 8-Bit-weise parallel gepackt gesendet.
+          - zu 8 Bit gepackt und dann gesendet.
+        subsection: 5
+        subsubsection: 3
+        history: []
+      - id: TE306
+        question: Was versteht man unter 1k2-Packet-Radio?
+        answers:
+          - Die Übertragung erfolgt mit 1200 Baud.
+          - Man arbeitet mit einem einzelnen Ton von 1200 Hz.
+          - Die Frequenz am Packet-Radio-Eingang beträgt 1200 Hertz.
+          - Die Daten werden in Paketen von 1200 Bits übertragen.
+        subsection: 5
+        subsubsection: 3
+        history: []
+      - id: TE307
+        question: Welches ist eine gängige Übertragungsrate in Packet Radio?
+        answers:
+          - 9600 Baud
+          - 12000 Baud
+          - 2700 Baud
+          - 6400 Baud
+        subsection: 5
+        subsubsection: 3
+        history: []
+      - id: TE308
+        question: Eine Packet-Radio-Mailbox ist
+        answers:
+          - ein Rechnersystem bei dem Texte und Daten über Funk eingespeichert und abgerufen werden können.
+          - die Softwaresteuerung einer automatischen Funkstelle.
+          - eine fernbedient oder automatisch arbeitende Funkstelle die Internetnachrichten zwischenspeichert.
+          - eine Zusatzeinrichtung die E-Mails umwandelt und anschließend zwischenspeichert.
+        subsection: 5
+        subsubsection: 3
+        history: []
+      - id: TE309
+        question: Um RTTY-Betrieb durchzuführen benötigt man außer einem Transceiver beispielsweise
+        answers:
+          - einen PC mit Soundkarte und entsprechender Software.
+          - einen Fernschreiber.
+          - einen RTTY-Microcontroller.
+          - "eine Zusatzeinrichtung, die RTTY-Signale umwandelt und anschließend zwischenspeichert."
+        subsection: 5
+        subsubsection: 3
+        history: []
+      - id: TE310
+        question: Welcher Unterschied zwischen den Betriebsarten ATV und SSTV ist richtig?
+        answers:
+          - "SSTV überträgt Standbilder, ATV bewegte Bilder."
+          - "SSTV wird nur auf Kurzwelle, ATV auf UKW verwendet."
+          - SSTV belegt eine größere Bandbreite als ATV.
+          - "SSTV ist schwarzweiß, ATV in Farbe."
+        subsection: 5
+        subsubsection: 3
+        history: []
+      - id: TE311
+        question: Welches der folgenden digitalen Übertragungsverfahren hat die geringste Bandbreite?
+        answers:
+          - PSK31
+          - RTTY
+          - Pactor
+          - Packet Radio
+        subsection: 5
+        subsubsection: 3
+        history: []
+      - id: TE312
+        question: "Wie heißt die Übertragungsart mit einem Übertragungskanal, bei der durch Umschaltung abwechselnd in beide Richtungen gesendet werden kann?"
+        answers:
+          - Halbduplex
+          - Simplex
+          - Duplex
+          - Vollduplex
+        subsection: 5
+        subsubsection: 3
+        history: []
+      - id: TF101
+        question: Eine hohe erste ZF vereinfacht die Filterung zur Vermeidung von
+        answers:
+          - Spiegelfrequenzstörungen.
+          - Beeinflussung des lokalen Oszillators.
+          - Nebenaussendungen.
+          - Störungen der zweiten ZF.
+        subsection: 6
+        subsubsection: 1
+        history: []
+      - id: TF102
+        question: Eine hohe erste Zwischenfrequenz
+        answers:
+          - ermöglicht bei großem Abstand zur Empfangsfrequenz eine hohe Spiegelfrequenzunterdrückung.
+          - "trägt dazu bei, mögliche Beeinflussungen des lokalen Oszillators durch Empfangssignale zu reduzieren."
+          - "sollte möglichst nahe an der Empfangsfrequenz liegen, um eine gute Spiegelfrequenzunterdrückung zu erreichen."
+          - "verhindert auf Grund ihrer Höhe, dass durch die Umsetzung auf die zweite Zwischenfrequenz Spiegelfrequenzen auftreten."
+        subsection: 6
+        subsubsection: 1
+        history: []
+      - id: TF103
+        question: Welche Aussage ist für einen Doppelsuper richtig?
+        answers:
+          - Mit einer niedrigen zweiten ZF erreicht man leicht eine gute Trennschärfe.
+          - Das von der Antenne aufgenommene Signal bleibt bis zum Demodulator in seiner Frequenz erhalten.
+          - Durch eine hohe erste ZF erreicht man leicht eine gute Trennschärfe.
+          - Durch eine niedrige zweite ZF erreicht man leicht eine gute Spiegelselektion.
+        subsection: 6
+        subsubsection: 1
+        history: []
+      - id: TF104
+        question: "Ein Empfänger hat eine ZF von 10,7 MHz und ist auf 28,5 MHz abgestimmt. Der Oszillator des Empfängers schwingt oberhalb der Empfangsfrequenz. Welche Frequenz hat die Spielfrequenz?"
+        answers:
+          - "49,9 MHz"
+          - "48,9 MHz"
+          - "39,2 MHz"
+          - "17,8 MHz"
+        subsection: 6
+        subsubsection: 1
+        history: []
+      - id: TF105
+        question: Wodurch wird beim Überlagerungsempfänger die Spiegelfrequenzdämpfung bestimmt? Sie wird vor allem bestimmt durch
+        answers:
+          - die Höhe der ersten ZF.
+          - die Höhe der zweiten ZF bei einem Doppel- überlagerungsempfänger.
+          - die Bandbreite der ZF-Stufen.
+          - die NF-Bandbreite.
+        subsection: 6
+        subsubsection: 1
+        history: []
+      - id: TF106
+        question: Einem Mischer werden die Frequenzen 136 MHz und 145 MHz zugeführt. Welche Frequenzen werden beim Mischvorgang erzeugt?
+        answers:
+          - 9 MHz und 281 MHz
+          - 127 MHz und 154 MHz
+          - 272 MHz und 290 MHz
+          - "140,5 MHz und 281 MHz"
+        subsection: 6
+        subsubsection: 1
+        history: []
+      - id: TF107
+        question: "Einem Mischer werden die Frequenzen 28 MHz und 38,7 MHz zugeführt. Welche Frequenzen werden beim Mischvorgang erzeugt?"
+        answers:
+          - "10,7 MHz und 66,7 MHz"
+          - "nur 10,7 MHz"
+          - "56 MHz und 66,7 MHz"
+          - "10,7 MHz und 56 MHz"
+        subsection: 6
+        subsubsection: 1
+        history: []
+      - id: TF108
+        question: Eine schmale Empfängerbandbreite führt im allgemeinen zu einer
+        answers:
+          - hohen Trennschärfe.
+          - fehlenden Trennschärfe.
+          - unzulänglichen Trennschärfe.
+          - schlechten Demodulation.
+        subsection: 6
+        subsubsection: 1
+        history: []
+      - id: TF109
+        question: Die Frequenzdifferenz zwischen dem HF- Nutzsignal und dem Spiegelsignal entspricht
+        answers:
+          - dem zweifachen der ersten ZF.
+          - der Frequenz des lokalen Oszillators.
+          - der HF-Eingangsfrequenz.
+          - der Frequenz des Preselektors.
+        subsection: 6
+        subsubsection: 1
+        history: []
+      - id: TF110
+        question: Durch welchen Vorgang setzt ein Konverter einen Frequenzbereich für einen vorhandenen Empfänger um?
+        answers:
+          - Durch Mischung.
+          - Durch Vervielfachung.
+          - Durch Frequenzteilung.
+          - Durch Rückkopplung.
+        subsection: 6
+        subsubsection: 1
+        history: []
+      - id: TF201
+        question: "Um Schwankungen des NF-Ausgangssignals durch Schwankungen des HF-Eingangssignals zu verringern, wird ein Empfänger mit"
+        answers:
+          - einer automatischen Verstärkungsregelung ausgestattet.
+          - einer NF-Pegelbegrenzung ausgestattet.
+          - NF-Filtern ausgestattet.
+          - einer NF-Vorspannungsregelung ausgestattet.
+        subsection: 6
+        subsubsection: 2
+        history: []
+      - id: TF202
+        question: Bei Empfang eines sehr starken Signals verringert die AGC (automatic gain control)
+        answers:
+          - die Verstärkung der HF- und ZF-Stufen.
+          - die Versorgungsspannung des VFO.
+          - eine Verstärkung der NF-Stufen.
+          - eine Filterreaktion.
+        subsection: 6
+        subsubsection: 2
+        history: []
+      - id: TF203
+        question: Was bewirkt die AGC (automatic gain control) bei einem starken Eingangssignal?
+        answers:
+          - Sie reduziert die Verstärkung der HF-und ZF- Stufen.
+          - Sie reduziert die Amplitude des VFO.
+          - Sie reduziert die Amplitude des BFO.
+          - Sie reduziert die Höhe der Versorgungsspannungen.
+        subsection: 6
+        subsubsection: 2
+        history: []
+      - id: TF204
+        question: "Ein Doppelsuper hat eine erste ZF von 10,7 MHz und eine zweite ZF von 460 kHz. Die Empfangsfrequenz soll 28 MHz sein. Welche Frequenzen sind für den VFO und den CO erforderlich, wenn die Oszillatoren oberhalb der Mischer-Eingangssignale schwingen sollen?"
+        answers:
+          - "Der VFO muss bei 38,70 MHz und der CO bei 11,16 MHz schwingen."
+          - "Der VFO muss bei 10,26 MHz und der CO bei 17,30 MHz schwingen."
+          - "Der VFO muss bei 11,16 MHz und der CO bei 38,70 MHz schwingen."
+          - "Der VFO muss bei 28,460 MHz und der CO bei 38,26 MHz schwingen."
+        subsection: 6
+        subsubsection: 2
+        history: []
+      - id: TF205
+        question: "Ein Doppelsuper hat eine erste ZF von 9 MHz und eine zweite ZF von 460 kHz. Die Empfangsfrequenz soll 21,1 MHz sein. Welche Frequenzen sind für den VFO und den CO erforderlich, wenn die Oszillatoren oberhalb der Mischer-Eingangssignale schwingen sollen?"
+        answers:
+          - "Der VFO muss bei 30,1 MHz und der CO bei 9,46 MHz schwingen."
+          - "Der VFO muss bei 9,46 MHz und der CO bei 8,54 MHz schwingen."
+          - "Der VFO muss bei 30,1 MHz und der CO bei 8,54 MHz schwingen."
+          - "Der VFO muss bei 21,56 MHz und der CO bei 12,1 MHz schwingen."
+        subsection: 6
+        subsubsection: 2
+        history: []
+      - id: TF301
+        question: "In der folgenden Schaltung können bei einer Empfangsfrequenz von 28,3 MHz und einer Oszillatorfrequenz von 39 MHz Spiegelfrequenzstörungen bei"
+        answers:
+          - "49,7 MHz auftreten."
+          - 39 MHz auftreten.
+          - "67,3 MHz auftreten."
+          - "17,6 MHz auftreten."
+        subsection: 6
+        subsubsection: 3
+        history: []
+      - id: TF302
+        question: "Der Begrenzerverstärker eines FM- Empfängers ist ein Verstärker,"
+        answers:
+          - der sein Ausgangssignal ab einem bestimmten Eingangspegel begrenzt.
+          - der zur Verringerung des Vorstufenrauschens dient.
+          - der zur Begrenzung des Hubes für den FM- Demodulator dient.
+          - der den ZF-Träger unabhängig vom Eingangssignal auf niedrigem Pegel konstant hält.
+        subsection: 6
+        subsubsection: 3
+        history: []
+      - id: TF303
+        question: Welcher der folgenden als Bandpass einsetzbaren Bauteile verfügt am ehesten über die geringste Bandbreite?
+        answers:
+          - Ein Quarzkristall
+          - Ein LC-Bandpass
+          - Ein Keramikresonator
+          - Ein RC-Bandpass
+        subsection: 6
+        subsubsection: 3
+        history: []
+      - id: TF401
+        question: Die Empfindlichkeit eines Empfängers bezieht sich auf die
+        answers:
+          - "Fähigkeit des Empfängers, schwache Signale zu empfangen."
+          - Stabilität des VFO.
+          - Bandbreite des HF-Vorverstärkers.
+          - "Fähigkeit des Empfängers, starke Signale zu unterdrücken."
+        subsection: 6
+        subsubsection: 4
+        history: []
+      - id: TF402
+        question: Welchen Vorteil bietet ein Überlagerungsempfänger gegenüber einem Geradeaus- Empfänger?
+        answers:
+          - Bessere Trennschärfe
+          - Höhere Bandbreiten
+          - Geringere Anforderungen an die VFO-Stabilität
+          - Wesentlich einfachere Konstruktion
+        subsection: 6
+        subsubsection: 4
+        history: []
+      - id: TF403
+        question: "Um wie viel S-Stufen müsste die S-Meter- Anzeige Ihres Empfängers steigen, wenn Ihr Partner die Sendeleistung von 10 Watt auf 40 Watt erhöht?"
+        answers:
+          - Um eine S-Stufe
+          - Um zwei S-Stufen
+          - Um vier S-Stufen
+          - Um acht S-Stufen
+        subsection: 6
+        subsubsection: 4
+        history: []
+      - id: TF404
+        question: Ein Funkamateur kommt laut S-Meter mit S7 an. Dann schaltet er seine Endstufe ein und bittet um einen erneuten Rapport. Das S- Meter zeigt S9+8dB. Um welchen Faktor müsste der Funkamateur seine Leistung erhöht haben?
+        answers:
+          - 100-fach
+          - 20-fach
+          - 10-fach
+          - 120-fach
+        subsection: 6
+        subsubsection: 4
+        history: []
+      - id: TF405
+        question: "Ein Funkamateur hat eine Endstufe, welche die Leistung verzehnfacht (von 10 auf 100 Watt). Ohne seine Endstufe zeigt Ihr S-Meter genau S8. Auf welchen Wert müsste die Anzeige Ihres S-Meters ansteigen, wenn er die Endstufe dazuschaltet?"
+        answers:
+          - S9+4dB
+          - S18
+          - S10+10 dB
+          - S9+9 dB
+        subsection: 6
+        subsubsection: 4
+        history: []
+      - id: TF406
+        question: Wie groß ist der Unterschied von S4 nach S7 in dB?
+        answers:
+          - 18 dB
+          - 9 dB
+          - 3 dB
+          - 24 dB
+        subsection: 6
+        subsubsection: 4
+        history: []
+      - id: TF407
+        question: "Welche Baugruppe könnte in einem Empfänger gegebenenfalls dazu verwendet werden, um einen schmalen Frequenzbereich zu unterdrücken, in dem Störungen empfangen werden?"
+        answers:
+          - Notchfilter
+          - Noise Filter
+          - Störaustaster
+          - Die AGC
+        subsection: 6
+        subsubsection: 4
+        history: []
+      - id: TF408
+        question: Was bedeutet an einem Abstimmelement eines Empfängers die Abkürzung AGC?
+        answers:
+          - Automatische Verstärkungsregelung
+          - Automatische Frequenzregelung
+          - Automatische Gleichlaufsteuerung
+          - Automatische Antennenabstimmung
+        subsection: 6
+        subsubsection: 4
+        history: []
+      - id: TF409
+        question: "Welche Baugruppe könnte in einem Empfänger gegebenenfalls dazu verwendet werden, impulsförmige Störungen auszublenden?"
+        answers:
+          - Noise Blanker
+          - Notchfilter
+          - Passband-Tuning
+          - Die AGC
+        subsection: 6
+        subsubsection: 4
+        history: []
+      - id: TG101
+        question: Wie kann die hochfrequente Ausgangsleistung eines SSB-Senders vermindert werden?
+        answers:
+          - Durch die Verringerung der NF-Ansteuerung und/oder durch Einfügung eines Dämpfungsgliedes zwischen Steuersender und Endstufe.
+          - Durch die Veränderung des Arbeitspunktes der Endstufe.
+          - Durch die Verringerung des Hubes und/oder durch Einfügung eines Dämpfungsgliedes zwischen Steuersender und Endstufe.
+          - Nur durch Verringerung des Hubes allein.
+        subsection: 7
+        subsubsection: 1
+        history: []
+      - id: TG102
+        question: Welche der nachfolgenden Antworten trifft für die Wirkungsweise eines Transverters zu?
+        answers:
+          - Ein Transverter setzt beim Empfangen z.B. ein 70-cm-Signal in das 10-m-Band und beim Senden das 10-m-Sendesignal auf das 70-cm-Band um.
+          - Ein Transverter setzt beim Senden als auch beim Empfangen z.B. ein 70-cm-Signal in das 10-m-Band um.
+          - Ein Transverter setzt beim Senden als auch beim Empfangen z.B. ein frequenzmoduliertes Signal in ein amplitudenmoduliertes Signal um.
+          - "Ein Transverter setzt nur den zu empfangenden Frequenzbereich in einen anderen Frequenzbereich um, z.B. das 70-cm-Band in das 10-m- Band."
+        subsection: 7
+        subsubsection: 1
+        history: []
+      - id: TG103
+        question: "Was kann man tun, wenn der Hub bei einem Handfunkgerät oder Mobil-Transceiver zu groß ist?"
+        answers:
+          - Leiser ins Mikrofon sprechen.
+          - Lauter ins Mikrofon sprechen.
+          - Weniger Leistung verwenden.
+          - Mehr Leistung verwenden.
+        subsection: 7
+        subsubsection: 1
+        history: []
+      - id: TG104
+        question: Was bewirkt in der Regel eine zu hohe Mikrofonverstärkung bei einem SSB-Transceiver?
+        answers:
+          - "Splatter bei Stationen, die auf dem Nachbarkanal arbeiten."
+          - "Störungen von Stationen, die auf einem anderen Frequenzband arbeiten."
+          - Störungen der Stromversorgung des Transceivers.
+          - Störungen von Computern.
+        subsection: 7
+        subsubsection: 1
+        history: []
+      - id: TG105
+        question: Was bewirkt eine zu geringe Mikrofonverstärkung bei einem SSB-Transceiver?
+        answers:
+          - geringe Ausgangsleistung
+          - "Störungen von Stationen, die auf einem anderen Frequenzband arbeiten"
+          - Verringerung der Modulationsqualität
+          - "Splatter bei Stationen, die auf dem Nachbarkanal arbeiten"
+        subsection: 7
+        subsubsection: 1
+        history: []
+      - id: TG201
+        question: "Wie heißt die Stufe in einem Sender, welche die Eigenschaft hat, leise Sprachsignale gegenüber den lauten etwas anzuheben?"
+        answers:
+          - Speech Processor
+          - Noise Blanker
+          - Clarifier
+          - Notchfilter
+        subsection: 7
+        subsubsection: 2
+        history: []
+      - id: TG202
+        question: "Welche Schaltung in einem Sender bewirkt, dass der Transceiver allein durch die Stimme auf Sendung geschaltet werden kann?"
+        answers:
+          - VOX
+          - PTT
+          - RIT
+          - PSK
+        subsection: 7
+        subsubsection: 2
+        history: []
+      - id: TG203
+        question: "Welche Anforderungen muss ein FM-Funkgerät erfüllen, damit es für die Übertragung von Packet Radio mit 9600 Baud geeignet ist?"
+        answers:
+          - Es muss sende- und empfangsseitig den Frequenzbereich von 20 Hz bis 6 kHz möglichst linear übertragen können und die Zeit für die Sende-Empfangsumschaltung muss so kurz wie möglich sein z.B. < 10...100 ms.
+          - "Es muss sende- und empfangsseitig den Frequenzbereich von 300 Hz bis 3,4 kHz möglichst linear übertragen können und die Zeit für die Sende-Empfangsumschaltung muss zwischen 100...300 ms liegen."
+          - "Es muss über einen Anschluss für Mikrofon und Lautsprecher verfügen, an dem ein TNC oder Modem angeschlossen werden kann."
+          - Es muss den Frequenzbereich von 300 Hz bis 10 kHz linear übertragen können und ein TX- Delay von kleiner 1 ms haben.
+        subsection: 7
+        subsubsection: 2
+        history: []
+      - id: TG301
+        question: Ein Sender mit 1 Watt Ausgangsleistung ist an eine Endstufe mit einer Verstärkung  von 10 dB angeschlossen. Wie groß ist der Ausgangspegel der Endstufe?
+        answers:
+          - 10 dBW
+          - 1 dBW
+          - 3 dBW
+          - 20 dBW
+        subsection: 7
+        subsubsection: 3
+        history: []
+      - id: TG302
+        question: "Ein HF-Leistungsverstärker hat eine Verstärkung von 16 dB. Welche HF-Ausgangsleistung ist zu erwarten, wenn der Verstärker mit 1 W HF-Eingangsleistung angesteuert wird?"
+        answers:
+          - 40 W
+          - 4 W
+          - 16 W
+          - 20 W
+        subsection: 7
+        subsubsection: 3
+        history: []
+      - id: TG303
+        question: Die Ausgangsleistung eines Senders ist
+        answers:
+          - "die unmittelbar nach dem Senderausgang messbare Leistung, bevor sie Zusatzgeräte (z.B. Anpassgeräte) durchläuft."
+          - die unmittelbar nach dem Senderausgang gemessene Differenz aus vorlaufender und rücklaufender Leistung.
+          - die unmittelbar nach den erforderlichen Zusatzgeräten (z.B. Anpassgeräte) messbare Leistung.
+          - die unmittelbar nach dem Senderausgang gemessene Summe aus vorlaufender und rücklaufender Leistung.
+        subsection: 7
+        subsubsection: 3
+        history: []
+      - id: TG304
+        question: Die Spitzenleistung eines Senders ist die
+        answers:
+          - HF-Leistung bei der höchsten Spitze der Hüllkurve.
+          - Durchschnittsleistung einer SSB-Übertragung.
+          - Spitzen-Spitzen-Leistung bei den höchsten Spitzen der Modulationshüllkurve.
+          - Mindestleistung bei der Modulationsspitze.
+        subsection: 7
+        subsubsection: 3
+        history: []
+      - id: TG305
+        question: Eine Verdopplung der Leistung entspricht wie viel dB?
+        answers:
+          - 3 dB
+          - 6 dB
+          - "1,5 dB"
+          - 12 dB
+        subsection: 7
+        subsubsection: 3
+        history: []
+      - id: TG306
+        question: Die Ausgangsleistung eines FM-Senders
+        answers:
+          - wird nicht durch die Modulation beeinflusst.
+          - ändert sich durch die Modulation.
+          - beträgt bei fehlender Modulation Null.
+          - "verringert sich durch Modulation auf 70 \\%."
+        subsection: 7
+        subsubsection: 3
+        history: []
+      - id: TG307
+        question: Wie wird in der Regel die hochfrequente Ausgangsleistung eines SSB-Senders vermindert?
+        answers:
+          - Durch die Verringerung der NF- Ansteuerung und/oder durch Einfügung eines Dämpfungsgliedes zwischen Steuersender und Endstufe.
+          - Durch die Veränderung des Arbeitspunktes der Endstufe.
+          - Durch die Verringerung des Hubes und/oder durch Einfügung eines Dämpfungsgliedes zwischen Steuersender und Endstufe.
+          - Nur durch Verringerung des Hubes allein.
+        subsection: 7
+        subsubsection: 3
+        history: []
+      - id: TG401
+        question: "Was kann man tun, wenn der Hub bei einem Handfunkgerät oder Mobil-Transceiver zu groß ist?"
+        answers:
+          - Leiser ins Mikrofon sprechen
+          - Mehr Leistung verwenden
+          - Weniger Leistung verwenden
+          - Lauter ins Mikrofon sprechen
+        subsection: 7
+        subsubsection: 4
+        history: []
+      - id: TG402
+        question: In welcher der folgenden Antworten sind Betriebsarten üblicher Kurzwellen- Transceiver aufgezählt?
+        answers:
+          - "USB, LSB, FM, AM, CW"
+          - "USB, PSK31, FM, SSTV, CW"
+          - "USB, LSB, FM, SSTV, CW"
+          - "USB, LSB, Amtor, Pactor, CW"
+        subsection: 7
+        subsubsection: 4
+        history: []
+      - id: TG403
+        question: "Wenn man beim Funkbetrieb mit einem Transceiver die Empfangsfrequenz gegen- über der Senderfrequenz geringfügig verstellen möchte, muss man"
+        answers:
+          - die RIT bedienen.
+          - das Notchfilter einschalten.
+          - die Passband-Tuning verstellen.
+          - die PTT einschalten.
+        subsection: 7
+        subsubsection: 4
+        history: []
+      - id: TG404
+        question: "Wie wird die Taste am Mikrofon bezeichnet, mit der man einen Transceiver auf Sendung schalten kann?"
+        answers:
+          - PTT
+          - VOX
+          - RIT
+          - SSB
+        subsection: 7
+        subsubsection: 4
+        history: []
+      - id: TG405
+        question: "Wie wird der Funkbetrieb bezeichnet, bei dem man einen Transceiver allein durch die Stimme auf Sendung schalten kann?"
+        answers:
+          - VOX-Betrieb
+          - PTT-Betrieb
+          - RIT-Betrieb
+          - SSB-Betrieb
+        subsection: 7
+        subsubsection: 4
+        history: []
+      - id: TG501
+        question: Wodurch werden Tastklicks bei einem CW- Sender hervorgerufen?
+        answers:
+          - Durch zu steile Flanken der Tastimpulse
+          - Durch prellende Kontakte der verwendeten Taste
+          - Durch direkte Tastung der Oszillatorstufe
+          - "Durch ein unterdimensioniertes Netzteil, dessen Spannung beim Auftasten kurzzeitig zusammenbricht"
+        subsection: 7
+        subsubsection: 5
+        history: []
+      - id: TG502
+        question: Welches Filter wäre zwischen Senderausgang und Antenne eingeschleift am besten zur Verringerung der Oberwellenausstrahlungen geeignet?
+        answers:
+          - Ein Tiefpassfilter
+          - Ein Hochpassfilter
+          - Ein Antennenfilter
+          - Ein Sperrkreisfilter
+        subsection: 7
+        subsubsection: 5
+        history: []
+      - id: TG503
+        question: "Um Nachbarkanalstörungen zu minimieren, sollte die Übertragungsbandbreite bei SSB"
+        answers:
+          - höchstens 3 kHz betragen.
+          - höchstens 5 kHz betragen.
+          - höchstens 10 kHz betragen.
+          - höchstens 15 kHz betragen.
+        subsection: 7
+        subsubsection: 5
+        history: []
+      - id: TG504
+        question: Welche Schaltung wäre zwischen Senderausgang und Antenne eingeschleift am besten zur Verringerung der Oberwellenausstrahlungen geeignet?
+        answers:
+          - C
+          - D
+        subsection: 7
+        subsubsection: 5
+        history: []
+      - id: TG505
+        question: Bei der erstmaligen Prüfung eines Senders sollten die Signale zunächst
+        answers:
+          - in eine künstliche 50-Ω-Antenne eingespeist werden.
+          - in eine Antenne eingespeist werden.
+          - in einen Kondensator mit einem Blindwiderstand von 50 Ω eingespeist werden.
+          - in einen 50-Ω-Drahtwiderstand eingespeist werden.
+        subsection: 7
+        subsubsection: 5
+        history: []
+      - id: TG506
+        question: Welche Filtercharakteristik würde sich am besten für einen KW-Mehrband-Sender eignen?
+        answers:
+          - C
+          - D
+        subsection: 7
+        subsubsection: 5
+        history: []
+      - id: TH101
+        question: Was sind typische Kurzwellen-Amateurfunksendeantennen?
+        answers:
+          - "Langdraht-Antenne, Groundplane-Antenne, Yagiantenne, Dipolantenne, Windom-Antenne, Delta-Loop-Antenne"
+          - "Langdraht-Antenne, Groundplane-Antenne, Gestockte Yagiantenne, Dipolantenne, Windom-Antenne, Delta-Loop-Antenne"
+          - "Langdraht-Antenne, Groundplane-Antenne, Gruppenantenne, Dipolantenne, Windom- Antenne, Delta-Loop-Antenne"
+          - "Langdraht-Antenne, Groundplane-Antenne, Kreuzyagi-Antenne, Dipolantenne, Windom- Antenne, Delta-Loop-Antenne"
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH102
+        question: Welche Antennenformen werden im VHF- UHF-Bereich bei den Funkamateuren in der Regel nicht verwendet?
+        answers:
+          - Langdraht-Antennen
+          - Yagi-Antennen
+          - Quad-Antennen
+          - Groundplane-Antennen
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH103
+        question: Welche magnetischen Antennen eignen sich für Sendebetrieb und strahlen dabei im Nahfeld ein starkes magnetisches Feld ab?
+        answers:
+          - Magnetische Ringantennen mit einem Umfang von etwa λ/10.
+          - Ferritstabantennen und magnetische Ringantennen.
+          - Rahmenantennen mit mehreren Drahtwindungen.
+          - Ferritstabantennen und Rahmenantennen mit mehreren Drahtwindungen.
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH104
+        question: "Berechnen Sie die elektrische Länge eines 5/8-λ-langen Vertikalstrahlers für das 10-m- Band (28,5 MHz)."
+        answers:
+          - "6,58 m"
+          - "3,29 m"
+          - "2,08 m"
+          - "5,26 m"
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH105
+        question: "Sie wollen verschiedene Antennen testen, ob sie für den Funkbetrieb auf Kurzwelle für das 80-m-Band geeignet sind. Man stellt Ihnen jeweils drei Antennen zur Verfügung. Welches Angebot wählen sie, um nur die drei besonders geeigneten Antennen testen zu müssen?"
+        answers:
+          - "Dipol, Delta-Loop, W3DZZ-Antenne"
+          - "Beam, Groundplane-Antenne, Dipol"
+          - "Dipol, W3DZZ-Antenne, Beam"
+          - "Dipol, Delta-Loop, Langyagi"
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH106
+        question: Welche Antenne gehört nicht zu den symmetrischen Antennen?
+        answers:
+          - Groundplane
+          - Faltdipol
+          - Yagi
+          - λ/2-Dipol
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH107
+        question: "Wie nennt man eine Schleifenantenne, die aus drei gleich langen Drahtstücken besteht?"
+        answers:
+          - Delta-Loop-Antenne
+          - 3-Element Quad-Loop-Antenne
+          - W3DZZ Antenne
+          - 3-Element-Beam
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH108
+        question: Bei welcher Länge hat eine Vertikalantenne die günstigsten Strahlungseigenschaften?
+        answers:
+          - 5λ/8
+          - λ/4
+          - λ/2
+          - 3λ/4
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH109
+        question: Eine Vertikalantenne erzeugt
+        answers:
+          - einen flachen Abstrahlwinkel.
+          - zirkulare Polarisation.
+          - einen hohen Abstrahlwinkel.
+          - elliptische Polarisation.
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH110
+        question: Sie wollen eine Zweibandantenne für 160 und 80 m selbst bauen. Welche der folgenden Antworten enthält die richtige Drahtlänge l zwischen den Schwingkreisen und die richtige Resonanzfrequenz fres der Kreise?
+        answers:
+          - "l beträgt zirka 40 m, fres liegt bei zirka 3,65 MHz."
+          - "l beträgt zirka 80 m, fres liegt bei zirka 3,65 MHz."
+          - "l beträgt zirka 40 m, fres liegt bei zirka 1,85 MHz."
+          - "l beträgt zirka 80 m, fres liegt bei zirka 1,85 MHz."
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH111
+        question: Die elektrischen Gegengewichte einer Groundplane-Antenne bezeichnet man auch als
+        answers:
+          - Radiale.
+          - Reflektoren.
+          - Parasitärstrahler.
+          - Erdelemente.
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH112
+        question: Das folgende Bild enthält eine einfache Richtantenne. Die Bezeichnungen der Elemente in numerischer Reihenfolge lauten
+        answers:
+          - "1 Reflektor, 2 Strahler und 3 Direktor."
+          - "1 Strahler, 2 Direktor und 3 Reflektor."
+          - "1 Direktor, 2 Strahler und 3 Reflektor."
+          - "1 Direktor, 2 Reflektor und 3 Strahler."
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH113
+        question: An welchem Element einer Yagi-Antenne erfolgt die Energieeinspeisung? Sie erfolgt am
+        answers:
+          - Strahler
+          - Direktor
+          - Reflektor
+          - Strahler und am Reflektor gleichzeitig
+        subsection: 8
+        subsubsection: 1
+        history: []
+      - id: TH201
+        question: "Welche elektrische Länge muss eine Dipolantenne haben, damit sie in Resonanz ist?"
+        answers:
+          - "Sie muss ein ganzzahliges Vielfaches von λ/2 betragen. (n · λ/2, n=1, 2, 3...)"
+          - "Sie muss ein ungeradzahliges Vielfaches von λ/4 betragen. (n · λ/4, n=1, 3, 5...)"
+          - "Sie muss 5/8λ, λ/4 oder deren geradzahlige Vielfache  (n · λ/4, n=2, 4, 6...) betragen."
+          - Sie darf kein ganzzahliges Vielfaches von λ betragen.
+        subsection: 8
+        subsubsection: 2
+        history: []
+      - id: TH202
+        question: Welches Strahlungsdiagramm ist der Antenne richtig zugeordnet?
+        answers:
+          - Dipol
+          - Groundplane
+          - Yagiantenne
+          - Faltdipol
+        subsection: 8
+        subsubsection: 2
+        history: []
+      - id: TH203
+        question: Welchen Eingangs- bzw. Fußpunktwiderstand hat die Groundplane?
+        answers:
+          - ca. 30 ... 50 Ω
+          - ca. 60 ... 120 Ω
+          - ca. 600 Ω
+          - ca. 240 Ω
+        subsection: 8
+        subsubsection: 2
+        history: []
+      - id: TH204
+        question: Die Impedanz in der Mitte eines Halbwellendipols beträgt je nach Aufbauhöhe ungefähr
+        answers:
+          - 40 bis 80 Ω.
+          - 60 bis 120 Ω.
+          - 120 bis 240 Ω.
+          - 240 bis 600 Ω.
+        subsection: 8
+        subsubsection: 2
+        history: []
+      - id: TH205
+        question: Ein Faltdipol hat einen Eingangswiderstand von ungefähr
+        answers:
+          - 240 Ω.
+          - 600 Ω.
+          - 50 Ω.
+          - 30-60 Ω.
+        subsection: 8
+        subsubsection: 2
+        history: []
+      - id: TH206
+        question: Ein Halbwellendipol wird auf der Grundfrequenz in der Mitte
+        answers:
+          - stromgespeist.
+          - spannungsgespeist.
+          - endgespeist.
+          - parallel gespeist.
+        subsection: 8
+        subsubsection: 2
+        history: []
+      - id: TH207
+        question: "Welcher Prozentsatz entspricht dem Korrekturfaktor, der üblicherweise für die Berechnung der Länge einer Drahtantenne verwendet wird?"
+        answers:
+          - "95 \\%"
+          - "75 \\%"
+          - "66 \\%"
+          - "100 \\%"
+        subsection: 8
+        subsubsection: 2
+        history: []
+      - id: TH208
+        question: Das folgende Bild enthält verschiedene UKW-Vertikalantennen. In welcher der folgenden Zeilen ist die entsprechende Bezeichnung der Antenne richtig zugeordnet?
+        answers:
+          - Bild 1 zeigt einen λ/4-Vertikalstrahler (Viertelwellenstab).
+          - Bild 2 zeigt eine Sperrtopf-Antenne.
+          - Bild 3 zeigt eine λ/2-Antenne mit Fuchskreis.
+          - Bild 4 zeigt eine 5/8-λ-Antenne.
+        subsection: 8
+        subsubsection: 2
+        history: []
+      - id: TH209
+        question: Das folgende Bild enthält verschiedene UKW-Antennen. Welche der folgenden Antworten ist richtig?
+        answers:
+          - Bild 1 zeigt eine horizontal polarisierte Yagi- Antenne.
+          - Bild 2 zeigt eine Kreuz-Yagi-Antenne.
+          - Bild 3 zeigt eine gestockte X-Yagi-Antenne.
+          - Bild 4 zeigt eine vertikal polarisierte Yagi- Antenne.
+        subsection: 8
+        subsubsection: 2
+        history: []
+      - id: TH210
+        question: Eine Drahtantenne für den Amateurfunk im KW-Bereich
+        answers:
+          - kann eine beliebige Länge haben.
+          - muss unbedingt lambda-halbe lang sein.
+          - muss genau lambda-viertel lang sein.
+          - muss eine Länge von dreiviertel Lambda haben.
+        subsection: 8
+        subsubsection: 2
+        history: []
+      - id: TH301
+        question: Am Ende einer Leitung ist nur noch ein Viertel der Leistung vorhanden. Wie groß ist das Dämpfungsmaß des Kabels?
+        answers:
+          - 6 dB
+          - 3 dB
+          - 10 dB
+          - 16 dB
+        subsection: 8
+        subsubsection: 3
+        history: []
+      - id: TH302
+        question: Am Ende einer Leitung ist nur noch ein Zehntel der Leistung vorhanden. Wie groß ist das Dämpfungsmaß des Kabels?
+        answers:
+          - 10 dB
+          - 3 dB
+          - 6 dB
+          - 16 dB
+        subsection: 8
+        subsubsection: 3
+        history: []
+      - id: TH303
+        question: "Eine HF-Ausgangleistung von 100 W wird in eine angepasste Übertragungsleitung eingespeist. Am antennenseitigen Ende der Leitung beträgt die Leistung 50 W bei einem Stehwellenverhältnis von 1:1. Wie hoch ist die Leitungsdämpfung?"
+        answers:
+          - 3 dB
+          - "-6 dB"
+          - "-3 dB"
+          - 6 dBm
+        subsection: 8
+        subsubsection: 3
+        history: []
+      - id: TH304
+        question: Welcher der nachfolgenden Zusammenhänge ist richtig?
+        answers:
+          - 0 dBm entspricht 1 mW; 3 dBm entspricht 2 mW; 20 dBm entspricht 100 mW
+          - "0 dBm entspricht 1 mW; 3 dBm entspricht 1,4 mW; 20 dBm entspricht 10 mW"
+          - 0 dBm entspricht 0 mW; 3 dBm entspricht 30 mW; 20 dBm entspricht 200 mW
+          - 1 dBm entspricht 0 mW; 2 dBm entspricht 3 mW; 100 dBm entspricht 20 mW
+        subsection: 8
+        subsubsection: 3
+        history: []
+      - id: TH305
+        question: Welche Dämpfung hat ein 25 m langes Koaxkabel vom Typ Aircell 7 bei 145 MHz? (siehe hierzu beiliegendes Diagramm)
+        answers:
+          - "1,9 dB"
+          - "7,5 dB"
+          - "3,75 dB"
+          - "1,5 dB"
+        subsection: 8
+        subsubsection: 3
+        history: []
+      - id: TH306
+        question: Welche Dämpfung hat ein 20 m langes Koaxkabel vom Typ RG 58 bei 29 MHz? (siehe hierzu beiliegendes Diagramm)
+        answers:
+          - "1,8 dB"
+          - "4,5 dB"
+          - "3,75 dB"
+          - "1,5 dB"
+        subsection: 8
+        subsubsection: 3
+        history: []
+      - id: TH307
+        question: Der Wellenwiderstand einer Leitung
+        answers:
+          - ist im HF-Bereich in etwa konstant und unabhängig vom Leitungsabschluss.
+          - ist völlig frequenzunabhängig.
+          - hängt von der Beschaltung am Leitungsende ab.
+          - hängt von der Leitungslänge und der Beschaltung am Leitungsende ab.
+        subsection: 8
+        subsubsection: 3
+        history: []
+      - id: TH308
+        question: Koaxialkabel weisen typischerweise Wellenwiderstände von
+        answers:
+          - "50, 60 und 75 Ω auf."
+          - "50, 300 und 600 Ω auf."
+          - "60, 120 und 240 Ω auf."
+          - "50, 75 und 240 Ω auf."
+        subsection: 8
+        subsubsection: 3
+        history: []
+      - id: TH309
+        question: Welche Vorteile hat eine Paralleldraht- Speiseleitung gegenüber der Speisung über ein Koaxialkabel?
+        answers:
+          - Sie hat geringere Dämpfung und hohe Spannungsfestigkeit.
+          - Sie vermeidet Mantelwellen durch Wegfall der Abschirmung.
+          - Sie erlaubt leichtere Kontrolle des Wellenwiderstandes durch Verschieben der Spreizer.
+          - Sie bietet guten Blitzschutz durch niederohmige Drähte.
+        subsection: 8
+        subsubsection: 3
+        history: []
+      - id: TH310
+        question: Wann ist eine Speiseleitung unsymmetrisch?
+        answers:
+          - "Wenn die beiden Leiter unterschiedlich geformt sind, z.B. Koaxialkabel."
+          - Wenn die hin- und zurücklaufende Leistung verschieden sind.
+          - Wenn sie außerhalb ihrer Resonanzfrequenz betrieben wird.
+          - Wenn die Koaxial-Leitung Spannung gegen Erde führt.
+        subsection: 8
+        subsubsection: 3
+        history: []
+      - id: TH311
+        question: "Welche Leitungen sollten für die HF- Verbindungen zwischen Einrichtungen in der Amateurfunkstelle verwendet werden, um unerwünschte Abstrahlungen zu vermeiden?"
+        answers:
+          - Hochwertige Koaxialkabel.
+          - Symmetrische Feederleitungen.
+          - Unabgestimmte Speiseleitungen.
+          - Hochwertige abgeschirmte Netzanschlusskabel.
+        subsection: 8
+        subsubsection: 3
+        history: []
+      - id: TH312
+        question: Welches der folgenden Koaxsteckverbindersysteme ist für sehr hohe Frequenzen (70-cm-Band) und hohe Leistungen am besten geeignet?
+        answers:
+          - N
+          - SMA
+          - UHF
+          - BNC
+        subsection: 8
+        subsubsection: 3
+        history: []
+      - id: TH401
+        question: Bei welchem Stehwellenverhältnis (VSWR) ist eine Antenne am besten an die Leitung angepasst?
+        answers:
+          - "1"
+          - "0"
+          - "3"
+          - unendlich
+        subsection: 8
+        subsubsection: 4
+        history: []
+      - id: TH402
+        question: Fehlanpassungen oder Beschädigungen von HF-Übertragungsleitungen
+        answers:
+          - führen zu Reflektionen des übertragenen HF- Signals und einem erhöhten VSWR.
+          - führen zur einer Überbeanspruchung der angeschlossenen Antenne.
+          - führen zu einem VSWR von kleiner oder gleich 1.
+          - "führen zur Erzeugung unerwünschter Aussendungen, da innerhalb der erforderlichen Bandbreite keine Anpassung gegeben ist."
+        subsection: 8
+        subsubsection: 4
+        history: []
+      - id: TH403
+        question: "Welche Auswirkungen hat es, wenn eine symmetrische Antenne (Dipol) mit einem Koaxkabel gleicher Impedanz gespeist wird?"
+        answers:
+          - Die Richtcharakteristik der Antenne wird verformt und es können Mantelwellen auftreten.
+          - "Es treten keine nennenswerten Auswirkungen auf, da die Antenne angepasst ist und die Speisung über ein Koaxkabel erfolgt, dessen Au- ßenleiter Erdpotential hat."
+          - "Am Speisepunkt der Antenne treten gegenphasige Spannungen und Ströme gleicher Größe auf, die eine Fehlanpassung hervorrufen."
+          - "Es treten Polarisationsdrehungen auf, die von der Kabellänge abhängig sind."
+        subsection: 8
+        subsubsection: 4
+        history: []
+      - id: TH404
+        question: "Ein symmetrischer Halbwellendipol wird direkt über ein Koaxialkabel von einem Sender gespeist. Das Kabel ist senkrecht am Haus entlang verlegt und verursacht geringe Störungen. Um das Problem weiter zu verringern, empfiehlt es sich"
+        answers:
+          - den Dipol über ein Symmetrierglied zu speisen.
+          - das Koaxialkabel durch eine Eindrahtspeiseleitung zu ersetzen.
+          - beim Koaxialkabel alle 5 m eine Schleife mit 3 Windungen einzulegen.
+          - das Koaxialkabel in einem Kunststoffrohr zur mechanischen Schirmung unterzubringen.
+        subsection: 8
+        subsubsection: 4
+        history: []
+      - id: TH405
+        question: "Auf einem Ferritkern sind etliche Windungen Koaxialkabel aufgewickelt. Diese Anordnung kann dazu dienen,"
+        answers:
+          - Mantelwellen zu dämpfen.
+          - statische Aufladungen zu verhindern.
+          - eine Antennenleitung abzustimmen.
+          - Oberwellen zu unterdrücken.
+        subsection: 8
+        subsubsection: 4
+        history: []
+      - id: TH406
+        question: "Am Eingang einer Antennenleitung misst man ein VSWR von 3. Wie groß ist in etwa die rücklaufende Leistung am Messpunkt, wenn die vorlaufende Leistung dort 100 Watt beträgt?"
+        answers:
+          - 25 W
+          - "12,5 W"
+          - 50 W
+          - 75 W
+        subsection: 8
+        subsubsection: 4
+        history: []
+      - id: TI101
+        question: Welche ionosphärischen Schichten bestimmen die Funkwellenausbreitung am Tage?
+        answers:
+          - "Die D-, E-, F1- und F2-Schicht"
+          - Die E- und F-Schicht
+          - Die F1- und F2-Schicht
+          - Die E- und D-Schicht
+        subsection: 9
+        subsubsection: 1
+        history: []
+      - id: TI102
+        question: Welche ionosphärischen Schichten bestimmen die Fernausbreitung in der Nacht?
+        answers:
+          - Die F2-Schicht
+          - "Die D-, E- und F2-Schicht"
+          - Die F1- und F2-Schicht
+          - Die D- und E-Schicht
+        subsection: 9
+        subsubsection: 1
+        history: []
+      - id: TI103
+        question: In welcher Höhe befinden sich die für die Fernausbreitung (DX) wichtigen ionosphärischen Schichten? Sie befinden sich in ungefähr
+        answers:
+          - 200 bis 500 km Höhe.
+          - 2 bis 5 km Höhe.
+          - 20 bis 50 km Höhe.
+          - 2000 bis 5000 km Höhe.
+        subsection: 9
+        subsubsection: 1
+        history: []
+      - id: TI104
+        question: Welchen Einfluss hat die D-Schicht auf die Fernausbreitung?
+        answers:
+          - Die D-Schicht führt tagsüber zu starker Dämpfung im 80- und 160-m-Band.
+          - Die D-Schicht reflektiert tagsüber die Wellen im 80- und 160-m-Band.
+          - Die D-Schicht absorbiert tagsüber die Wellen im 10-m-Band.
+          - Die D-Schicht ist im Sonnenfleckenmaximum am wenigsten ausgeprägt.
+        subsection: 9
+        subsubsection: 1
+        history: []
+      - id: TI105
+        question: Wie kommt die Fernausbreitung einer Funkwelle auf den Kurzwellenbändern zustande? Sie kommt zustande durch die Reflexion an
+        answers:
+          - elektrisch aufgeladenen Luftschichten in der Ionosphäre.
+          - Hoch- und Tiefdruckgebieten der hohen Atmosphäre.
+          - den Wolken in der niedrigen Atmosphäre.
+          - den parasitären Elementen einer Richtantenne.
+        subsection: 9
+        subsubsection: 1
+        history: []
+      - id: TI106
+        question: Welche Schicht ist für die gute Ausbreitung im 10-m-Band in den Sommermonaten verantwortlich?
+        answers:
+          - Die E-Schicht
+          - Die D-Schicht
+          - Die F1-Schicht
+          - Die F2-Schicht
+        subsection: 9
+        subsubsection: 1
+        history: []
+      - id: TI107
+        question: Die Sonnenfleckenzahl ist einem regelmäßigen Zyklus unterworfen. Welchen Zeitraum hat dieser Zyklus zirka?
+        answers:
+          - 11 Jahre
+          - 6 Monate
+          - 12 Monate
+          - 100 Jahre
+        subsection: 9
+        subsubsection: 1
+        history: []
+      - id: TI201
+        question: Die Ausbreitungsgeschwindigkeit freier elektromagnetischer Wellen beträgt etwa
+        answers:
+          - 300 000 km/s.
+          - 3 000 000 km/s.
+          - 30 000 km/s.
+          - 3 000 km/s.
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI202
+        question: "Unter der \"Toten Zone\" wird der Bereich verstanden,"
+        answers:
+          - der durch die Bodenwelle nicht mehr erreicht wird und durch die reflektierte Raumwelle noch nicht erreicht wird.
+          - "der durch die Bodenwelle überdeckt wird, so dass schwächere DX-Stationen zugedeckt werden."
+          - der durch die Bodenwelle erreicht wird und für die Raumwelle nicht zugänglich ist.
+          - der durch die Interferenz der Bodenwelle mit der Raumwelle in einer Zone der gegenseitigen Auslöschung liegt.
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI203
+        question: "Welche der folgenden Aussagen trifft für KW-Funkverbindungen zu, die über Bodenwellen erfolgen?"
+        answers:
+          - Die Bodenwelle folgt der Erdkrümmung und geht über den geografischen Horizont hinaus. Sie wird in höheren Frequenzbereichen stärker gedämpft als in niedrigeren Frequenzbereichen.
+          - Die Bodenwelle folgt der Erdkrümmung und geht nicht über den geografischen Horizont hinaus. Sie wird in höheren Frequenzbereichen stärker gedämpft als in niedrigeren Frequenzbereichen.
+          - Die Bodenwelle folgt der Erdkrümmung und geht über den geografischen Horizont hinaus. Sie wird in niedrigeren Frequenzbereichen stärker gedämpft als in höheren Frequenzbereichen.
+          - Die Bodenwelle folgt der Erdkrümmung und geht nicht über den geografischen Horizont hinaus. Sie wird in niedrigeren Frequenzbereichen stärker gedämpft als in höheren Frequenzbereichen.
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI204
+        question: "Wie groß ist in etwa die maximale Entfernung, die ein KW-Signal bei Reflexion an der E-Schicht auf der Erdoberfläche mit einem Sprung (Hop) überbrücken kann?"
+        answers:
+          - Etwa 2200 km
+          - Etwa 1100 km
+          - Etwa 4500 km
+          - Etwa 9000 km
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI205
+        question: "Von welchem der genannten Parameter ist die Sprungdistanz abhängig, die ein KW- Signal auf der Erdoberfläche überbrücken kann? Sie ist abhängig"
+        answers:
+          - vom Abstrahlwinkel der Antenne.
+          - von der Polarisation der Antenne.
+          - von der Sendeleistung.
+          - vom Antennengewinn.
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI206
+        question: "Bei der Ausbreitung auf Kurzwelle spielt die so genannte \"Grey Line\" eine besondere Rolle. Was ist die \"Grey Line\"?"
+        answers:
+          - Der Streifen der Dämmerungsphase vor Sonnenaufgang oder nach Sonnenuntergang.
+          - Die instabilen Ausbreitungsbedingungen in der Äquatorialzone.
+          - "Die Zeit mit den besten Möglichkeiten für \"Short Skip\" Ausbreitung."
+          - "Die Übergangszeit vor und nach dem Winter, in der sich die D-Schicht ab- und wieder aufbaut."
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI207
+        question: "Was versteht man unter dem Begriff \"Mögel- Dellinger-Effekt\"?"
+        answers:
+          - "Den totalen, zeitlich begrenzten Ausfall der Reflexion in der Ionosphäre."
+          - Den zeitlich begrenzten Schwund durch Mehrwegeausbreitung in der Ionosphäre.
+          - Die zeitlich begrenzt auftretende Verzerrung der Modulation.
+          - "Das Übersprechen der Modulation eines starken Senders auf andere, über die Ionosphäre übertragene HF-Signale."
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI208
+        question: Ein plötzlicher Anstieg der Intensitäten von UV- und Röntgenstrahlung nach einem Flare (Energieausbruch auf der Sonne) führt zu erhöhter Ionisierung der D-Schicht und damit zu kurzzeitigem Totalausfall der ionosphärischen Kurzwellenausbreitung. Diese Erscheinung wird auch als
+        answers:
+          - Mögel-Dellinger-Effekt bezeichnet.
+          - sporadische E-Ausbreitung bezeichnet.
+          - kritischer Schwund bezeichnet.
+          - Aurora-Effekt bezeichnet.
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI209
+        question: "Unter dem Begriff \"Short Skip\" versteht man Funkverbindungen besonders im 10-m-Band mit Sprungentfernungen unter 1000 km, die"
+        answers:
+          - durch Reflexion an sporadischen E-Schichten ermöglicht werden.
+          - bei entsprechendem Abstrahlwinkel durch Reflexion an der F1-Schicht ermöglicht werden.
+          - bei entsprechendem Abstrahlwinkel durch Reflexion an der F2-Schicht ermöglicht werden.
+          - durch Reflexion an hochionisierten D-Schichten ermöglicht werden.
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI210
+        question: Warum sind Signale im 160- und 80-Meter- Band tagsüber nur schwach und nicht für den weltweiten Funkverkehr geeignet? Sie sind ungeeignet wegen der Tagesdämpfung in der
+        answers:
+          - D-Schicht
+          - F1-Schicht
+          - F2-Schicht
+          - A-Schicht
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI211
+        question: In welcher ionosphärischen Schicht treten gelegentlich Aurora-Erscheinungen auf?
+        answers:
+          - In der E-Schicht
+          - In der F-Schicht
+          - In der E-Schicht in der Nähe des Äquators
+          - In der D-Schicht
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI212
+        question: Was bedeutet die „MUF“ bei der Kurzwellenausbreitung?
+        answers:
+          - Höchste brauchbare Frequenz
+          - Niedrigste brauchbare Frequenz
+          - Kritische Grenzfrequenz
+          - Mittlere Nutzfrequenz
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI213
+        question: "Wie nennt man den ionosphärischen Feldstärkeschwund durch Überlagerung von Boden- und Raumwelle, der sich bei der Kurzwellenausbreitung besonders bei AM- Sendungen bemerkbar macht?"
+        answers:
+          - Fading
+          - Flatterfading
+          - MUF
+          - Mögel-Dellinger-Effekt
+        subsection: 9
+        subsubsection: 2
+        history: []
+      - id: TI301
+        question: Wie weit etwa reicht der Funkhorizont im UKW-Bereich über den geografischen Horizont hinaus? Er reicht etwa
+        answers:
+          - "15 \\% weiter als der geografische Horizont."
+          - doppelt so weit.
+          - bis zur Hälfte der Entfernung bis zum geografischen Horizont.
+          - bis zum Vierfachen der Entfernung bis zum geografischen Horizont.
+        subsection: 9
+        subsubsection: 3
+        history: []
+      - id: TI302
+        question: Überhorizontverbindungen im UHF/VHF- Bereich kommen u.a. zustande durch
+        answers:
+          - Streuung der Wellen an troposphärischen Bereichen unterschiedlicher Beschaffenheit.
+          - Reflexion der Wellen in der Troposphäre durch das Auftreten sporadischer D-Schichten.
+          - Polarisationsdrehungen in der Troposphäre bei hoch liegender Bewölkung.
+          - Polarisationsdrehungen in der Troposphäre an Gewitterfronten.
+        subsection: 9
+        subsubsection: 3
+        history: []
+      - id: TI303
+        question: Für VHF-Weitverkehrsverbindungen wird hauptsächlich die
+        answers:
+          - troposphärische Ausbreitung genutzt.
+          - ionosphärische Ausbreitung genutzt.
+          - Bodenwellenausbreitung genutzt.
+          - Oberflächenwellenausbreitung genutzt.
+        subsection: 9
+        subsubsection: 3
+        history: []
+      - id: TI304
+        question: "Was ist die \"Troposphäre\"? Die Troposphäre ist der"
+        answers:
+          - "untere Teil der Atmosphäre, in der die Erscheinungen des Wetters stattfinden."
+          - "untere Teil der Atmosphäre, der sich nördlich und südlich des Äquators über die Tropen erstreckt."
+          - "obere Teil der Atmosphäre, in der es zur Bildung sporadischer E-Schichten kommen kann."
+          - "obere Teil der Atmosphäre, in welcher Aurora- Erscheinungen auftreten können."
+        subsection: 9
+        subsubsection: 3
+        history: []
+      - id: TI305
+        question: "Wie wirkt die Antennenhöhe auf die Reichweite einer UKW-Verbindung aus? Die Reichweite steigt mit zunehmender Antennenhöhe, weil"
+        answers:
+          - die optische Sichtweite zunimmt.
+          - die dämpfende Wirkung der Erdoberfläche abnimmt.
+          - die Entfernung zu den reflektierenden Schichten der Troposphäre abnimmt.
+          - in höheren Luftschichten die Temperatur sinkt.
+        subsection: 9
+        subsubsection: 3
+        history: []
+      - id: TI306
+        question: Was ist die Ursache für Aurora-Erscheinungen? Die Ursache ist
+        answers:
+          - das Eindringen geladener Teilchen von der Sonne in die Atmosphäre.
+          - eine hohe Sonnenfleckenzahl.
+          - eine niedrige Sonnenfleckenzahl.
+          - das Auftreten von Meteoritenschauern in den polaren Regionen.
+        subsection: 9
+        subsubsection: 3
+        history: []
+      - id: TI307
+        question: "Wie wirkt sich \"Aurora\" auf die Signalqualität eines Funksignals aus?"
+        answers:
+          - CW-Signale haben einen flatternden und verbrummten Ton.
+          - CW- Signale haben einen besseren Ton.
+          - Die Lesbarkeit der SSB-Signale verbessert sich.
+          - Die Lesbarkeit der FM-Signale verbessert sich.
+        subsection: 9
+        subsubsection: 3
+        history: []
+      - id: TI308
+        question: Welche Betriebsart eignet sich am besten für Auroraverbindungen?
+        answers:
+          - CW
+          - SSB
+          - FM
+          - PSK31
+        subsection: 9
+        subsubsection: 3
+        history: []
+      - id: TI309
+        question: "Was verstehen Sie unter dem Begriff \"Sporadic-E\"? Ich verstehe darunter"
+        answers:
+          - die Reflexion an lokal begrenzten Bereichen mit ungewöhnlich hoher Ionisation innerhalb der E- Schicht.
+          - "kurzfristige plötzliche Inversionsänderungen in der E-Schicht, die Fernausbreitung im VHF- Bereich ermöglichen."
+          - kurzzeitig auftretende starke Reflexion von VHF-Signalen an Meteorbahnen innerhalb der E-Schicht.
+          - lokal begrenzten kurzzeitigen Ausfall der Reflexion durch ungewöhnlich hohe Ionisation innerhalb der E-Schicht.
+        subsection: 9
+        subsubsection: 3
+        history: []
+      - id: TI310
+        question: "In dem folgenden Geländeprofil sei S ein Sender im 2-m-Band, E1 bis E4 vier Empfangsstationen. Welche Funkstrecke geht wahrscheinlich am besten, welche am schlechtesten?"
+        answers:
+          - "Am besten S-E3, am schlechtesten S-E1"
+          - "Am besten S-E1, am schlechtesten S-E4"
+          - "Am besten S-E3, am schlechtesten S-E4"
+          - "Am besten S-E4, am schlechtesten S-E1"
+        subsection: 9
+        subsubsection: 3
+        history: []
+      - id: TJ101
+        question: Das Prinzip eines Drehspulmessgeräts beruht auf
+        answers:
+          - der Wechselwirkung der Kräfte zwischen einem permanent magnetischen und einem elektromagnetischen Feld.
+          - der Wechselwirkung der Kräfte zwischen einem magnetischen und einem elektrischen Feld.
+          - der Wechselwirkung der Kräfte zwischen zwei permanent magnetischen Feldern.
+          - dem erdmagnetischen Feld.
+        subsection: 10
+        subsubsection: 1
+        history: []
+      - id: TJ102
+        question: Die Auflösung eines Messinstrumentes entspricht
+        answers:
+          - der kleinsten Einteilung der Anzeige.
+          - der Genauigkeit des Instrumentes in Bezug auf den tatsächlichen Wert.
+          - der Genauigkeit des Instrumentes.
+          - dem Vollausschlag der Instrumentenanzeige.
+        subsection: 10
+        subsubsection: 1
+        history: []
+      - id: TJ103
+        question: Was ist ein Dipmeter? Ein Dipmeter ist
+        answers:
+          - "ein abstimmbarer Oszillator mit einem Indikator, der anzeigt, wenn von einem ankoppelten Resonanzkreis bei einer Frequenz HF-Energie aufgenommen oder abgegeben wird."
+          - "ein selektiver Feldstärkemesser, der den Maximalwert der elektrischen Feldstärke anzeigt und der zur Überprüfung der Nutzsignal- und Nebenwellenabstrahlungen eingesetzt werden kann."
+          - "eine abgleichbare Stehwellenmessbrücke, mit der der Reflexionsfaktor und der Impedanzverlauf einer angeschlossenen Antenne oder einer LC-Kombination gemessen werden kann."
+          - "ein auf eine feste Frequenz eingestellter RC- Schwingkreis mit einem Indikator, der anzeigt, wie stark die Abstrahlung unerwünschter Oberwellen ist."
+        subsection: 10
+        subsubsection: 1
+        history: []
+      - id: TJ104
+        question: Wozu wird ein Dipmeter beispielsweise verwendet? Ein Dipmeter wird zur
+        answers:
+          - ungefähren Bestimmung der Resonanzfrequenz eines Schwingkreises.
+          - ungefähren Bestimmung der Leistung eines Senders.
+          - genauen Bestimmung der Dämpfung eines Schwingkreises.
+          - genauen Bestimmung der Güte eines Schwingkreises.
+        subsection: 10
+        subsubsection: 1
+        history: []
+      - id: TJ105
+        question: "Welches dieser Messgeräte ist für die Ermittlung der Resonanzfrequenz eines Traps, das für einen Dipol genutzt werden soll, am besten geeignet?"
+        answers:
+          - Ein Dipmeter
+          - Eine VSWR-Messbrücke
+          - Ein Frequenzmessgerät
+          - Ein Resonanzwellenmesser
+        subsection: 10
+        subsubsection: 1
+        history: []
+      - id: TJ106
+        question: Wie ermittelt man die Resonanzfrequenz eines Schwingkreises? Man ermittelt sie
+        answers:
+          - durch Messung von L und C und Berechnung oder z.B. mit einem Dipmeter.
+          - mit einem Frequenzmesser oder einem Oszilloskop.
+          - mit einem Digital -Multimeter in der Stellung Frequenzmessung.
+          - mit Hilfe der S-Meter Anzeige bei Anschluss des Schwingkreises an den Empfängereingang.
+        subsection: 10
+        subsubsection: 1
+        history: []
+      - id: TJ107
+        question: "Für welche Messungen verwendet man ein Oszilloskop? Ein Oszilloskop verwendet man, um"
+        answers:
+          - "Signalverläufe sichtbar zu machen, um beispielsweise Verzerrungen zu erkennen."
+          - Frequenzen genau zu messen.
+          - den Temperaturverlauf bei Messungen sichtbar zu machen.
+          - die Anpassung bei Antennen zu überprüfen.
+        subsection: 10
+        subsubsection: 1
+        history: []
+      - id: TJ108
+        question: Welches dieser Geräte wird für die Anzeige von NF-Verzerrungen verwendet?
+        answers:
+          - Ein Oszilloskop
+          - Ein Transistorvoltmeter
+          - Ein Vielfachmessgerät
+          - Ein Frequenzzähler
+        subsection: 10
+        subsubsection: 1
+        history: []
+      - id: TJ109
+        question: Eine künstliche Antenne für den VHF- Bereich könnte beispielsweise aus
+        answers:
+          - ungewendelten Kohleschichtwiderständen zusammengebaut sein.
+          - hochbelastbaren Drahtwiderständen zusammengebaut sein.
+          - Glühbirnen zusammengebaut sein.
+          - temperaturfesten Blindwiderständen bestehen.
+        subsection: 10
+        subsubsection: 1
+        history: []
+      - id: TJ110
+        question: "Welche der folgenden Bauteile könnten für eine genaue künstliche Antenne, die bei 28 MHz eingesetzt werden soll, verwendet werden?"
+        answers:
+          - 10 Kohleschichtwiderstände von 500 Ω
+          - ein 50-Ω-Drahtwiderstand
+          - 2 parallel geschaltete Drahtwiderstände von 100 Ω
+          - ein Spulenanpassfilter im Ölbad
+        subsection: 10
+        subsubsection: 1
+        history: []
+      - id: TJ201
+        question: "Welche Schaltung könnte dazu verwendet werden, den Wert eines Widerstandes anhand des ohmschen Gesetzes zu ermitteln?"
+        answers:
+          - C
+          - D
+        subsection: 10
+        subsubsection: 2
+        history: []
+      - id: TJ202
+        question: "Wie werden elektrische Spannungsmesser an Messobjekte angeschlossen und welche Anforderungen muss das Messgerät erfüllen, damit der Messfehler möglichst gering bleibt?"
+        answers:
+          - Der Spannungsmesser ist parallel zum Messobjekt anzuschließen und sollte hochohmig sein.
+          - Der Spannungsmesser ist in den Stromkreis einzuschleifen und sollte niederohmig sein.
+          - Der Spannungsmesser ist parallel zum Messobjekt anzuschließen und sollte niederohmig sein.
+          - Der Spannungsmesser ist in den Stromkreis einzuschleifen und sollte hochohmig sein.
+        subsection: 10
+        subsubsection: 2
+        history: []
+      - id: TJ203
+        question: "Die Zeitbasis eines Oszilloskops ist so eingestellt, dass ein Skalenteil 0,5 ms entspricht. Welche Frequenz hat die angelegte Spannung?"
+        answers:
+          - 250 Hz.
+          - 500 Hz.
+          - 667 Hz.
+          - 333 Hz.
+        subsection: 10
+        subsubsection: 2
+        history: []
+      - id: TJ204
+        question: Für welchen Zweck wird eine Stehwellenmessbrücke verwendet?
+        answers:
+          - Zur Überprüfung der Anpassung des Senders an die Antenne.
+          - Zur Frequenzkontrolle.
+          - Zur Modulationskontrolle.
+          - Als Abschluss des Senders.
+        subsection: 10
+        subsubsection: 2
+        history: []
+      - id: TJ205
+        question: "Welche Spannung wird bei dem folgenden Messinstrument angezeigt, wenn dessen Messbereich auf 10 V eingestellt ist?"
+        answers:
+          - "2,93 V"
+          - "29,3 V"
+          - "8,8 V"
+          - 88 V
+        subsection: 10
+        subsubsection: 2
+        history: []
+      - id: TJ206
+        question: "An welcher Stelle einer Antennenanlage muss ein VSWR-Meter eingeschleift werden, um Aussagen über die Antenne selbst machen zu können? Das VSWR-Meter muss eingeschleift werden zwischen"
+        answers:
+          - Antennenkabel und Antenne.
+          - Senderausgang und Antennenkabel.
+          - Antennenkabel und Dummy Load.
+          - Senderausgang und Antennenanpassgerät.
+        subsection: 10
+        subsubsection: 2
+        history: []
+      - id: TJ207
+        question: Ein Stehwellenmessgerät wird in ein ideal angepasstes Sender-/Antennensystem eingeschleift. Das Messgerät sollte
+        answers:
+          - ein Stehwellenverhältnis von 1 anzeigen.
+          - "einen Rücklauf von 100\\% anzeigen."
+          - ein Stehwellenverhältnis von 0 anzeigen.
+          - ein Stehwellenverhältnis von unendlich anzeigen.
+        subsection: 10
+        subsubsection: 2
+        history: []
+      - id: TJ208
+        question: Welches dieser Messgeräte ist für genaue Frequenzmessungen am besten geeignet?
+        answers:
+          - Ein Frequenzzähler
+          - Ein Resonanzwellenmesser
+          - Ein Oszilloskop
+          - Ein Universalmessgerät
+        subsection: 10
+        subsubsection: 2
+        history: []
+      - id: TJ209
+        question: Wie misst man das Stehwellenverhältnis? Man misst es
+        answers:
+          - mit einer VSWR-Messbrücke.
+          - mit einem Absorptionswellenmesser oder einem Dipmeter.
+          - durch Strommessung am Anfang und am Ende der Speiseleitung.
+          - durch Spannungsmessung am Anfang und am Ende der Speiseleitung.
+        subsection: 10
+        subsubsection: 2
+        history: []
+      - id: TJ210
+        question: Ein Stehwellenmessgerät wird eingesetzt bei Sendern zur Messung
+        answers:
+          - der Antennenanpassung.
+          - der Oberwellenausgangsleistung.
+          - der Bandbreite.
+          - des Wirkungsgrades.
+        subsection: 10
+        subsubsection: 2
+        history: []
+      - id: TJ211
+        question: "An welchem Punkt sollte das Stehwellenmessgerät eingeschleift werden, um zu prüfen, ob der Sender gut an die Antennenanlage angepasst ist?"
+        answers:
+          - Punkt 1
+          - Punkt 2
+          - Punkt 3
+          - Punkt 4
+        subsection: 10
+        subsubsection: 2
+        history: []
+      - id: TK101
+        question: Wie äußert sich Zustopfen bzw. Blockierung eines Empfängers?
+        answers:
+          - Durch den Rückgang der Empfindlichkeit und ggf. das Auftreten von Brodelgeräuschen.
+          - Durch Empfindlichkeitssteigerung.
+          - Durch das Auftreten von Pfeifstellen im gesamten Abstimmungsbereich.
+          - Durch eine zeitweilige Blockierung der Frequenzeinstellung.
+        subsection: 11
+        subsubsection: 1
+        history: []
+      - id: TK102
+        question: Welche Effekte werden durch Intermodulation hervorgerufen?
+        answers:
+          - "Es treten Phantomsignale auf, die bei Einschalten eines Abschwächers verschwinden."
+          - Das Nutzsignal wird mit einem anderen Signal moduliert und dadurch unverständlich.
+          - Es treten Pfeifstellen gleichen Abstands im gesamten Empfangsbereich auf.
+          - "Dem Empfangssignal ist ein pulsierendes Rauschen überlagert, das die Verständlichkeit beeinträchtigt."
+        subsection: 11
+        subsubsection: 1
+        history: []
+      - id: TK103
+        question: "Welche Reaktion ist angebracht, wenn Störungen im TV-Rundfunk beim Nachbarn nicht mit den zur Verfügung stehenden Mitteln beseitigt werden können?"
+        answers:
+          - "Sie empfehlen dem Nachbarn höflich, sich an die Bundesnetzagentur zur Prüfung der Störungsursache zu wenden."
+          - "Der Nachbar sollte höflich darauf hingewiesen werden, dass es an seiner eigenen Einrichtung liegt."
+          - "Der Nachbar sollte darauf hingewiesen werden, dass Sie hierfür nicht zuständig sind."
+          - Sie benachrichtigen ihren Amateurfunkverband.
+        subsection: 11
+        subsubsection: 1
+        history: []
+      - id: TK104
+        question: Bei der Überprüfung des Ausgangssignals eines  Senders  sollte  die  Dämpfung  der Oberwellen mindestens
+        answers:
+          - den geltenden Richtwerten entsprechen.
+          - 30 dB betragen.
+          - 100 dB betragen.
+          - 20 dB betragen.
+        subsection: 11
+        subsubsection: 1
+        history: []
+      - id: TK105
+        question: "In welchem Fall spricht man von Einströmungen bei EMV? Einströmungen liegen dann vor, wenn die HF"
+        answers:
+          - über Leitungen oder Kabel in das zu überprüfende Gerät gelangt.
+          - über das ungenügend abgeschirmte Gehäuse in die Elektronik gelangt.
+          - über nicht genügend geschirmte Kabel zum Anpassgerät geführt wird.
+          - wegen eines schlechten Stehwellenverhältnisses wieder zum Sender zurück strömt.
+        subsection: 11
+        subsubsection: 1
+        history: []
+      - id: TK106
+        question: "In welchem Fall spricht man von Einstrahlungen bei EMV? Einstrahlungen liegen dann vor, wenn die HF"
+        answers:
+          - über das ungenügend abgeschirmte Gehäuse in die Elektronik gelangt.
+          - über Leitungen oder Kabel in das gestörte Gerät gelangt.
+          - über nicht genügend geschirmte Kabel zum gestörten Empfänger gelangt.
+          - wegen eines schlechten Stehwellenverhältnisses wieder zum Sender zurück strahlt.
+        subsection: 11
+        subsubsection: 1
+        history: []
+      - id: TK107
+        question: "Wie nennt man die elektromagnetische Störung, die durch die Aussendung des reinen Nutzsignals beim Empfang anderer Frequenzen in benachbarten Empfängern auftreten kann?"
+        answers:
+          - Blockierung oder störende Beeinflussung
+          - Störung durch unerwünschte Aussendungen
+          - Störung durch Nebenaussendungen
+          - Hinzunehmende Störung
+        subsection: 11
+        subsubsection: 1
+        history: []
+      - id: TK201
+        question: Wie kommen Geräusche aus den Lautsprechern einer abgeschalteten Stereoanlage möglicherweise zustande?
+        answers:
+          - Durch Gleichrichtung starker HF-Signale in der NF-Endstufe der Stereoanlage.
+          - Durch Gleichrichtung der ins Stromnetz eingestrahlten HF-Signale an den Dioden des Netzteils.
+          - Durch Gleichrichtung abgestrahlter HF-Signale an PN-Übergängen in der NF-Vorstufe.
+          - Durch eine Übersteuerung des Tuners mit dem über die Antennenzuleitung aufgenommenen HF-Signal.
+        subsection: 11
+        subsubsection: 2
+        history: []
+      - id: TK202
+        question: Ein Fernsehgerät wird durch das Nutzsignal einer KW-Amateurfunkstelle gestört. Wie dringt das Signal mit größter Wahrscheinlichkeit in das Fernsehgerät ein?
+        answers:
+          - Über jeden beliebigen Leitungsanschluss und/oder über die ZF-Stufen.
+          - Über die Antennenleitung und über alle größeren ungeschirmten Spulen im Fernsehgerät (z.B. Entmagnetisierungsschleife).
+          - Über die Stromversorgung des Senders und die Stromversorgung des Fernsehgeräts.
+          - Über die Fernsehantenne bzw. das Antennenkabel sowie über die Bildröhre.
+        subsection: 11
+        subsubsection: 2
+        history: []
+      - id: TK203
+        question: Die Übersteuerung eines Leistungsverstärkers führt zu
+        answers:
+          - einem hohen Nebenwellenanteil.
+          - lediglich geringen Verzerrungen beim Empfang.
+          - einer besseren Verständlichkeit am Empfangsort.
+          - einer Verringerung der Ausgangsleistung.
+        subsection: 11
+        subsubsection: 2
+        history: []
+      - id: TK204
+        question: "Die gesamte Bandbreite einer FM- Übertragung beträgt 15 kHz. Wie nah an der Bandgrenze kann ein Träger übertragen werden, ohne dass Außerbandaussendungen erzeugt werden?"
+        answers:
+          - "7,5 kHz."
+          - 0 kHz.
+          - 15 kHz.
+          - "2,7 kHz."
+        subsection: 11
+        subsubsection: 2
+        history: []
+      - id: TK301
+        question: Durch welche Maßnahme kann die übermä- ßige Bandbreite einer 2-m-FM-Übertragung verringert werden? Sie kann verringert werden durch die Änderung der
+        answers:
+          - Hubeinstellung
+          - HF-Begrenzereigenschaften
+          - Vorspannungsreglereinstellung
+          - Trägerfrequenz
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK302
+        question: "Ein Sender sollte so betrieben werden, dass"
+        answers:
+          - er keine unerwünschten Aussendungen hervorruft.
+          - die Selbsterregung maximiert wird.
+          - parasitäre Schwingungen vorhanden sind.
+          - die Oberwellenabschirmung minimiert wird.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK303
+        question: Durch eine Mantelwellendrossel in einem Fernseh-Antennenzuführungskabel
+        answers:
+          - werden Gleichtakt-HF-Störsignale unterdrückt.
+          - werden niederfrequente Störsignale unterdrückt.
+          - werden alle Wechselstromsignale unterdrückt.
+          - wird Netzbrummen unterdrückt.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK304
+        question: "Ein Funkamateur wohnt in einem Reihenhaus. An welcher Stelle sollte die KW-Drahtantenne angebracht werden, um störende Beeinflussungen auf ein Mindestmaß zu begrenzen?"
+        answers:
+          - Rechtwinklig zur Häuserzeile mit abgewandter Strahlungsrichtung
+          - Am gemeinsamen Schornstein neben der Fernsehantenne
+          - Entlang der Häuserzeile auf der Höhe der Dachrinne
+          - Möglichst innerhalb des Dachbereichs
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK305
+        question: "Beim Betrieb Ihres 2-m-Senders wird bei einem Ihrer Nachbarn ein Fernsehempfänger gestört, der mit einer Zimmerantenne betrieben wird. Zur Behebung des Problems schlagen Sie dem Nachbarn vor,"
+        answers:
+          - eine außen angebrachte Fernsehantenne zu installieren.
+          - ein doppelt geschirmtes Koaxialkabel für die Antennenleitung zu verwenden.
+          - einen Vorverstärker in die Antennenleitung einzuschleifen.
+          - den Fernsehrundfunkempfänger zu wechseln.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK306
+        question: "Die Bemühungen, die durch eine in der Nähe befindliche Amateurfunkstelle hervorgerufenen Fernsehstörungen zu verringern, sind fehlgeschlagen. Als nächster Schritt ist"
+        answers:
+          - die zuständige Außenstelle der Bundesnetzagentur um Prüfung der Gegebenheiten zu bitten.
+          - der Sender an die Bundesnetzagentur zu senden.
+          - die Rückseite des Fernsehgeräts zu entfernen und das Gehäuse zu erden.
+          - ein Fernsehtechniker um Prüfung des Fernsehgeräts zu bitten.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK307
+        question: "Um die Störwahrscheinlichkeit zu verringern, sollte die benutzte Sendeleistung"
+        answers:
+          - auf das für eine zufrieden stellende Kommunikation erforderliche Minimum eingestellt werden.
+          - nur auf den zulässigen Pegel eingestellt werden.
+          - auf die für eine zufriedenstellende Kommunikation erforderlichen 100 W eingestellt werden.
+          - die Hälfte des maximal zulässigen Pegels betragen.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK308
+        question: Welches Filter sollte im Störungsfall für die Dämpfung von Kurzwellensignalen in ein Fernsehantennenkabel eingeschleift werden?
+        answers:
+          - Ein Hochpassfilter
+          - Ein Tiefpassfilter
+          - Eine Bandsperre für die Fernsehbereiche
+          - Ein regelbares Dämpfungsglied
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK309
+        question: Was sollte zur Herabsetzung starker Signale eines 28-MHz-Senders in das Fernseh- Antennenzuführungskabel eingeschleift werden?
+        answers:
+          - Ein Hochpassfilter
+          - Ein Tiefpassfilter
+          - Ein UHF-Abschwächer
+          - Eine UHF-Bandsperre
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK310
+        question: "Welche Filter sollten im Störungsfall vor die einzelnen Leitungsanschlüsse eines UKWoder Fernsehrundfunkgeräts oder angeschlossener Geräte eingeschleift werden, um Kurzwellensignale zu dämpfen?"
+        answers:
+          - Ein Hochpassfilter vor dem Antennennanschluss und zusätzlich je eine Ferritdrossel vor alle Leitungsanschlüsse der gestörten Geräte.
+          - Je ein Tiefpassfilter unmittelbar vor dem Antennennanschluss und in das Netzkabel der gestörten Geräte.
+          - Eine Bandsperre für die Fernsehbereiche unmittelbar vor dem Antennennanschluss und ein Tiefpassfilter in das Netzkabel der gestörten Geräte.
+          - Ein Bandpassfilter bei 30 MHz unmittelbar vor dem Antennennanschluss und ein Tiefpassfilter in das Netzkabel der gestörten Geräte.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK311
+        question: "Die Signale eines 144-MHz-Senders werden in das Koax-Antennenkabel eines FM-Rundfunkempfängers induziert und verursachen Störungen. Eine Möglichkeit zur Verringerung der Störungen besteht darin,"
+        answers:
+          - eine Mantelwellendrossel einzubauen.
+          - die Erdverbindung des Senders abzuklemmen.
+          - das Abschirmgeflecht am Antennenstecker des Empfängers abzuklemmen.
+          - den 144-MHz-Sender mit einem Tiefpassfilter auszustatten.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK312
+        question: "Um die Störwahrscheinlichkeit im eigenen Haus zu verringern, empfiehlt es sich vorzugsweise"
+        answers:
+          - eine getrennte HF-Erdleitung zu verwenden.
+          - Antennen auf dem Dachboden zu errichten.
+          - die Amateurfunkgeräte mit einem Wasserrohr zu verbinden.
+          - die Amateurfunkgeräte mittels des Schutzleiters zu erden.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK313
+        question: Bei der Hi-Fi-Anlage des Nachbarn wird Einströmung in die NF-Endstufe festgestellt. Eine mögliche Abhilfe wäre
+        answers:
+          - geschirmte Lautsprecherleitungen zu verwenden.
+          - ein NF-Filter in das Koaxialkabel einzuschleifen.
+          - einen Serienkondensator in die Lautsprecherleitung einzubauen.
+          - ein geschirmtes Netzkabel für den Receiver zu verwenden.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK314
+        question: "Eine KW-Amateurfunkstelle verursacht im Sendebetrieb in einem in der Nähe betriebenen Fernsehempfänger Störungen. Welches Filter schleifen Sie in das Fernsehantennenkabel ein, um die Störwahrscheinlichkeit zu verringern?"
+        answers:
+          - C
+          - D
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK315
+        question: "Bei einem Wohnort in einem Ballungsgebiet empfiehlt es sich, während der abendlichen Fernsehstunden"
+        answers:
+          - mit keiner höheren Leistung zu senden als für eine sichere Kommunikation erforderlich ist.
+          - nur mit effektiver Leistung zu senden.
+          - nur mit einer Hochgewinn-Richtantenne zu senden.
+          - die Antenne unterhalb der Dachhöhe herabzulassen.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK316
+        question: "Falls sich eine Antenne in der Nähe und parallel zu einer 230-V-Wechselstrom-Freileitung befindet,"
+        answers:
+          - können Hochfrequenzströme eingekoppelt werden.
+          - können harmonische Schwingungen erzeugt werden.
+          - könnte erhebliche Überspannung im Netz erzeugt werden.
+          - kann 50-Hz-Modulation aller Signale auftreten.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK317
+        question: Eine 435-MHz-Sendeantenne mit hohem Gewinn ist unmittelbar auf eine UHF-Fernseh- Empfangsantenne gerichtet. Dies führt gegebenenfalls zu
+        answers:
+          - einer Übersteuerung eines TV-Empfängers.
+          - Problemen mit dem 435-MHz-Empfänger.
+          - Eigenschwingungen des 435-MHz-Senders.
+          - dem Durchschlag des TV-Antennenkoaxialkabels.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK318
+        question: Im Mittelwellenbereich ergeben sich häufig Spiegelfrequenzstörungen durch
+        answers:
+          - Sender im 160-m-Band.
+          - UHF-Sender.
+          - VHF-Sender.
+          - Sender im 10-m-Band.
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TK319
+        question: Ein korrodierter Anschluss an der Fernseh- Empfangsantenne des Nachbarn
+        answers:
+          - "kann in Verbindung mit dem Signal naher Sender unerwünschte Mischprodukte erzeugen, die den Fernsehempfang stören."
+          - "kann in Verbindung mit dem Oszillatorsignal des Fernsehempfängers unerwünschte Mischprodukte erzeugen, die den Fernsehempfang stören."
+          - kann in Verbindung mit Einstreuungen aus dem Stromnetz durch Intermodulation Bild- und Tonstörungen hervorrufen.
+          - "kann in Verbindung mit dem Signal naher Sender parametrische Schwingungen erzeugen, die einen überhöhten Nutzsignalpegel hervorrufen."
+        subsection: 11
+        subsubsection: 3
+        history: []
+      - id: TL101
+        question: Um eine Amateurfunkstelle in Bezug auf EMV zu optimieren
+        answers:
+          - sollten alle Einrichtungen mit einer guten HF- Erdung versehen werden.
+          - sollte der Sender mit der Wasserleitung im Haus verbunden werden.
+          - sollten alle schlechten Erdverbindungen entfernt werden.
+          - sollten Wasserleitungsanschlüsse aus Poly- äthylen zur Isolation vorgesehen werden.
+        subsection: 12
+        subsubsection: 1
+        history: []
+      - id: TL201
+        question: "Nach welcher der Antworten kann die ERP (Effective Radiated Power) berechnet werden, und worauf ist die ERP bzw. der zu verwendende Antennengewinn bezogen?"
+        answers:
+          - PERP = (PSender – PVerluste) · GAntenne bezogen auf einen Halbwellendipol
+          - PERP = PSender · GAntenne – PVerluste bezogen auf einen isotropen Kugelstrahler
+          - PERP = (PSender + PVerluste) · GAntenne bezogen auf einen Halbwellendipol
+          - PERP = PSender + PVerluste + GAntenne bezogen auf einen isotropen Kugelstrahler
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL202
+        question: "Nach welcher der Antworten kann die EIRP berechnet werden, und worauf ist die EIRP bzw. der zu verwendende Antennengewinn bezogen?"
+        answers:
+          - PEIRP = (PSender – PVerluste) · GAntenne bezogen auf einen isotropen Kugelstrahler
+          - PEIRP = (PSender · GAntenne) – PVerluste bezogen auf einen Halbwellendipol
+          - PEIRP = (PSender + PVerluste) · GAntenne bezogen auf einen Halbwellendipol
+          - PEIRP = PSender + PVerluste + GAntenne bezogen auf einen isotropen Kugelstrahler
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL203
+        question: "Was versteht man unter dem Begriff \"EIRP\"?"
+        answers:
+          - "Es ist das Produkt aus der zugeführten Leistung und dem Gewinnfaktor der Antenne und stellt die Leistung dar, die man einem isotropen Strahler zuführen müsste, damit dieser im Fernfeld dieselbe elektrische Feldstärke erzeugte, wie die Antenne."
+          - Es ist die Eingangsleistung des verwendeten Senders wie sie in der EMVU-Selbsterklärung anzugeben ist.
+          - "Es handelt sich um die Leistung, die man im Maximum der Strahlungskeule einer Dipolantenne vorfindet."
+          - "Es ist das Produkt aus der zugeführten Leistung und dem Antennengewinnfaktor und stellt die durchschnittliche isotrope Spitzenleistung am Senderausgang der Amateurfunkstelle dar, wie sie in der EMVU-Selbsterklärung anzugeben ist."
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL204
+        question: "Ein Sender mit 0,6 Watt Ausgangsleistung ist über eine Antennenleitung, die 1 dB Kabelverluste hat, an eine Richtantenne mit 11 dB Gewinn (auf Dipol bezogen) angeschlossen. Welche EIRP wird von der Antenne maximal abgestrahlt?"
+        answers:
+          - "9,8 Watt"
+          - "6,0 Watt"
+          - "7,8 Watt"
+          - "12,7 Watt"
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL205
+        question: "Ein Sender mit 5 Watt Ausgangsleistung ist über eine Antennenleitung, die 2 dB Kabelverluste hat, an eine Antenne mit 5 dB Gewinn (auf Dipol bezogen) angeschlossen. Welche EIRP wird von der Antenne maximal abgestrahlt?"
+        answers:
+          - "16,4 Watt"
+          - "6,1 Watt"
+          - "10,0 Watt"
+          - "32,8 Watt"
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL206
+        question: "Ein Sender mit 75 Watt Ausgangsleistung ist über eine Antennenleitung, die 2,15 dB (Faktor 1,64) Kabelverluste hat, an eine Dipol- Antenne angeschlossen. Welche EIRP wird von der Antenne maximal abgestrahlt?"
+        answers:
+          - 75 Watt
+          - 123 W
+          - "45,7 W"
+          - "60,6 W"
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL207
+        question: Muss ein Funkamateur als Betreiber einer ortsfesten Amateurfunkstelle bei der Sendeart F3E und einer Senderleistung von 6 Watt an einer 15-Element-Yagiantenne mit 13 dB Gewinn für 2 m die Einhaltung der Personenschutzgrenzwerte nachweisen?
+        answers:
+          - "Ja, er ist in diesem Fall verpflichtet die Einhaltung der Personenschutzgrenzwerte nachzuweisen."
+          - "Nein, der Schutz von Personen in elektromagnetischen Feldern ist durch den Funkamateur erst bei einer Strahlungsleistung von mehr als 10 W EIRP sicherzustellen."
+          - "Nein, aber er muss die Herzschrittmachergrenzwerte einhalten."
+          - "Nein, bei der Sendeart F3E und Sendezeiten unter 6 Minuten in der Stunde kann der Schutz von Personen in elektromagnetischen Feldern durch den Funkamateur vernachlässigt werden."
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL208
+        question: "Sie besitzen einen λ/4-Vertikalstrahler. Da Sie für diese Antenne keine Selbsterklärung abgeben möchten und somit nur eine Strahlungsleistung von kleiner 10 W EIRP verwenden dürfen, müssen Sie die Sendeleistung soweit reduzieren, dass sie unter diesem Wert bleiben. Wie groß darf die Sendeleistung dabei sein?"
+        answers:
+          - kleiner 3 Watt (Zuleitungsverluste vernachlässigt)
+          - kleiner 6 Watt (Zuleitungsverluste vernachlässigt)
+          - kleiner 10 Watt (Zuleitungsverluste vernachlässigt)
+          - "kleiner 16,4 Watt (Zuleitungsverluste vernachlässigt)"
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL209
+        question: "Sie möchten den Personenschutz-Sicherheitsabstand für die Antenne Ihrer Amateurfunkstelle für das 10-m-Band und die Betriebsart RTTY berechnen. Der Grenzwert im Fall des Personenschutzes beträgt 28 V/m. Sie betreiben einen Dipol, der von einem Sender mit einer Leistung von 100 W über ein Koaxialkabel gespeist wird. Die Kabeldämpfung sei vernachlässigbar. Wie groß muss der Sicherheitsabstand sein?"
+        answers:
+          - "2,50 m"
+          - "1,96 m"
+          - "5,01 m"
+          - "13,7 m"
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL210
+        question: "Sie möchten den Personenschutz-Sicherheitsabstand für die Antenne Ihrer Amateurfunkstelle für das 10-m-Band und die Betriebsart FM berechnen. Der Grenzwert im Fall des Personenschutzes beträgt 28 V/m. Sie betreiben eine Yagi-Antenne mit einem Gewinn von 7,5 dBd. Die Antenne wird von einem Sender mit einer Leistung von 100 W über ein langes Koaxialkabel gespeist. Die Kabeldämpfung beträgt 1,5 dB. Wie groß muss der Sicherheitsabstand sein?"
+        answers:
+          - "5,01 m"
+          - "3,91 m"
+          - "2,50 m"
+          - "20,70 m"
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL211
+        question: "Sie möchten den Personenschutz-Sicherheitsabstand für die Antenne Ihrer Amateurfunkstelle in Hauptstrahlrichtung für das 2m-Band und die Betriebsart FM berechnen. Der Grenzwert im Fall des Personenschutzes beträgt 28 V/m. Sie betreiben eine Yagi- Antenne mit einem Gewinn von 11,5 dBd. Die Antenne wird von einem Sender mit einer Leistung von 75 W über ein Koaxialkabel gespeist. Die Kabeldämpfung beträgt 1,5 dB. Wie groß muss der Sicherheitsabstand sein?"
+        answers:
+          - "6,86 m"
+          - "5,35 m"
+          - "2,17 m"
+          - "36,3 m"
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL212
+        question: "Sie errechnen einen Sicherheitsabstand für Ihre Antenne. Von welchem Punkt aus muss dieser Sicherheitsabstand eingehalten werden, wenn Sie bei der Berechnung die Fernfeldnäherung verwendet haben?"
+        answers:
+          - Von jedem Punkt der Antenne
+          - Vom Einspeisepunkt der Antenne
+          - "Von der Mitte der Antenne, d.h. dort, wo sie am Mast befestigt ist"
+          - Vom untersten Punkt der Antenne
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL213
+        question: "Mit welcher Ausgangsleistung rechnen Sie im Fall des Personenschutzes, um den Sicherheitsabstand zu ermitteln?"
+        answers:
+          - Mit dem Mittelwert der Ausgangsleistung gemittelt über ein Intervall von 6 Minuten.
+          - "Mit der größten Ausgangsleistung des Transceivers zuzüglich Antennengewinn, korrigiert um den Gewichtungsfaktor für die verwendete Betriebsart."
+          - Mit der durchschnittlich benutzten Ausgangsleistung gemittelt über den Betriebszeitraum und korrigiert um den Gewichtungsfaktor für die verwendete Betriebsart.
+          - Mit der maximalen Ausgangsleistung des verwendeten Senders zuzüglich 3 dB Messfehler.
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL214
+        question: Herzschrittmacher können auch durch die Aussendung einer Amateurfunkstelle beeinflusst werden. Gibt es einen zeitlichen Grenzwert für die Einwirkdauer?
+        answers:
+          - "Nein, die Feldstärke beeinflusst unmittelbar, also zeitunabhängig."
+          - "Ja, Grenzwerte gelten im Zeitraum einer Kurzzeitexposition bis zu 6 Minuten."
+          - "Ja, die Grenzwerte gelten im Zeitraum einer Exposition von 6 Minuten bis zu 8 Stunden."
+          - "Ja, in Abhängigkeit von der körperlichen Verfassung des Herzschrittmacherträgers."
+        subsection: 12
+        subsubsection: 2
+        history: []
+      - id: TL301
+        question: Unter welchen Bedingungen darf das Standrohr einer Amateurfunkantenne auf einem Gebäude mit einer vorhandenen Blitzschutzanlage verbunden werden?
+        answers:
+          - Wenn die vorhandene Blitzschutzanlage fachgerecht aufgebaut ist und das Standrohr mit ihr auf dem kürzesten Wege verbunden werden kann.
+          - Nach den geltenden Vorschriften muss das Standrohr der Amateurfunkantenne mit einer vorhandenen Gebäude-Blitzschutzanlage verbunden werden.
+          - Nach den geltenden Vorschriften muss immer eine eigene Blitzschutzanlage für eine Amateurfunkantenne aufgebaut werden.
+          - Die Bedingung ist ein ausreichend großer Querschnitt für die Verbindungsleitung zur Blitzschutzanlage.
+        subsection: 12
+        subsubsection: 3
+        history: []
+      - id: TL302
+        question: Welches Material und welcher Mindestquerschnitt ist bei einer Erdungsleitung zwischen einem Antennenstandrohr und einer Erdungsanlage nach DIN VDE 0855 Teil 300 für Funksender bis 1 kW zu verwenden?
+        answers:
+          - "Als geeigneter Erdungsleiter gilt ein Einzelmassivdraht mit einem Mindestquerschnitt von 16 mm2 Kupfer, isoliert oder blank, oder 25 mm2 Aluminium isoliert oder 50 mm2 Stahl."
+          - Ein- oder mehrdrähtiger - aber nicht feindrähtiger - isolierter oder blanker Kupferleiter mit mindestens 10 mm2 Querschnitt oder ein Aluminiumleiter mit mindestens 16 mm2 Querschnitt.
+          - Ein- oder mehrdrähtiger - aber nicht feindrähtiger - isolierter oder blanker Kupferleiter mit mindestens 25 mm2 Querschnitt oder ein Aluminiumleiter mit mindestens 50 mm2 Querschnitt.
+          - "Als geeigneter Erdungsleiter gilt ein Einzeldraht mit einem Mindestquerschnitt von 4 mm2 Kupfer, isoliert oder blank, oder 10 mm2 Aluminium isoliert."
+        subsection: 12
+        subsubsection: 3
+        history: []
+      - id: TL303
+        question: Unter welchen Bedingungen darf ein Fundamenterder als Blitzschutzerder verwendet werden?
+        answers:
+          - "Jeder ordnungsgemäß verlegte Fundamenterder kann verwendet werden, sofern alle Blitzschutzleitungen bis zur Potentialausgleichsschiene getrennt geführt werden."
+          - "Nach den geltenden Vorschriften muss immer eine eigene Blitzschutzanlage, also auch ein eigener Fundamenterder, für eine Amateurfunkantenne aufgebaut werden."
+          - Die in den Sicherheitsvorschriften festgelegte zulässige Leitungslänge des Erdungsleiters darf auf keinen Fall überschritten werden.
+          - Die Ausdehnung des Fundamenterders muss größer oder wenigstens gleich der Ausdehnung der Antennenanlage sein.
+        subsection: 12
+        subsubsection: 3
+        history: []
+      - id: TL304
+        question: Welche Sicherheitsmaßnahmen müssen zum Schutz gegen atmosphärische Überspannungen und zur Verhinderung von Spannungsunterschieden bei Koaxialkabel- Niederführungen ergriffen werden?
+        answers:
+          - Die Außenleiter (Abschirmung) aller Koaxialkabel-Niederführungen müssen über einen Potentialausgleichsleiter normgerecht mit Erde verbunden werden.
+          - Für alle Koaxialkabel-Niederführungen sind entsprechend den Sicherheitsvorschriften Überspannungsableiter vorzusehen.
+          - Neben der Erdung des Antennenmastes sind keine weiteren Maßnahmen erforderlich.
+          - Die Koaxialkabel müssen das entsprechende Schirmungsmaß aufweisen und entsprechend isoliert sein.
+        subsection: 12
+        subsubsection: 3
+        history: []
+      - id: TL305
+        question: "Welche der Antworten A bis D enthält die heutzutage normgerechten Adern- Kennfarben von 3-adrigen, isolierten Energieleitungen und -kabeln in der Abfolge: Schutzleiter, Außenleiter, Neutralleiter?"
+        answers:
+          - "grüngelb, braun, blau"
+          - "braun, grüngelb, blau"
+          - "grau, schwarz, rot"
+          - "grüngelb, blau, braun oder schwarz"
+        subsection: 12
+        subsubsection: 3
         history:
-          - time: 100
+          - time: 1558744426
             choice: 0
-          - time: 200
-            choice: 0
-          - time: 300
-            choice: 0
-    progress: progress.yaml
-  - name: Technische Kenntnisse der Klasse A
-    short: Technik A
-    questions: []
-    subsections: []
-  - name: Betriebliche Kenntnisse
-    short: Betrieb
-    questions: []
-    subsections: []
-  - name: Kenntnisse von Vorschriften
-    short: Vorschriften
-    questions: []
-    subsections: []
+      - id: TL306
+        question: "Damit die Zulassung eines Kraftfahrzeugs nicht ungültig wird, sind vor dem Einbau einer mobilen Sende-/Empfangseinrichtung grundsätzlich"
+        answers:
+          - die Anweisungen des Kfz-Herstellers zu beachten.
+          - die Bedingungen der Bundesnetzagentur für den Einbau mobiler Sendeanlagen einzuhalten.
+          - die Ratschläge des Kfz-Händlers einzuhalten.
+          - die Anweisungen des Amateurfunkgeräte- Herstellers zu beachten.
+        subsection: 12
+        subsubsection: 3
+        history: []
+      - id: TL307
+        question: Wo sollte aus funktechnischer Sicht eine mobile VHF-Antenne an einem PKW vorzugsweise installiert werden?
+        answers:
+          - Auf der Mitte des Daches.
+          - Auf der hinteren Stoßstange.
+          - Auf dem vorderen Kotflügel.
+          - Auf dem Armaturenbrett.
+        subsection: 12
+        subsubsection: 3
+        history: []
+      - id: TL308
+        question: "Um ein Zusammenwirken mit der Elektronik des Kraftfahrzeugs zu verhindern, sollte das Antennenkabel"
+        answers:
+          - möglichst weit von der Fahrzeugverkabelung entfernt verlegt werden.
+          - im Kabelbaum des Kraftfahrzeugs geführt werden.
+          - über das Fahrzeugdach verlegt sein.
+          - entlang der Innenseite des Motorraumes verlegt werden.
+        subsection: 12
+        subsubsection: 3
+        history: []
+    subsections:
+      - name: Allgemeine mathematische Grundkenntnisse und Größen
+        subsubsections:
+          - Allgemeine mathematische Grundkenntnisse
+          - Größen und Einheiten
+      - name: "Elektrizitäts-, Elektromagnetismus- und Funktheorie"
+        subsubsections:
+          - "Leiter, Halbleiter und Isolator"
+          - Strom- und Spannungsquellen
+          - Elektrisches Feld
+          - Magnetisches Feld
+          - Elektromagnetisches Feld
+          - Sinusförmige Signale
+          - Nichtsinusförmige Signale
+          - Modulierte Signale
+          - "Ohmsches Gesetz, Leistung und Energie"
+      - name: Elektrische und elektronische Bauteile
+        subsubsections:
+          - Widerstand
+          - Kondensator
+          - Spule
+          - Übertrager und Transformatoren
+          - Diode
+          - Transistor
+      - name: Elektronische Schaltungen und deren Merkmale
+        subsubsections:
+          - "Serien- und Parallelschaltung von Widerständen, Spulen und Kondensatoren"
+          - Schwingkreise und Filter
+          - Stromversorgung
+          - Verstärker
+          - Modulator / Demodulator
+          - Oszillator
+      - name: Analoge und digitale Modulationsverfahren
+        subsubsections:
+          - "Amplitudenmodulation AM, SSB"
+          - Frequenzmodulation
+          - "Text-, Daten- und Bildübertragung"
+      - name: Funk-Empfänger
+        subsubsections:
+          - Einfach- und Doppelsuperhet-Empfänger
+          - Blockschaltbilder
+          - Betrieb und Funktionsweise einzelner Stufen
+          - Empfängermerkmale
+      - name: Funksender
+        subsubsections:
+          - Blockschaltbilder
+          - Betrieb und Funktionsweise einzelner Stufen
+          - Betrieb und Funktionsweise von HF-Leistungsverstärkern
+          - Betrieb und Funktionsweise von HF-Transceivern
+          - Unerwünschte Aussendungen
+      - name: Antennen und Übertragungsleitungen
+        subsubsections:
+          - Antennen
+          - Antennenmerkmale
+          - Übertragungsleitungen
+          - "Anpassung, Transformation und Symmetrierung"
+      - name: Wellenausbreitung und Ionosphäre
+        subsubsections:
+          - Ionosphäre
+          - Kurzwellenausbreitung
+          - Wellenausbreitung oberhalb 30 MHz
+      - name: Messungen und Messinstrumente
+        subsubsections:
+          - Messinstrumente
+          - Durchführung von Messungen
+      - name: "Störemissionen, Störfestigkeit, Schutzanforderungen, Ursachen, Abhilfe"
+        subsubsections:
+          - Störungen elektronischer Geräte
+          - Ursachen für Störungen
+          - Maßnahmen zur Störungsbeseitigung
+      - name: "Elektromagnetische Verträglichkeit, Anwendung, Personen- und Sachschutz"
+        subsubsections:
+          - Störfestigkeit
+          - Schutz von Personen
+          - Sicherheit
