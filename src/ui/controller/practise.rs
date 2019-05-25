@@ -66,8 +66,7 @@ impl PractiseController {
                         .map(|offset| (('A' as u8) + offset) as char)
                         .nth(index)
                         .unwrap_or('?');
-                    self.view
-                        .set_answer(index, &format!("{}", alph), answer);
+                    self.view.set_answer(index, &format!("{}", alph), answer);
                 }
             }
         }
