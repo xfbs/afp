@@ -69,7 +69,7 @@ impl PractiseView {
         self.subsection.set_xalign(0.0);
         self.subsection.set_line_wrap(true);
         self.id.set_xalign(0.5);
-        self.id.set_yalign(1.0);
+        self.id.set_yalign(0.0);
         self.id.get_style_context().add_class("question-id");
         self.question.set_xalign(0.0);
         self.question.set_line_wrap(true);
