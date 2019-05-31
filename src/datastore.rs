@@ -1,4 +1,11 @@
+//! # DataStore Module
+//!
+//! Data structures and methods for keeping track of questions and recording
+//! interactions.
+
 extern crate rand;
+
+mod file;
 
 use rand::seq::SliceRandom;
 use std::error::Error;
@@ -8,8 +15,6 @@ use std::io::{BufReader, BufWriter};
 use std::path::Path;
 use std::path::PathBuf;
 use std::time::{Duration, SystemTime};
-
-use crate::*;
 
 pub const DEFAULT_DATASTORE: &'static str =
     include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/data/datastore.yml"));
@@ -102,7 +107,7 @@ impl DataStore {
     pub fn load(path: &Path) -> Result<DataStore, Box<Error>> {
         let file = File::open(path)?;
         let reader = BufReader::new(file);
-        let ds: DataStoreFile = serde_yaml::from_reader(reader)?;
+        let ds: file::DataStoreFile = serde_yaml::from_reader(reader)?;
 
         Ok(DataStore {
             // FIXME: error handling.
@@ -114,7 +119,7 @@ impl DataStore {
     pub fn save_as(&self, path: &Path) -> Result<(), std::io::Error> {
         let file = OpenOptions::new().write(true).truncate(true).open(path)?;
         let writer = BufWriter::new(&file);
-        let data: DataStoreFile = self.into();
+        let data: file::DataStoreFile = self.into();
         serde_yaml::to_writer(writer, &data).unwrap();
         Ok(())
     }
