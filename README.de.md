@@ -2,7 +2,7 @@
 
 Übersetzung: [🇬🇧 Englisch](README.md)
 
-Ein kleines Tool zum Üben für die Amateurfunkprüfung. Geschrieben in [Rust](https://rust-lang.org), welches dank [gtk](https://www.gtk.org) und [gtk-rs](https://gtk-rs.org/) auf allen möglichen Platformen läuft. Es steht unter der [MIT Lizenz](LICENSE.md).
+Ein kleines Tool zum Üben für die Amateurfunkprüfung. Geschrieben in [Rust](https://rust-lang.org), welches dank [gtk](https://www.gtk.org) und [gtk-rs](https://gtk-rs.org/) auf allen möglichen Platformen läuft. Es steht unter der [MIT Lizenz](LICENSE.md). Dokumentation ist [hier](https://xfbs.github.com/afp/afp) verfügbar.
 
 ## Installieren
 

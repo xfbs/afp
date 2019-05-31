@@ -2,7 +2,7 @@
 
 Translation: [🇩🇪 Deutsch](README.de.md)
 
-A small tool to study for the (German) ham radio exam. It's written in Rust, uses GTK+3 and [gtk-rs](https://github.com/gtk-rs/gtk) to be cross-platform and look somewhat decent.
+A small tool to study for the (German) ham radio exam. It's written in Rust, uses GTK+3 and [gtk-rs](https://github.com/gtk-rs/gtk) to be cross-platform and look somewhat decent. Documentation is available [here](https://xfbs.github.io/afp/afp).
 
 ## Installation
 
