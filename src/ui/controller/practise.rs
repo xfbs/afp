@@ -57,7 +57,7 @@ impl PractiseController {
 
                 self.view.set_id(question.id());
                 self.view.set_question(question.question());
-                self.create_permutation(question.answers.len());
+                self.create_permutation(question.answers().len());
                 let permutation = self.permutation.borrow();
 
                 for (num, answer) in question.answers().iter().enumerate() {
