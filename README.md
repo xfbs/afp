@@ -1,23 +1,28 @@
-# Amateurfunkprüfer [![Build Status](https://travis-ci.org/xfbs/afp.svg?branch=master)](https://travis-ci.org/xfbs/afp)
+# Ham Radio Exam Trainer [![Build Status](https://travis-ci.org/xfbs/afp.svg?branch=master)](https://travis-ci.org/xfbs/afp)
 
-Ein kleines Tool zum Üben für die Amateurfunkprüfung. Geschrieben in [Rust](https://rust-lang.org), welches dank [gtk](https://www.gtk.org) und [gtk-rs](https://gtk-rs.org/) auf allen möglichen Platformen läuft. Es steht unter der [MIT Lizenz](LICENSE.md).
+Translation: [🇩🇪 Deutsch](README.de.md)
 
-## Installieren
+A small tool to study for the (German) ham radio exam. It's written in Rust, uses GTK+3 and [gtk-rs](https://github.com/gtk-rs/gtk) to be cross-platform and look somewhat decent.
 
-Es wird GTK+3 benötigt, das kann (unter macOS) einfach mit Homebrew installiert werden. Außerdem muss ein Pfad gesetzt werden, damit pkg-config libffi findet.
+## Installation
+
+Should work on all Platforms somehow, but only macOS and Linux are officially supported. You need to install GTK+3, which on macOS you can do with
 
     brew install gtk+3 pkg-config
     export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
 
-Das Tool kann mit `cargo` kompiliert und ausgeführt werden.
+You can build it with cargo:
 
     cargo build
+
+You can run it:
+
     cargo run
 
-Mitgelieferte Tests können ebenso ausgeführt werden.
+And it's advised to run tests to see if everything works as intended.
 
     cargo test
 
-## Lizenz
+## License
 
-Siehe [LICENSE.md](LICENSE.md).
+See [LICENSE.md](LICENSE.md).
